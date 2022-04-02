@@ -2,9 +2,11 @@ extends KinematicBody2D
 
 #variaveis do jogador
 export var velocidade = 75.0
-export var sprite_speed_scale = 1
+export var sprite_speed_scale = 1.0
 
 var motion = Vector2(0,0)
+var direcao = "baixo"
+var noAr = false
 
 func rodar():
 	
@@ -28,36 +30,54 @@ func rodar():
 	
 	#animacao
 	if parado():
-		setarSpriteSpeedScale(0.5)
+		setarSpriteSpeedScale(0.5 * sprite_speed_scale)
 	elif not parado():
 		#o frame rate vai aumentar se ele tiver se movendo
 		setarSpriteSpeedScale(velocidade/50 * sprite_speed_scale)
 		
 	if apertouBotao("esquerda") || apertouBotao("direita"):
 		if apertouBotao("baixo"):
+			direcao = "diagonalBaixo"
 			mudarAnimacao("andandoDiagonalBaixo")
 		elif apertouBotao("cima"):
+			direcao = "diagonalCima"
 			mudarAnimacao("andandoDiagonalCima")
 		else:
+			direcao = "horizontal"
 			mudarAnimacao("andandoHorizontal")
 			
-		if apertouBotao("esquerda"):
-			direcionarSprite("esquerda")
-		elif apertouBotao("direita"):
-			direcionarSprite("direita")
-	
 	if apertouBotao("cima"):
 		if apertouBotao("direita") || apertouBotao("esquerda"):
+			direcao = "diagonalCima"
 			mudarAnimacao("andandoDiagonalCima")
 		else:
+			direcao = "cima"
 			mudarAnimacao("andandoCima")
 			
 	elif apertouBotao("baixo"):
 		if apertouBotao("direita") || apertouBotao("esquerda"):
+			direcao = "diagonalBaixo"
 			mudarAnimacao("andandoDiagonalBaixo")
 		else:
+			direcao = "baixo"
 			mudarAnimacao("andandoBaixo")
 			
+	if apertouBotao("esquerda"):
+		direcionarSprite("esquerda")
+	elif apertouBotao("direita"):
+		direcionarSprite("direita")
+	
+	if parado():
+		if direcao == "baixo":
+			mudarAnimacao("paradoBaixo")
+		elif direcao == "cima":
+			mudarAnimacao("paradoCima")
+		elif direcao == "diagonalBaixo":
+			mudarAnimacao("paradoDiagonalBaixo")
+		elif direcao == "diagonalCima":
+			mudarAnimacao("paradoDiagonalCima")
+		elif direcao == "horizontal":
+			mudarAnimacao("paradoHorizontal")
 
 func apertouBotaoEsquerda():
 	return Input.is_action_pressed("esquerda") and not Input.is_action_pressed("direita")
