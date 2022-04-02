@@ -23,24 +23,35 @@ func rodar(gravidade):
 	else: 
 		setarValorEixoY(0)
 	
-#	if Input.is_action_just_pressed("pula"):
-#		motion.y = -forcaPulo
-	
 	#tem que chamar a cada frame para que haja de fato movimento
 	mover()
 	
 	#animacao
-	if apertouBotao("esquerda"):
-		direcionarSprite("esquerda")
-		mudarAnimacao("paradoHorizontal")
-	elif apertouBotao("direita"):
-		direcionarSprite("direita")
-		mudarAnimacao("paradoHorizontal")
+	if apertouBotao("esquerda") || apertouBotao("direita"):
+		if apertouBotao("baixo"):
+			mudarAnimacao("paradoDiagonalBaixo")
+		elif apertouBotao("cima"):
+			mudarAnimacao("paradoDiagonalCima")
+		else:
+			mudarAnimacao("paradoHorizontal")
+			
+		if apertouBotao("esquerda"):
+			direcionarSprite("esquerda")
+		elif apertouBotao("direita"):
+			direcionarSprite("direita")
 	
 	if apertouBotao("cima"):
-		mudarAnimacao("paradoCima")
+		if apertouBotao("direita") || apertouBotao("esquerda"):
+			mudarAnimacao("paradoDiagonalCima")
+		else:
+			mudarAnimacao("paradoCima")
+			
 	elif apertouBotao("baixo"):
-		mudarAnimacao("paradoBaixo")
+		if apertouBotao("direita") || apertouBotao("esquerda"):
+			mudarAnimacao("paradoDiagonalBaixo")
+		else:
+			mudarAnimacao("paradoBaixo")
+			
 
 func apertouBotaoEsquerda():
 	return Input.is_action_pressed("esquerda") and not Input.is_action_pressed("direita")
