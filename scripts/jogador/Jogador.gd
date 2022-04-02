@@ -30,15 +30,17 @@ func rodar(gravidade):
 	mover()
 	
 	#animacao
-	if parado():
-		mudarAnimacao("parado")
-	elif not parado():
-		mudarAnimacao("correndo")
-	
 	if apertouBotao("esquerda"):
 		direcionarSprite("esquerda")
+		mudarAnimacao("paradoHorizontal")
 	elif apertouBotao("direita"):
 		direcionarSprite("direita")
+		mudarAnimacao("paradoHorizontal")
+	
+	if apertouBotao("cima"):
+		mudarAnimacao("paradoCima")
+	elif apertouBotao("baixo"):
+		mudarAnimacao("paradoBaixo")
 
 func apertouBotaoEsquerda():
 	return Input.is_action_pressed("esquerda") and not Input.is_action_pressed("direita")
