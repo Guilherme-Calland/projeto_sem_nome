@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
 #variaveis do jogador
-export var velocidade = 50
-export var forcaPulo = 1000
+export var velocidade = 75.0
+export var sprite_speed_scale = 1
 
 var motion = Vector2(0,0)
 
-func rodar(gravidade):
+func rodar():
 	
 	#fisica
 	if apertouBotao("esquerda"):
@@ -27,13 +27,19 @@ func rodar(gravidade):
 	mover()
 	
 	#animacao
+	if parado():
+		setarSpriteSpeedScale(0.5)
+	elif not parado():
+		#o frame rate vai aumentar se ele tiver se movendo
+		setarSpriteSpeedScale(velocidade/50 * sprite_speed_scale)
+		
 	if apertouBotao("esquerda") || apertouBotao("direita"):
 		if apertouBotao("baixo"):
-			mudarAnimacao("paradoDiagonalBaixo")
+			mudarAnimacao("andandoDiagonalBaixo")
 		elif apertouBotao("cima"):
-			mudarAnimacao("paradoDiagonalCima")
+			mudarAnimacao("andandoDiagonalCima")
 		else:
-			mudarAnimacao("paradoHorizontal")
+			mudarAnimacao("andandoHorizontal")
 			
 		if apertouBotao("esquerda"):
 			direcionarSprite("esquerda")
@@ -42,15 +48,15 @@ func rodar(gravidade):
 	
 	if apertouBotao("cima"):
 		if apertouBotao("direita") || apertouBotao("esquerda"):
-			mudarAnimacao("paradoDiagonalCima")
+			mudarAnimacao("andandoDiagonalCima")
 		else:
-			mudarAnimacao("paradoCima")
+			mudarAnimacao("andandoCima")
 			
 	elif apertouBotao("baixo"):
 		if apertouBotao("direita") || apertouBotao("esquerda"):
-			mudarAnimacao("paradoDiagonalBaixo")
+			mudarAnimacao("andandoDiagonalBaixo")
 		else:
-			mudarAnimacao("paradoBaixo")
+			mudarAnimacao("andandoBaixo")
 			
 
 func apertouBotaoEsquerda():
@@ -95,3 +101,6 @@ func direcionarSprite(direcao):
 		$AnimatedSprite.flip_h = true
 	elif direcao == "direita":
 		$AnimatedSprite.flip_h = false
+
+func setarSpriteSpeedScale(scale):
+	$AnimatedSprite.set_speed_scale(scale)
