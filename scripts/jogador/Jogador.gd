@@ -18,18 +18,18 @@ func rodar():
 	#fisica
 	if apertouBotao("baixo"):
 		sentido = "baixo"
-		direcao.y = velocidade
+		direcao.y = velocidade/2
 	elif apertouBotao("cima"):
 		sentido = "cima"
-		direcao.y = -velocidade
+		direcao.y = -velocidade/2
 	else:
 		direcao.y = 0
 		
 	if apertouBotao("esquerda"):
-		sentido = "esquerda"
+		sentido = "horizontal"
 		direcao.x = -velocidade
 	elif apertouBotao("direita"):
-		sentido = "direita"
+		sentido = "horizontal"
 		direcao.x = velocidade
 	else:
 		direcao.x = 0
@@ -37,21 +37,39 @@ func rodar():
 	mover()
 	
 	#animacao
-	if apertouBotao("baixo"):
-		mudarAnimacao("andandoBaixo")
-	elif apertouBotao("cima"):
-		mudarAnimacao("andandoCima")
 	
 	if apertouBotao("esquerda"):
-		mudarAnimacao("andandoHorizontal")
 		inverterSentidoSprite(true)
 	elif apertouBotao("direita"):
-		mudarAnimacao("andandoHorizontal")
 		inverterSentidoSprite(false)
+	
+	if apertouBotao("baixo"):
+		if apertouBotao("esquerda") || apertouBotao("direita"):
+			mudarAnimacao("andandoDiagonalBaixo")
+		else:
+			mudarAnimacao("andandoBaixo")
+	elif apertouBotao("cima"):
+		if apertouBotao("esquerda") || apertouBotao("direita"):
+			mudarAnimacao("andandoDiagonalCima")
+		else:
+			mudarAnimacao("andandoCima")
+	else:
+		if apertouBotao("esquerda"):
+			mudarAnimacao("andandoHorizontal")
+		elif apertouBotao("direita"):
+			mudarAnimacao("andandoHorizontal")
 
 	if estaParado():
 		if sentido == "baixo":
 			mudarAnimacao("paradoBaixo")
+		elif sentido == "diagonalBaixo":
+			mudarAnimacao("paradoDiagonalBaixo")
+		elif sentido == "horizontal":
+			mudarAnimacao("paradoHorizontal")
+		elif sentido == "diagonalCima":
+			mudarAnimacao("paradoDiagonalCima")
+		elif sentido == "cima":
+			mudarAnimacao("paradoCima")
 			
 func mover():
 	#metodo que precisa rodar para ele se mover a cada frame
