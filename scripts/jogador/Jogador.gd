@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 # vetor de direcao
-var motion = Vector2(0,0)
+var direcao = Vector2(0,0)
 
 # velocidade do boneco, export para podermos modificar enquanto jogamos caso queiramos
 export var velocidade = 75
 
 # para sabermos qual sentido ele esta olhando quando esta parado
-var direcao = "baixo"
+var sentido = "baixo"
 
 # metodo que roda quando inicia essa cena
 func _ready():
@@ -16,10 +16,10 @@ func _ready():
 func rodar():
 	#fisica
 	if apertouBotao("baixo"):
-		direcao = "baixo"
-		motion.y = velocidade
+		sentido = "baixo"
+		direcao.y = velocidade
 	else:
-		motion.y = 0
+		direcao.y = 0
 	
 	mover()
 	
@@ -28,14 +28,15 @@ func rodar():
 		mudarAnimacao("andandoBaixo")
 
 	if estaParado():
-		if direcao == "baixo":
+		if sentido == "baixo":
 			mudarAnimacao("paradoBaixo")
+			
 func mover():
 	#metodo que precisa rodar para ele se mover a cada frame
-	move_and_slide(motion, Vector2(0,-1))
+	move_and_slide(direcao, Vector2(0,-1))
 	
 func estaParado():
-	return motion == Vector2(0,0)
+	return direcao == Vector2(0,0)
 
 func mudarAnimacao(animacao):
 	$AnimationPlayer.play(animacao)
