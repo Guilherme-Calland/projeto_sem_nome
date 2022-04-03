@@ -105,405 +105,405 @@
 [node name="BlocosTemporarios" type="Node2D"]
 
 [node name="Blocks1" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 98 )
 
 [node name="Blocks2" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 91 )
 
 [node name="Blocks3" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 96 )
 
 [node name="Blocks4" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 101 )
 
 [node name="Blocks5" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 99 )
 
 [node name="Blocks6" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 93 )
 
 [node name="Blocks7" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 92 )
 
 [node name="Blocks8" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 94 )
 
 [node name="Blocks9" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 95 )
 
 [node name="Blocks10" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 97 )
 
 [node name="Blocks11" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 100 )
 
 [node name="Blocks12" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 23 )
 
 [node name="Blocks13" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 18 )
 
 [node name="Blocks14" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 22 )
 
 [node name="Blocks15" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 31 )
 
 [node name="Blocks16" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 25 )
 
 [node name="Blocks17" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 20 )
 
 [node name="Blocks18" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 24 )
 
 [node name="Blocks19" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 33 )
 
 [node name="Blocks20" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 34 )
 
 [node name="Blocks21" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 19 )
 
 [node name="Blocks22" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 21 )
 
 [node name="Blocks23" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 26 )
 
 [node name="Blocks24" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 27 )
 
 [node name="Blocks25" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 28 )
 
 [node name="Blocks26" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 29 )
 
 [node name="Blocks27" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 30 )
 
 [node name="Blocks28" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 32 )
 
 [node name="Blocks29" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 15 )
 
 [node name="Blocks30" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 16 )
 
 [node name="Blocks31" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 14 )
 
 [node name="Blocks32" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 17 )
 
 [node name="Blocks33" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 1 )
 
 [node name="Blocks34" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 2 )
 
 [node name="Blocks35" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 11 )
 
 [node name="Blocks36" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 8 )
 
 [node name="Blocks37" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 3 )
 
 [node name="Blocks38" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 9 )
 
 [node name="Blocks39" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 12 )
 
 [node name="Blocks40" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 4 )
 
 [node name="Blocks41" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 5 )
 
 [node name="Blocks42" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 10 )
 
 [node name="Blocks43" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 6 )
 
 [node name="Blocks44" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 13 )
 
 [node name="Blocks45" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 7 )
 
 [node name="Blocks46" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 64 )
 
 [node name="Blocks47" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 35 )
 
 [node name="Blocks48" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 65 )
 
 [node name="Blocks49" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 66 )
 
 [node name="Blocks50" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 49 )
 
 [node name="Blocks51" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 40 )
 
 [node name="Blocks52" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 67 )
 
 [node name="Blocks53" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 41 )
 
 [node name="Blocks54" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 60 )
 
 [node name="Blocks55" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 39 )
 
 [node name="Blocks56" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 44 )
 
 [node name="Blocks57" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 42 )
 
 [node name="Blocks58" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 46 )
 
 [node name="Blocks59" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 63 )
 
 [node name="Blocks60" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 45 )
 
 [node name="Blocks61" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 50 )
 
 [node name="Blocks62" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 61 )
 
 [node name="Blocks63" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 69 )
 
 [node name="Blocks64" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 47 )
 
 [node name="Blocks65" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 53 )
 
 [node name="Blocks66" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 38 )
 
 [node name="Blocks67" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 43 )
 
 [node name="Blocks68" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 52 )
 
 [node name="Blocks69" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 48 )
 
 [node name="Blocks70" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 51 )
 
 [node name="Blocks71" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 54 )
 
 [node name="Blocks72" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 55 )
 
 [node name="Blocks73" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 68 )
 
 [node name="Blocks74" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 36 )
 
 [node name="Blocks75" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 58 )
 
 [node name="Blocks76" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 56 )
 
 [node name="Blocks77" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 57 )
 
 [node name="Blocks78" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 62 )
 
 [node name="Blocks79" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 59 )
 
 [node name="Blocks80" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 37 )
 
 [node name="Blocks81" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 87 )
 
 [node name="Blocks82" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 71 )
 
 [node name="Blocks83" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 90 )
 
 [node name="Blocks84" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 80 )
 
 [node name="Blocks85" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 79 )
 
 [node name="Blocks86" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 75 )
 
 [node name="Blocks87" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 84 )
 
 [node name="Blocks88" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 88 )
 
 [node name="Blocks89" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 70 )
 
 [node name="Blocks90" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 86 )
 
 [node name="Blocks91" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 72 )
 
 [node name="Blocks92" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 74 )
 
 [node name="Blocks93" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 73 )
 
 [node name="Blocks94" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 77 )
 
 [node name="Blocks95" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 81 )
 
 [node name="Blocks96" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 82 )
 
 [node name="Blocks97" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 89 )
 
 [node name="Blocks98" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 83 )
 
 [node name="Blocks99" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 85 )
 
 [node name="Blocks100" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 76 )
 
 [node name="Blocks101" type="Sprite" parent="."]
-position = Vector2( 108, 51 )
+position = Vector2( 61, 46 )
 texture = ExtResource( 78 )
