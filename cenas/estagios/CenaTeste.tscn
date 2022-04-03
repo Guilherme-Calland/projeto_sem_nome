@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/estagios/testes/CenaTeste.gd" type="Script" id=2]
+[ext_resource path="res://cenas/jogador/Jogador.tscn" type="PackedScene" id=4]
+
+[node name="CenaTeste" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -65538, 61, 0, -65537, 61, 0, -131072, 61, 0, -131071, 61, 0, -131070, 61, 0, -131069, 61, 0, -131068, 61, 0, -131067, 61, 0, -131066, 61, 0, -2, 61, 0, -1, 61, 0, -65536, 61, 0, -65535, 61, 0, -65534, 61, 0, -65533, 61, 0, -65532, 61, 0, -65531, 61, 0, -65530, 61, 0, 65534, 61, 0, 65535, 61, 0, 0, 61, 0, 1, 61, 0, 2, 61, 0, 3, 61, 0, 4, 61, 0, 5, 61, 0, 6, 61, 0, 131070, 61, 0, 131071, 61, 0, 65536, 61, 0, 65537, 61, 0, 65538, 61, 0, 65539, 61, 0, 65540, 61, 0, 65541, 61, 0, 65542, 61, 0, 196606, 61, 0, 196607, 61, 0, 131072, 61, 0, 131073, 61, 0, 131074, 61, 0, 131075, 61, 0, 131076, 61, 0, 131077, 61, 0, 131078, 61, 0, 262142, 61, 0, 262143, 61, 0, 196608, 61, 0, 196609, 61, 0, 196610, 61, 0, 196611, 61, 0, 196612, 61, 0, 196613, 61, 0, 196614, 61, 0, 327678, 61, 0, 327679, 61, 0, 262144, 61, 0, 262145, 61, 0, 262146, 61, 0, 262147, 61, 0, 262148, 61, 0, 262149, 61, 0, 262150, 61, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Jogador" parent="." instance=ExtResource( 4 )]
