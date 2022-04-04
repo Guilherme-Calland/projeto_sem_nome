@@ -2,12 +2,6 @@ extends Node
 
 var input
 var fisica
-var sprite
-var animationPlayer
-
-func _ready():
-	if animationPlayer != null:
-		mudarAnimacao("paradoBaixo")
 
 func rodar(pacoteJogador):
 	abrirPacoteJogador(pacoteJogador)
@@ -49,13 +43,11 @@ func nenhumBotaoDirecaoApertado(input):
 	return not (input.apertouBotao("norte") || input.apertouBotao("sul") || input.apertouBotao("leste") || input.apertouBotao("oeste"))
 
 func mudarAnimacao(animacao):
-	animationPlayer.play(animacao)
+	$AnimationPlayer.play(animacao)
 
 func inverterEixoHorizontalSprite(b):
-	sprite.flip_h = b
+	$Sprite.flip_h = b
 
 func abrirPacoteJogador(pacoteJogador):
 	input = pacoteJogador['input']
 	fisica = pacoteJogador['fisica']
-	sprite = pacoteJogador['sprite']
-	animationPlayer = pacoteJogador['animationPlayer']

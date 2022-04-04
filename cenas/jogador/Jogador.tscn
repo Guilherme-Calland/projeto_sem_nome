@@ -7,10 +7,13 @@
 [ext_resource path="res://scripts/jogador/Fisica.gd" type="Script" id=5]
 [ext_resource path="res://scripts/jogador/Animacao.gd" type="Script" id=6]
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 7, 1.5 )
+
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -22,7 +25,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -31,7 +34,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 2 ]
+"values": [ 4 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -40,7 +43,7 @@ length = 0.8
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -52,7 +55,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -64,7 +67,7 @@ tracks/1/keys = {
 "values": [ 4 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -82,31 +85,31 @@ length = 0.8
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [  ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ 4 ]
+"values": [  ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -124,19 +127,19 @@ length = 0.8
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ 8, 9, 10, 11 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -148,16 +151,16 @@ tracks/1/keys = {
 "values": [ 4 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [ ExtResource( 2 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -166,7 +169,7 @@ length = 0.8
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -178,7 +181,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -190,7 +193,7 @@ tracks/1/keys = {
 "values": [ 4 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -205,9 +208,10 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "andandoSul"
 length = 0.8
+loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -216,10 +220,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ 4 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -228,10 +232,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -249,7 +253,7 @@ length = 0.8
 loop = true
 step = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -261,28 +265,28 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 6, 7 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6, 7 ]
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -291,19 +295,19 @@ length = 0.8
 loop = true
 step = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Animacao/Sprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [ 2 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:texture")
+tracks/1/path = NodePath("Animacao/Sprite:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -315,16 +319,16 @@ tracks/1/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 2, 3 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -333,19 +337,19 @@ length = 0.8
 loop = true
 step = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ) ]
+"values": [ 4, 5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -354,19 +358,19 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ ExtResource( 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4, 5 ]
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -375,7 +379,7 @@ length = 0.8
 loop = true
 step = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -387,7 +391,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -399,7 +403,7 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -417,19 +421,19 @@ length = 0.8
 loop = true
 step = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Animacao/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("Animacao/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -441,42 +445,20 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:texture")
+tracks/2/path = NodePath("Animacao/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ) ]
+"values": [ 0, 1 ]
 }
-
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 7, 1.5 )
 
 [node name="Jogador" type="KinematicBody2D"]
 script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-hframes = 2
-vframes = 5
-frame = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
-anims/andandoDiagonalNorte = SubResource( 9 )
-anims/andandoDiagonalSul = SubResource( 5 )
-anims/andandoHorizontal = SubResource( 6 )
-anims/andandoNorte = SubResource( 8 )
-anims/andandoSul = SubResource( 3 )
-anims/paradoDiagonalNorte = SubResource( 11 )
-anims/paradoDiagonalSul = SubResource( 1 )
-anims/paradoHorizontal = SubResource( 7 )
-anims/paradoNorte = SubResource( 10 )
-anims/paradoSul = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -489,5 +471,25 @@ script = ExtResource( 4 )
 [node name="Fisica" type="Node" parent="."]
 script = ExtResource( 5 )
 
-[node name="Animacao" type="Node" parent="."]
+[node name="Animacao" type="Node2D" parent="."]
 script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Animacao"]
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 5
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animacao"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 2 )
+anims/andandoDiagonalNorte = SubResource( 9 )
+anims/andandoDiagonalSul = SubResource( 5 )
+anims/andandoHorizontal = SubResource( 6 )
+anims/andandoNorte = SubResource( 8 )
+anims/andandoSul = SubResource( 3 )
+anims/paradoDiagonalNorte = SubResource( 11 )
+anims/paradoDiagonalSul = SubResource( 1 )
+anims/paradoHorizontal = SubResource( 7 )
+anims/paradoNorte = SubResource( 10 )
+anims/paradoSul = SubResource( 4 )

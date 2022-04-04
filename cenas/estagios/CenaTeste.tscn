@@ -23,6 +23,7 @@ current = true
 collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaGelo"]
+visible = false
 polygon = PoolVector2Array( -223, 272, -416, 178, -226, 81, -33, 177 )
 
 [connection signal="body_entered" from="AreaGelo" to="." method="_on_AreaGelo_body_entered"]

@@ -4,8 +4,6 @@ var pacoteJogador
 
 func _ready():
 	pacoteJogador = {
-		'sprite': $Sprite,
-		'animationPlayer': $AnimationPlayer,
 		'input': $Input,
 		'fisica' : $Fisica
 	}
