@@ -29,15 +29,15 @@ func rodar(inInput, inFisica):
 			mudarAnimacao("andandoHorizontal")
 
 	if nenhumBotaoDirecaoApertado(input):
-		if fisica.sentido == "sul":
+		if fisica.sentidoIsometrico == "sul":
 			mudarAnimacao("paradoSul")
-		elif fisica.sentido == "diagonalSul":
+		elif fisica.sentidoIsometrico == "diagonalSul":
 			mudarAnimacao("paradoDiagonalSul")
-		elif fisica.sentido == "horizontal":
+		elif fisica.sentidoIsometrico == "horizontal":
 			mudarAnimacao("paradoHorizontal")
-		elif fisica.sentido == "diagonalNorte":
+		elif fisica.sentidoIsometrico == "diagonalNorte":
 			mudarAnimacao("paradoDiagonalNorte")
-		elif fisica.sentido == "norte":
+		elif fisica.sentidoIsometrico == "norte":
 			mudarAnimacao("paradoNorte")
 
 func nenhumBotaoDirecaoApertado(input):

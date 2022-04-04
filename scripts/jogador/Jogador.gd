@@ -14,4 +14,4 @@ func rodar(atrito, gravidade):
 			
 func mover():
 	#metodo que precisa rodar para ele se mover a cada frame
-	move_and_slide($Fisica.direcao, $Fisica.vetorNorte)
+	move_and_slide($Fisica.direcao, $Fisica.vetorCartesianoCima)
