@@ -15,16 +15,16 @@ var sentidoIsometrico = "sul"
 #vetores cartesianos
 var vetorCartesianoEixoX = Vector2(1, 0)
 var vetorCartesianoEixoY = Vector2(0, -1)
-var vetorCartesianoCima = Vector2(0, vetorCartesianoEixoY.y)
-var vetorCartesianoBaixo = Vector2(0, -vetorCartesianoEixoY.y)
+var vetorCartesianoCima = vetorCartesianoEixoY
+var vetorCartesianoBaixo = -vetorCartesianoEixoY
 
 #vetores isometricos
 var vetorIsometricoEixoX = Vector2(1, 0)
 var vetorIsometricoEixoY = Vector2(0, -0.5)
-var vetorIsometricoSul = Vector2(0, -vetorIsometricoEixoY.y)
-var vetorIsometricoLeste = Vector2(vetorIsometricoEixoX.x, 0)
-var vetorIsometricoNorte = Vector2(0, vetorIsometricoEixoY.y)
-var vetorIsometricoOeste = Vector2(-vetorIsometricoEixoX.x, 0)
+var vetorIsometricoSul = -vetorIsometricoEixoY
+var vetorIsometricoLeste = vetorIsometricoEixoX
+var vetorIsometricoNorte = vetorIsometricoEixoY
+var vetorIsometricoOeste = -vetorIsometricoEixoX
 
 func rodar(atrito, gravidade, input):
 	

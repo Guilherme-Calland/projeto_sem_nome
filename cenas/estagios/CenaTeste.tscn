@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=1]
-[ext_resource path="res://cenas/jogador/Jogador.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/estagios/testes/CenaTeste.gd" type="Script" id=3]
 
 [node name="CenaTeste" type="Node2D"]
@@ -17,14 +17,14 @@ tile_data = PoolIntArray( -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Jogador" parent="." instance=ExtResource( 2 )]
-
 [node name="AreaGelo" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaGelo"]
 visible = false
 polygon = PoolVector2Array( -223, 272, -416, 178, -226, 81, -33, 177 )
+
+[node name="ComponenteJogador" parent="." instance=ExtResource( 2 )]
 
 [connection signal="body_entered" from="AreaGelo" to="." method="_on_AreaGelo_body_entered"]
 [connection signal="body_exited" from="AreaGelo" to="." method="_on_AreaGelo_body_exited"]

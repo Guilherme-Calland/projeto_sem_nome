@@ -8,7 +8,7 @@ var atrito = atritoMato
 
 #essa funcao roda 1 vez por frame
 func _process(delta):
-	$Jogador.rodar(atrito, gravidade)
+	$ComponenteJogador.rodar(atrito, gravidade)
 
 func _on_AreaGelo_body_entered(body):
 	atrito = atritoGelo
