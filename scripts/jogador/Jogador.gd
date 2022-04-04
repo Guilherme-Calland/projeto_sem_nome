@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
-
-# velocidade do boneco, export para podermos modificar enquanto jogamos caso queiramos
+# velocidade do boneco, export para podermos modificar enquanto jogamos
 export var velocidade = 75
 
 # fisica
@@ -21,26 +20,32 @@ var sentido = "sul"
 func _ready():
 	mudarAnimacao("paradoSul")
 	
-func rodar():
-	
+func rodar(atrito):
 	#fisica
 	if apertouBotao("sul"):
 		sentido = "sul"
-		direcao.y = vetorSul.y * velocidade
+		# clamp(valor, limite inferior, limite superior)
+		direcao.y = clamp(direcao.y + (vetorSul.y * atrito), vetorNorte.y * velocidade, vetorSul.y * velocidade)
 	elif apertouBotao("norte"):
 		sentido = "norte"
-		direcao.y = vetorNorte.y * velocidade
+		direcao.y = clamp(direcao.y + (vetorNorte.y * atrito), vetorNorte.y * velocidade, vetorSul.y * velocidade)
 	else:
-		direcao.y = 0
+		if direcao.y > 0:
+			direcao.y = clamp(direcao.y + (vetorNorte.y * atrito), 0, direcao.y)
+		elif direcao.y < 0:
+			direcao.y = clamp(direcao.y + (vetorSul.y * atrito), direcao.y, 0)
 		
 	if apertouBotao("oeste"):
 		sentido = "horizontal"
-		direcao.x = vetorOeste.x * velocidade
+		direcao.x = clamp(direcao.x + (vetorOeste.x * atrito), vetorOeste.x * velocidade, vetorLeste.x * velocidade)
 	elif apertouBotao("leste"):
 		sentido = "horizontal"
-		direcao.x = vetorLeste.x * velocidade
+		direcao.x = clamp(direcao.x + (vetorLeste.x * atrito), vetorOeste.x * velocidade, vetorLeste.x * velocidade)
 	else:
-		direcao.x = 0
+		if direcao.x > 0:
+			direcao.x = clamp(direcao.x + vetorOeste.x * atrito, 0, direcao.x)
+		elif direcao.x < 0:
+			direcao.x = clamp(direcao.x + vetorLeste.x * atrito, direcao.x, 0)
 		
 	mover()
 	
@@ -66,7 +71,7 @@ func rodar():
 		elif apertouBotao("leste"):
 			mudarAnimacao("andandoHorizontal")
 
-	if estaParado():
+	if nenhumBotaoDirecaoApertado():
 		if sentido == "sul":
 			mudarAnimacao("paradoSul")
 		elif sentido == "diagonalSul":
@@ -80,10 +85,13 @@ func rodar():
 			
 func mover():
 	#metodo que precisa rodar para ele se mover a cada frame
-	move_and_slide(direcao, Vector2(0,-1))
+	move_and_slide(direcao, vetorNorte)
 	
 func estaParado():
 	return direcao == Vector2(0,0)
+
+func nenhumBotaoDirecaoApertado():
+	return not (apertouBotao("norte") || apertouBotao("sul") || apertouBotao("leste") || apertouBotao("oeste"))
 
 func mudarAnimacao(animacao):
 	$AnimationPlayer.play(animacao)
