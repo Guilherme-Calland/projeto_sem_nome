@@ -2,20 +2,14 @@ extends KinematicBody2D
 
 var pacoteJogador
 
-func _ready():
-	pacoteJogador = {
-		'input': $Input,
-		'fisica' : $Fisica
-	}
-
-func rodar(atrito):
+func rodar(atrito, gravidade):
 	
 	#fisica
-	$Fisica.rodar(atrito, pacoteJogador['input'])
+	$Fisica.rodar(atrito, gravidade, $Input)
 	mover()
 	
 	#animacao
-	$Animacao.rodar(pacoteJogador)
+	$Animacao.rodar($Input, $Fisica)
 	
 			
 func mover():

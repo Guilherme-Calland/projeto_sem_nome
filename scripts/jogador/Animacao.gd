@@ -1,10 +1,11 @@
-extends Node
+extends Node2D
 
 var input
 var fisica
 
-func rodar(pacoteJogador):
-	abrirPacoteJogador(pacoteJogador)
+func rodar(inInput, inFisica):
+	input = inInput
+	fisica = inFisica
 	
 	if input.apertouBotao("oeste"):
 		inverterEixoHorizontalSprite(true)
@@ -48,6 +49,3 @@ func mudarAnimacao(animacao):
 func inverterEixoHorizontalSprite(b):
 	$Sprite.flip_h = b
 
-func abrirPacoteJogador(pacoteJogador):
-	input = pacoteJogador['input']
-	fisica = pacoteJogador['fisica']
