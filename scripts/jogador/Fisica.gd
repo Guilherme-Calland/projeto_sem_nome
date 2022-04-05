@@ -19,11 +19,16 @@ var vetorOeste = -(vetorX + vetorY)/2
 var vetorCima = vetorZ
 var vetorBaixo = -vetorZ
 
-# vetor sentido no plano XY
-var sentidoXY = Vector2(0, 0)
-
-# vetor sentido da reta Z
+# vetores de movimento do boneco no espaço formado pelos vetores X,Y e Z
+var sentidoX = Vector2(0, 0)
+var sentidoY = Vector2(0, 0)
 var sentidoZ = Vector2(0, 0)
+
+# vetor que é a soma dos vetores do plano XY
+var sentidoXY = Vector2(0,0)
+
+# vetor que é a soma dos vetores do espaço XYZ
+var sentido = Vector2(0, 0)
 
 # variaveis do mundo
 var atrito
@@ -31,32 +36,41 @@ var gravidade
 
 func andar(inSentido):
 	if inSentido == 'sul':
-		# clamp(valor, limite inferior, limite superior)		
-		sentidoXY.y = clamp(sentidoXY.y + (vetorSul.y * atrito), vetorNorte.y * velocidade,  vetorSul.y * velocidade)
+		# clamp(valor, limite inferior, limite superior)
+		sentidoY = Vector2(0 , clamp(sentidoY.y + (vetorSul.y * atrito), vetorNorte.y * velocidade,  vetorSul.y * velocidade))
 	elif inSentido == 'leste':
-		sentidoXY.x = clamp(sentidoXY.x + (vetorLeste.x * atrito), vetorOeste.x * velocidade, vetorLeste.x * velocidade)
+		sentidoX = Vector2(clamp(sentidoX.x + (vetorLeste.x * atrito), vetorOeste.x * velocidade, vetorLeste.x * velocidade), 0)
 	elif inSentido == 'norte':
-		sentidoXY.y = clamp(sentidoXY.y + (vetorNorte.y * atrito),  vetorNorte.y * velocidade,  vetorSul.y * velocidade)
+		sentidoY = Vector2(0, clamp(sentidoY.y + (vetorNorte.y * atrito),  vetorNorte.y * velocidade,  vetorSul.y * velocidade))
 	elif inSentido == 'oeste':
-		sentidoXY.x = clamp(sentidoXY.x + (vetorOeste.x * atrito),  vetorOeste.x * velocidade, vetorLeste.x * velocidade)
+		sentidoX = Vector2(clamp(sentidoX.x + (vetorOeste.x * atrito),  vetorOeste.x * velocidade, vetorLeste.x * velocidade), 0)
+	calcularSentido()
 
 func sentido(valor):
 	if valor == 'sul':
-		return sentidoXY.y > 0
+		return sentidoY.y > 0
 	elif valor == 'leste':
-		return sentidoXY.x > 0
+		return sentidoX.x > 0
 	elif valor == 'norte':
-		return sentidoXY.y < 0
+		return sentidoY.y < 0
 	elif valor == 'oeste':
-		return sentidoXY.x < 0
+		return sentidoX.x < 0
+	calcularSentido()
 	
 func parar(valor):
 	if valor == 'sul':
-		sentidoXY.y = sentidoXY.y + vetorNorte.y * atrito
+		sentidoY = sentidoY + vetorNorte * atrito
 	elif valor == 'leste':
-		sentidoXY.x = sentidoXY.x + vetorOeste.x * atrito
+		sentidoX = sentidoX + vetorOeste * atrito
 	elif valor == 'norte':
-		sentidoXY.y = sentidoXY.y + vetorSul.y * atrito
+		sentidoY = sentidoY + vetorSul * atrito
 	elif valor == 'oeste':
-		sentidoXY.x = sentidoXY.x + vetorLeste.x * atrito
+		sentidoX = sentidoX + vetorLeste * atrito
+	calcularSentido()
 
+func calcularSentido():
+	sentido = sentidoX + sentidoY + sentidoZ
+	sentidoXY = sentidoX + sentidoY
+	
+func pular():
+	pass

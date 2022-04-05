@@ -39,4 +39,5 @@ func rodar(inAtrito, inGravidade, input):
 		elif $Fisica.sentido('oeste'):
 			$Fisica.parar('oeste')
 	
-
+	if input.apertouBotao('pular'):
+		$Fisica.pular() 

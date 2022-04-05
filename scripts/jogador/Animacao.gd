@@ -28,7 +28,7 @@ func rodar(inInput, inMovimento):
 		elif input.apertouBotao("leste"):
 			mudarAnimacao("andandoHorizontal")
 
-	if nenhumBotaoDirecaoApertado(input):
+	if nenhumBotaoDirecaoApertado():
 		if movimento.olhandoPro == "sul":
 			mudarAnimacao("paradoSul")
 		elif movimento.olhandoPro == "diagonalSul":
@@ -40,7 +40,7 @@ func rodar(inInput, inMovimento):
 		elif movimento.olhandoPro == "norte":
 			mudarAnimacao("paradoNorte")
 
-func nenhumBotaoDirecaoApertado(input):
+func nenhumBotaoDirecaoApertado():
 	return not (input.apertouBotao("norte") || input.apertouBotao("sul") || input.apertouBotao("leste") || input.apertouBotao("oeste"))
 
 func mudarAnimacao(animacao):
