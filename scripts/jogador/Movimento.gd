@@ -4,8 +4,7 @@ extends Node
 var olhandoPro = "sul"
 
 func rodar(inAtrito, inGravidade, input):
-	$Fisica.atrito = inAtrito
-	$Fisica.gravidade = inGravidade
+	$Fisica.rodar(inAtrito, inGravidade)
 	
 	if input.apertouBotao('sul'):
 		if input.apertouBotao('leste') || input.apertouBotao('oeste'):
@@ -40,4 +39,4 @@ func rodar(inAtrito, inGravidade, input):
 			$Fisica.parar('oeste')
 	
 	if input.apertouBotao('pular'):
-		$Fisica.pular() 
+		$Fisica.pular()

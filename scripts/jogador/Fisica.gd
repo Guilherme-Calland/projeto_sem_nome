@@ -30,10 +30,39 @@ var sentidoXY = Vector2(0,0)
 # vetor que é a soma dos vetores do espaço XYZ
 var sentido = Vector2(0, 0)
 
+# posicao na reta X
+var posicaoX = Vector2(0, 0)
+# posicao na reta y
+var posicaoY = Vector2(0, 0)
+# posicao na reta Z
+var posicaoZ = Vector2(0, 0)
+
+# posicao no plano XY
+var posicaoXY = Vector2(0, 0)
+
+# posicao no espaco XYZ
+var posicao = Vector2(0, 0)
+
+# posicao do chao na reta Z
+var posicaoChaoZ = Vector2(0, 0)
+
 # variaveis do mundo
 var atrito
 var gravidade
 
+func rodar(inAtrito, inGravidade):
+	atrito = inAtrito
+	gravidade = inGravidade
+	
+	if posicaoZ.y < 0:
+		sentidoZ.y += gravidade
+	else:
+		sentidoZ.y = 0
+		posicaoZ = posicaoChaoZ
+		
+	calcularSentido()
+	calcularPosicao()
+	
 func andar(inSentido):
 	if inSentido == 'sul':
 		# clamp(valor, limite inferior, limite superior)
@@ -44,8 +73,7 @@ func andar(inSentido):
 		sentidoY = Vector2(0, clamp(sentidoY.y + (vetorNorte.y * atrito),  vetorNorte.y * velocidade,  vetorSul.y * velocidade))
 	elif inSentido == 'oeste':
 		sentidoX = Vector2(clamp(sentidoX.x + (vetorOeste.x * atrito),  vetorOeste.x * velocidade, vetorLeste.x * velocidade), 0)
-	calcularSentido()
-
+	
 func sentido(valor):
 	if valor == 'sul':
 		return sentidoY.y > 0
@@ -55,7 +83,6 @@ func sentido(valor):
 		return sentidoY.y < 0
 	elif valor == 'oeste':
 		return sentidoX.x < 0
-	calcularSentido()
 	
 func parar(valor):
 	if valor == 'sul':
@@ -66,11 +93,18 @@ func parar(valor):
 		sentidoY = sentidoY + vetorSul * atrito
 	elif valor == 'oeste':
 		sentidoX = sentidoX + vetorLeste * atrito
-	calcularSentido()
 
 func calcularSentido():
 	sentido = sentidoX + sentidoY + sentidoZ
 	sentidoXY = sentidoX + sentidoY
 	
 func pular():
-	pass
+	sentidoZ = vetorCima * forcaPulo
+	calcularPosicao()
+
+func calcularPosicao():
+	posicaoX += sentidoX/60
+	posicaoY += sentidoY/60
+	posicaoZ += sentidoZ/60
+	posicaoXY = posicaoX + posicaoY
+	posicao = posicaoX + posicaoY + posicaoZ
