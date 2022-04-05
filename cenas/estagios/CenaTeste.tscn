@@ -20,6 +20,7 @@ current = true
 
 [node name="AreaGelo" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaGelo"]
 visible = false

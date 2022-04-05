@@ -38,7 +38,7 @@ func rodar(inAtrito, inGravidade, input):
 		elif $Fisica.sentido('oeste'):
 			$Fisica.parar('oeste')
 	
-	if input.apertouBotao('pular'):
+	if input.apertouBotao('pular') and $Fisica.noChao():
 		$Fisica.pular()
 	
 	if not $Fisica.noChao():
