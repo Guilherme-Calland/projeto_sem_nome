@@ -53,12 +53,6 @@ var gravidade
 func rodar(inAtrito, inGravidade):
 	atrito = inAtrito
 	gravidade = inGravidade
-	
-	if posicaoZ.y < 0:
-		sentidoZ.y += gravidade
-	else:
-		sentidoZ.y = 0
-		posicaoZ = posicaoChaoZ
 		
 	calcularSentido()
 	calcularPosicao()
@@ -108,3 +102,13 @@ func calcularPosicao():
 	posicaoZ += sentidoZ/60
 	posicaoXY = posicaoX + posicaoY
 	posicao = posicaoX + posicaoY + posicaoZ
+
+func noChao():
+	return posicaoZ.y >= posicaoChaoZ.y
+
+func cair():
+	sentidoZ.y += gravidade
+
+func ficarNoChao():
+	sentidoZ.y = 0
+	posicaoZ = posicaoChaoZ

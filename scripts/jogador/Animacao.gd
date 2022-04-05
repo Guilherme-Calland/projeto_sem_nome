@@ -2,10 +2,12 @@ extends Node2D
 
 var input
 var movimento
+var fisica
 
 func rodar(inInput, inMovimento):
 	input = inInput
 	movimento = inMovimento
+	fisica = movimento.get_child(0)
 	
 	if input.apertouBotao("oeste"):
 		inverterEixoHorizontalSprite(true)
@@ -14,38 +16,32 @@ func rodar(inInput, inMovimento):
 	
 	if input.apertouBotao("sul"):
 		if input.apertouBotao("oeste") || input.apertouBotao("leste"):
-			mudarAnimacao("andandoDiagonalSul")
+			mudarAnimacao("andando", 'diagonalSul')
 		else:
-			mudarAnimacao("andandoSul")
+			mudarAnimacao('andando', 'diagonalSul')
 	elif input.apertouBotao("norte"):
 		if input.apertouBotao("oeste") || input.apertouBotao("leste"):
-			mudarAnimacao("andandoDiagonalNorte")
+			mudarAnimacao('andando', 'diagonalNorte')
 		else:
-			mudarAnimacao("andandoNorte")
+			mudarAnimacao('andando', 'diagonalNorte')
 	else:
 		if input.apertouBotao("oeste"):
-			mudarAnimacao("andandoHorizontal")
+			mudarAnimacao('andando', 'horizonte')
 		elif input.apertouBotao("leste"):
-			mudarAnimacao("andandoHorizontal")
+			mudarAnimacao('andando', 'horizonte')
 
 	if nenhumBotaoDirecaoApertado():
-		if movimento.olhandoPro == "sul":
-			mudarAnimacao("paradoSul")
-		elif movimento.olhandoPro == "diagonalSul":
-			mudarAnimacao("paradoDiagonalSul")
-		elif movimento.olhandoPro == "horizonte":
-			mudarAnimacao("paradoHorizontal")
-		elif movimento.olhandoPro == "diagonalNorte":
-			mudarAnimacao("paradoDiagonalNorte")
-		elif movimento.olhandoPro == "norte":
-			mudarAnimacao("paradoNorte")
-
+		mudarAnimacao('parado', movimento.olhandoPro)
+	
+	if not fisica.noChao():
+		mudarAnimacao('noAr', 'sul')
+		
 func nenhumBotaoDirecaoApertado():
 	return not (input.apertouBotao("norte") || input.apertouBotao("sul") || input.apertouBotao("leste") || input.apertouBotao("oeste"))
-
-func mudarAnimacao(animacao):
-	$AnimationPlayer.play(animacao)
 
 func inverterEixoHorizontalSprite(b):
 	$Sprite.flip_h = b
 
+func mudarAnimacao(nome, olhandoPro):
+	var valor = str(nome) + olhandoPro[0].to_upper() + str(olhandoPro.trim_prefix(str(olhandoPro[0])))
+	$AnimationPlayer.play(valor)

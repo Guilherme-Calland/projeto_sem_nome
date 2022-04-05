@@ -40,3 +40,8 @@ func rodar(inAtrito, inGravidade, input):
 	
 	if input.apertouBotao('pular'):
 		$Fisica.pular()
+	
+	if not $Fisica.noChao():
+		$Fisica.cair()
+	else:
+		$Fisica.ficarNoChao()
