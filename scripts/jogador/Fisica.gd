@@ -1,59 +1,62 @@
-extends Node2D
+extends Node
 
 # velocidade do boneco, export para podermos modificar enquanto jogamos
 export var velocidade = 75
 export var forcaPulo = 375
 
-# vetores de direcao
-var direcaoIsometrica = Vector2(0,0)
-var direcaoCartesiana = Vector2(0,0)
-var direcao = Vector2(0,0)
+# vetores de base
+var vetorX = Vector2(1, 0.5)
+var vetorY = Vector2(1, -0.5)
+var vetorZ = Vector2(0, -1)
 
-# para sabermos qual sentido ele esta olhando quando esta parado
-var sentidoIsometrico = "sul"
+# vetores do plano XY formado pelo vetorX e vetorY
+var vetorSul = (vetorX - vetorY)/2
+var vetorLeste = (vetorX + vetorY)/2
+var vetorNorte = (vetorY - vetorX)/2
+var vetorOeste = -(vetorX + vetorY)/2
 
-#vetores cartesianos
-var vetorCartesianoEixoX = Vector2(1, 0)
-var vetorCartesianoEixoY = Vector2(0, -1)
-var vetorCartesianoCima = vetorCartesianoEixoY
-var vetorCartesianoBaixo = -vetorCartesianoEixoY
+# vetores do plano Z formado pelo vetorZ
+var vetorCima = vetorZ
+var vetorBaixo = -vetorZ
 
-#vetores isometricos
-var vetorIsometricoEixoX = Vector2(1, 0)
-var vetorIsometricoEixoY = Vector2(0, -0.5)
-var vetorIsometricoSul = -vetorIsometricoEixoY
-var vetorIsometricoLeste = vetorIsometricoEixoX
-var vetorIsometricoNorte = vetorIsometricoEixoY
-var vetorIsometricoOeste = -vetorIsometricoEixoX
+# vetor sentido no plano XY
+var sentidoXY = Vector2(0, 0)
 
-func rodar(atrito, gravidade, input):
+# vetor sentido da reta Z
+var sentidoZ = Vector2(0, 0)
+
+# variaveis do mundo
+var atrito
+var gravidade
+
+func andar(inSentido):
+	if inSentido == 'sul':
+		# clamp(valor, limite inferior, limite superior)		
+		sentidoXY.y = clamp(sentidoXY.y + (vetorSul.y * atrito), vetorNorte.y * velocidade,  vetorSul.y * velocidade)
+	elif inSentido == 'leste':
+		sentidoXY.x = clamp(sentidoXY.x + (vetorLeste.x * atrito), vetorOeste.x * velocidade, vetorLeste.x * velocidade)
+	elif inSentido == 'norte':
+		sentidoXY.y = clamp(sentidoXY.y + (vetorNorte.y * atrito),  vetorNorte.y * velocidade,  vetorSul.y * velocidade)
+	elif inSentido == 'oeste':
+		sentidoXY.x = clamp(sentidoXY.x + (vetorOeste.x * atrito),  vetorOeste.x * velocidade, vetorLeste.x * velocidade)
+
+func sentido(valor):
+	if valor == 'sul':
+		return sentidoXY.y > 0
+	elif valor == 'leste':
+		return sentidoXY.x > 0
+	elif valor == 'norte':
+		return sentidoXY.y < 0
+	elif valor == 'oeste':
+		return sentidoXY.x < 0
 	
-	if input.apertouBotao("sul"):
-		sentidoIsometrico = "sul"
-		# clamp(valor, limite inferior, limite superior)
-		direcaoIsometrica.y = clamp(direcaoIsometrica.y + (vetorIsometricoSul.y * atrito), vetorIsometricoNorte.y * velocidade, vetorIsometricoSul.y * velocidade)
-	elif input.apertouBotao("norte"):
-		sentidoIsometrico = "norte"
-		direcaoIsometrica.y = clamp(direcaoIsometrica.y + (vetorIsometricoNorte.y * atrito), vetorIsometricoNorte.y * velocidade, vetorIsometricoSul.y * velocidade)
-	else:
-		if direcaoIsometrica.y > 0:
-			direcaoIsometrica.y = clamp(direcaoIsometrica.y + (vetorIsometricoNorte.y * atrito), 0, direcaoIsometrica.y)
-		elif direcaoIsometrica.y < 0:
-			direcaoIsometrica.y = clamp(direcaoIsometrica.y + (vetorIsometricoSul.y * atrito), direcaoIsometrica.y, 0)
-		
-	if input.apertouBotao("oeste"):
-		sentidoIsometrico = "horizontal"
-		direcaoIsometrica.x = clamp(direcaoIsometrica.x + (vetorIsometricoOeste.x * atrito), vetorIsometricoOeste.x * velocidade, vetorIsometricoLeste.x * velocidade)
-	elif input.apertouBotao("leste"):
-		sentidoIsometrico = "horizontal"
-		direcaoIsometrica.x = clamp(direcaoIsometrica.x + (vetorIsometricoLeste.x * atrito), vetorIsometricoOeste.x * velocidade, vetorIsometricoLeste.x * velocidade)
-	else:
-		if direcaoIsometrica.x > 0:
-			direcaoIsometrica.x = clamp(direcaoIsometrica.x + vetorIsometricoOeste.x * atrito, 0, direcaoIsometrica.x)
-		elif direcaoIsometrica.x < 0:
-			direcaoIsometrica.x = clamp(direcaoIsometrica.x + vetorIsometricoLeste.x * atrito, direcaoIsometrica.x, 0)
-	
-	if input.apertouBotao("pular"):
-		direcaoCartesiana = vetorCartesianoCima * forcaPulo
-	
-	direcao = direcaoIsometrica + direcaoCartesiana
+func parar(valor):
+	if valor == 'sul':
+		sentidoXY.y = sentidoXY.y + vetorNorte.y * atrito
+	elif valor == 'leste':
+		sentidoXY.x = sentidoXY.x + vetorOeste.x * atrito
+	elif valor == 'norte':
+		sentidoXY.y = sentidoXY.y + vetorSul.y * atrito
+	elif valor == 'oeste':
+		sentidoXY.x = sentidoXY.x + vetorLeste.x * atrito
+

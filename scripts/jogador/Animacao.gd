@@ -1,11 +1,11 @@
 extends Node2D
 
 var input
-var fisica
+var movimento
 
-func rodar(inInput, inFisica):
+func rodar(inInput, inMovimento):
 	input = inInput
-	fisica = inFisica
+	movimento = inMovimento
 	
 	if input.apertouBotao("oeste"):
 		inverterEixoHorizontalSprite(true)
@@ -29,15 +29,15 @@ func rodar(inInput, inFisica):
 			mudarAnimacao("andandoHorizontal")
 
 	if nenhumBotaoDirecaoApertado(input):
-		if fisica.sentidoIsometrico == "sul":
+		if movimento.olhandoPro == "sul":
 			mudarAnimacao("paradoSul")
-		elif fisica.sentidoIsometrico == "diagonalSul":
+		elif movimento.olhandoPro == "diagonalSul":
 			mudarAnimacao("paradoDiagonalSul")
-		elif fisica.sentidoIsometrico == "horizontal":
+		elif movimento.olhandoPro == "horizonte":
 			mudarAnimacao("paradoHorizontal")
-		elif fisica.sentidoIsometrico == "diagonalNorte":
+		elif movimento.olhandoPro == "diagonalNorte":
 			mudarAnimacao("paradoDiagonalNorte")
-		elif fisica.sentidoIsometrico == "norte":
+		elif movimento.olhandoPro == "norte":
 			mudarAnimacao("paradoNorte")
 
 func nenhumBotaoDirecaoApertado(input):

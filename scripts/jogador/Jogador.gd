@@ -4,11 +4,12 @@ var pacoteJogador
 
 func rodar(atrito, gravidade):
 	#fisica
-	$Fisica.rodar(atrito, gravidade, $Input)
+	$Movimento.rodar(atrito, gravidade, $Input)
 	mover()
 	#animacao
-	$Animacao.rodar($Input, $Fisica)
+	$Animacao.rodar($Input, $Movimento)
 	
 func mover():
-	#metodo que precisa rodar para ele se mover a cada frame
-	move_and_slide($Fisica.direcao, $Fisica.vetorCartesianoCima)
+	# metodo que precisa rodar para ele se mover a cada frame
+	# o metodo espera como parametros o vetor de sentido e um vetor que aponta para cima
+	move_and_slide($Movimento/Fisica.sentidoXY, $Movimento/Fisica.vetorNorte)

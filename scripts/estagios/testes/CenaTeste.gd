@@ -1,17 +1,12 @@
 extends Node2D
 
-export var atritoMato = 75.0
-export var atritoGelo = 0.75
 export var gravidade = 20
-
-var atrito = atritoMato
+var atrito = 75
 
 #essa funcao roda 1 vez por frame
 func _process(delta):
 	$ComponenteJogador.rodar(atrito, gravidade)
 
-func _on_AreaGelo_body_entered(body):
-	atrito = atritoGelo
-
-func _on_AreaGelo_body_exited(body):
-	atrito = atritoMato
+# sinal que é chamado quando o boneco entra em um terreno diferente
+func mudarAtrito(_body, inAtrito):
+	atrito = inAtrito
