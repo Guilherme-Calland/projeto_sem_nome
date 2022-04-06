@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var pacoteJogador
+signal mudarZIndex
 
 func rodar(atrito, gravidade):
 	#fisica
@@ -11,3 +11,8 @@ func rodar(atrito, gravidade):
 
 func mudarPosicao():
 	global_position = $Movimento/Fisica.posicao
+
+func respawnar():
+	$Movimento.reiniciarPosicao()
+	$Animacao.respawnar()
+	emit_signal("mudarZIndex", 1)

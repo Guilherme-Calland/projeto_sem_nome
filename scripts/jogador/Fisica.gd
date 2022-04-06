@@ -112,3 +112,16 @@ func cair():
 func ficarNoChao():
 	sentidoZ.y = 0
 	posicaoZ = posicaoChaoZ
+
+func reiniciarPosicao():
+	sentidoX = Vector2(0,0)
+	sentidoY = Vector2(0,0)
+	sentidoZ = Vector2(0,0)
+	sentidoXY = Vector2(0,0)
+	sentido = Vector2(0,0)
+	posicaoX = Vector2(0,0)
+	posicaoY = Vector2(0,0)
+	posicaoZ = Vector2(0,0)
+	posicaoXY = Vector2(0,0)
+	posicao = Vector2(0,0)
+	posicaoChaoZ = Vector2(0,0)

@@ -45,3 +45,7 @@ func rodar(inAtrito, inGravidade, input):
 		$Fisica.cair()
 	else:
 		$Fisica.ficarNoChao()
+
+func reiniciarPosicao():
+	olhandoPro = 'sul'
+	$Fisica.reiniciarPosicao()

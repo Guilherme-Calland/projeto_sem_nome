@@ -41,5 +41,9 @@ func inverterEixoHorizontalSprite(b):
 	$Sprite.flip_h = b
 
 func mudarAnimacao(nome, olhandoPro):
-	var valor = str(nome) + olhandoPro[0].to_upper() + str(olhandoPro.trim_prefix(str(olhandoPro[0])))
-	$AnimationPlayer.play(valor)
+	if $AnimationPlayer.current_animation != "respawnar":
+		var valor = str(nome) + olhandoPro[0].to_upper() + str(olhandoPro.trim_prefix(str(olhandoPro[0])))
+		$AnimationPlayer.play(valor)
+
+func respawnar():
+	$AnimationPlayer.play("respawnar")

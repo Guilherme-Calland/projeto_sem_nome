@@ -11,6 +11,9 @@ func _process(_delta):
 func mudarAtrito(_body, inAtrito):
 	atrito = inAtrito
 
-func mudarPosicaoChao(_body, posicao, zIndex):
-	$ComponenteJogador/Jogador/Movimento/Fisica.posicaoChaoZ = posicao
-	$ComponenteJogador.z_index = zIndex
+func mudarPosicaoChao(body, posicao, zIndex):
+	body.mudarPosicaoChao(posicao, zIndex)
+
+func respawnar(body):
+	body.respawnar()
+	
