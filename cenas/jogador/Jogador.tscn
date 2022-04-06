@@ -954,10 +954,8 @@ anims/respawnar = SubResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 0, 0.25 )
+position = Vector2( 0, 1 )
 shape = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 current = true
-zoom = Vector2( 0.25, 0.25 )

@@ -1,6 +1,7 @@
 extends Node2D
 
+export var gravidade = 20
 export var atrito = 75
 
 func _process(_delta):
-	$Jogador.rodar(atrito)
+	$ComponenteJogador.rodar(atrito, gravidade)

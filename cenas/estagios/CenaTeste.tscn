@@ -16,17 +16,17 @@ z_index = 1
 
 [node name="ComponenteJogador2" parent="Jogadores" instance=ExtResource( 2 )]
 position = Vector2( 40, -20 )
-z_index = -38
+z_index = -20
 posicaoInicial = Vector2( 40, -20 )
 
 [node name="ComponenteJogador3" parent="Jogadores" instance=ExtResource( 2 )]
 position = Vector2( -40, -20 )
-z_index = -62
+z_index = -20
 posicaoInicial = Vector2( -40, -20 )
 
 [node name="ComponenteJogador4" parent="Jogadores" instance=ExtResource( 2 )]
 position = Vector2( 0, -40 )
-z_index = -92
+z_index = -40
 posicaoInicial = Vector2( 0, -40 )
 
 [node name="BlocosAltura0" type="TileMap" parent="."]
