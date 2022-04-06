@@ -3,14 +3,18 @@
 [ext_resource path="res://recursos/tileSets/BlocosTemporariosCartesianos.tres" type="TileSet" id=1]
 [ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=2]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/estagios/testes/CenaTeste2.gd" type="Script" id=4]
+[ext_resource path="res://scripts/estagios/testes/CenaTeste.gd" type="Script" id=4]
 
 [node name="CenaTeste2" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Jogadores" type="Node2D" parent="."]
+
+[node name="ComponenteJogador" parent="Jogadores" instance=ExtResource( 3 )]
+
 [node name="Isometrico" type="TileMap" parent="."]
 position = Vector2( 1, 40 )
-z_index = -1000
+z_index = -1
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
@@ -19,14 +23,29 @@ tile_data = PoolIntArray( -1048552, 0, 0, -983016, 0, 0, -917480, 0, 0, -851944,
 
 [node name="Cartesiano" type="TileMap" parent="."]
 position = Vector2( 0, 57 )
-z_index = -1000
+z_index = -1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 16 )
 format = 1
 tile_data = PoolIntArray( 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 589834, 0, 0, 655370, 0, 0, 720906, 0, 0, 786442, 0, 0, 851978, 0, 0, 852002, 0, 0, 917514, 0, 0, 917538, 0, 0, 983050, 0, 0, 983074, 0, 0, 1048586, 0, 0, 1048610, 0, 0, 1114122, 0, 0, 1114146, 0, 0, 1179658, 0, 0, 1179682, 0, 0, 1245194, 0, 0, 1245218, 0, 0, 1310730, 0, 0, 1310754, 0, 0, 1376266, 0, 0, 1376290, 0, 0, 1441802, 0, 0, 1441816, 1, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441830, 0, 0, 1441831, 0, 0, 1441832, 0, 0, 1441833, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1441836, 0, 0, 1507338, 0, 0, 1572874, 0, 0, 1638410, 0, 0, 1703946, 0, 0, 1769482, 0, 0, 1835018, 0, 0, 1900554, 0, 0, 1966090, 0, 0 )
 
-[node name="ComponenteJogador" parent="." instance=ExtResource( 3 )]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 180, 271 )
 current = true
+
+[node name="Gatilhos" type="Node2D" parent="."]
+
+[node name="AreaQuedaBaixo" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaQuedaBaixo"]
+polygon = PoolVector2Array( 0, 41, -124, 104, -1, 74, 127, 104 )
+
+[node name="AreaQuedaCima" type="Area2D" parent="Gatilhos"]
+scale = Vector2( 1, -1 )
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaQuedaCima"]
+polygon = PoolVector2Array( -124, -105, 127, -105, -1, -73 )
+
+[connection signal="body_entered" from="Gatilhos/AreaQuedaCima" to="." method="mudarPosicaoChaoECoeficienteZ" binds= [ Vector2( 0, 3000 ), -1, 0, -2 ]]

@@ -909,7 +909,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 7, 20.25 )
+extents = Vector2( 7, 0.625 )
 
 [node name="Jogador" type="KinematicBody2D"]
 collision_mask = 0
@@ -953,8 +953,5 @@ anims/paradoSul = SubResource( 4 )
 anims/respawnar = SubResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 1 )
+position = Vector2( 0, 20.625 )
 shape = SubResource( 12 )
-
-[node name="Camera2D" type="Camera2D" parent="."]

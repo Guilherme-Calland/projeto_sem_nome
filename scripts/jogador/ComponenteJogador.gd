@@ -11,6 +11,8 @@ func rodar(atrito, gravidade):
 	$Sombra.rodar($Jogador/Movimento/Fisica.posicaoChao)
 
 func mudarZIndex(index):
+	print(z_index)
+	print($Jogador.global_position)
 	z_index = index
 
 func mudarPosicaoChao(posicao):
@@ -20,7 +22,3 @@ func connectSignals():
 	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
 	$Sombra.connect('mudarPosicaoChaoECoeficienteZ', self, 'mudarPosicaoChaoECoeficienteZ')
 	
-func mudarPosicaoChaoECoeficienteZ(posicao, coeficiente, coeficienteCondicao):
-	if $Jogador.coeficienteZIndex == coeficienteCondicao:
-		$Jogador.coeficienteZIndex = coeficiente
-		mudarPosicaoChao(posicao)
