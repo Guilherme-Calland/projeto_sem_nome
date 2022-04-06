@@ -10,3 +10,7 @@ func _process(_delta):
 # sinal que é chamado quando o boneco entra em um terreno diferente
 func mudarAtrito(_body, inAtrito):
 	atrito = inAtrito
+
+func mudarPosicaoChao(_body, posicao, zIndex):
+	$ComponenteJogador/Jogador/Movimento/Fisica.posicaoChaoZ = posicao
+	$ComponenteJogador.z_index = zIndex

@@ -9,12 +9,12 @@ func rodar(inInput, inMovimento):
 	movimento = inMovimento
 	fisica = movimento.get_child(0)
 	
-	if fisica.noChao():
-		if input.apertouBotao("oeste"):
-			inverterEixoHorizontalSprite(true)
-		elif input.apertouBotao("leste"):
-			inverterEixoHorizontalSprite(false)
+	if input.apertouBotao("oeste"):
+		inverterEixoHorizontalSprite(true)
+	elif input.apertouBotao("leste"):
+		inverterEixoHorizontalSprite(false)
 		
+	if fisica.noChao():
 		if input.apertouBotao("sul"):
 			if input.apertouBotao("oeste") || input.apertouBotao("leste"):
 				mudarAnimacao("andando", 'diagonalSul')
