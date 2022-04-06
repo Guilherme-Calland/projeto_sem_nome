@@ -958,4 +958,3 @@ position = Vector2( 0, 1 )
 shape = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true

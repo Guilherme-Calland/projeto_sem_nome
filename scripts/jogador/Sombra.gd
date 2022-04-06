@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-signal mudarPosicaoChao
+signal mudarPosicaoChaoECoeficienteZ
+signal mudarZIndex
 
 func rodar(posicao):
 	mudarPosicao(posicao)
@@ -8,6 +9,7 @@ func rodar(posicao):
 func mudarPosicao(posicao):
 	global_position = posicao
 
-func mudarPosicaoChao(posicao):
-	emit_signal('mudarPosicaoChao', posicao)
+func mudarPosicaoChaoEZIndex(posicao, coeficienteZ, coeficienteCondicaoZ):
+	emit_signal('mudarPosicaoChaoECoeficienteZ', posicao, coeficienteZ, coeficienteCondicaoZ)
+	
 

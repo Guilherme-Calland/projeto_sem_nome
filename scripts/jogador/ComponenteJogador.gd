@@ -18,4 +18,9 @@ func mudarPosicaoChao(posicao):
 
 func connectSignals():
 	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
-	$Sombra.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
+	$Sombra.connect('mudarPosicaoChaoECoeficienteZ', self, 'mudarPosicaoChaoECoeficienteZ')
+	
+func mudarPosicaoChaoECoeficienteZ(posicao, coeficiente, coeficienteCondicao):
+	if $Jogador.coeficienteZIndex == coeficienteCondicao:
+		$Jogador.coeficienteZIndex = coeficiente
+		mudarPosicaoChao(posicao)

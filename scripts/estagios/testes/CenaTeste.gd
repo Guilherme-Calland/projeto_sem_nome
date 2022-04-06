@@ -14,9 +14,8 @@ func _process(_delta):
 func mudarAtrito(_body, inAtrito):
 	atrito = inAtrito
 
-func mudarPosicaoChao(body, posicao):
-	body.mudarPosicaoChao(posicao)
+func mudarPosicaoChaoECoeficienteZ(body, posicao, coeficienteZ, coeficienteCondicaoZ):
+	body.mudarPosicaoChaoEZIndex(posicao, coeficienteZ, coeficienteCondicaoZ)
 
 func respawnar(body, posicao):
 	body.respawnar(posicao)
-	
