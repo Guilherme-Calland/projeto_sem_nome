@@ -46,6 +46,9 @@ var posicao = Vector2(0, 0)
 # posicao do chao na reta Z
 var posicaoChaoZ = Vector2(0, 0)
 
+# posicao do chao no espaco XYZ
+var posicaoChao = Vector2(0, 0)
+
 # variaveis do mundo
 var atrito
 var gravidade
@@ -102,6 +105,7 @@ func calcularPosicao():
 	posicaoZ += sentidoZ/60
 	posicaoXY = posicaoX + posicaoY
 	posicao = posicaoX + posicaoY + posicaoZ
+	posicaoChao = posicaoXY + posicaoChaoZ
 
 func noChao():
 	return posicaoZ.y >= posicaoChaoZ.y
@@ -113,15 +117,13 @@ func ficarNoChao():
 	sentidoZ.y = 0
 	posicaoZ = posicaoChaoZ
 
-func reiniciarPosicao():
+func respawnar(inPosicao):
 	sentidoX = Vector2(0,0)
 	sentidoY = Vector2(0,0)
 	sentidoZ = Vector2(0,0)
-	sentidoXY = Vector2(0,0)
-	sentido = Vector2(0,0)
-	posicaoX = Vector2(0,0)
-	posicaoY = Vector2(0,0)
+	posicaoX = Vector2(inPosicao.x,0)
+	posicaoY = Vector2(0,inPosicao.y)
 	posicaoZ = Vector2(0,0)
-	posicaoXY = Vector2(0,0)
-	posicao = Vector2(0,0)
 	posicaoChaoZ = Vector2(0,0)
+	posicaoChao = Vector2(0,0)
+	calcularPosicao()

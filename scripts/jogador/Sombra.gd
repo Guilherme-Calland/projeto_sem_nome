@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-signal mudarZIndex
 signal mudarPosicaoChao
 
 func rodar(posicao):
@@ -9,7 +8,6 @@ func rodar(posicao):
 func mudarPosicao(posicao):
 	global_position = posicao
 
-func mudarPosicaoChao(posicao, zIndex):
-	emit_signal('mudarZIndex', zIndex)
+func mudarPosicaoChao(posicao):
 	emit_signal('mudarPosicaoChao', posicao)
 

@@ -4,7 +4,7 @@
 [ext_resource path="res://graficos/jogador/jogadorTemporario/sombra/sombra.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1, 1 )
+extents = Vector2( 6, 1 )
 
 [node name="Sombra" type="KinematicBody2D"]
 collision_layer = 2
@@ -16,5 +16,5 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -5, 22 )
+position = Vector2( 0, 22 )
 shape = SubResource( 1 )

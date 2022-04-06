@@ -1,13 +1,14 @@
 extends Node2D
 
+export var posicaoInicial = Vector2(0,0)
+
 func _ready():
 	connectSignals()
+	$Jogador.respawnar(posicaoInicial)
 
 func rodar(atrito, gravidade):
-	var posicaoSombra = $Jogador/Movimento/Fisica.posicaoXY + $Jogador/Movimento/Fisica.posicaoChaoZ
-	
 	$Jogador.rodar(atrito, gravidade)
-	$Sombra.rodar(posicaoSombra)
+	$Sombra.rodar($Jogador/Movimento/Fisica.posicaoChao)
 
 func mudarZIndex(index):
 	z_index = index
@@ -17,5 +18,4 @@ func mudarPosicaoChao(posicao):
 
 func connectSignals():
 	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
-	$Sombra.connect('mudarZIndex', self, 'mudarZIndex')
 	$Sombra.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
