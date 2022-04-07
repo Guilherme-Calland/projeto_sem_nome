@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://recursos/tileSets/BlocosTemporariosCartesianos.tres" type="TileSet" id=1]
 [ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=2]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/estagios/testes/CenaTeste.gd" type="Script" id=4]
+[ext_resource path="res://cenas/gatilhos/RestartArea.tscn" type="PackedScene" id=5]
 
 [node name="CenaTeste2" type="Node2D"]
 script = ExtResource( 4 )
@@ -12,40 +13,174 @@ script = ExtResource( 4 )
 
 [node name="ComponenteJogador" parent="Jogadores" instance=ExtResource( 3 )]
 
-[node name="Isometrico" type="TileMap" parent="."]
-position = Vector2( 1, 40 )
-z_index = -1
-mode = 1
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 64, 32 )
-format = 1
-tile_data = PoolIntArray( -1048552, 0, 0, -983016, 0, 0, -917480, 0, 0, -851944, 0, 0, -786408, 0, 0, -720872, 0, 0, -655336, 0, 0, -589800, 0, 0, -524264, 0, 0, -458728, 0, 0, -393192, 0, 0, -327656, 0, 0, -262120, 0, 0, -196584, 0, 0, -131048, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 8, 0, 65535, 0, 0, 16, 0, 0, 131071, 0, 0, 65552, 0, 0, 196607, 0, 0, 131088, 0, 0, 262143, 0, 0, 196624, 0, 0, 327679, 0, 0, 262160, 0, 0, 393215, 0, 0, 327696, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0 )
-
-[node name="Cartesiano" type="TileMap" parent="."]
-position = Vector2( 0, 57 )
-z_index = -1
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 32, 16 )
-format = 1
-tile_data = PoolIntArray( 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 589834, 0, 0, 655370, 0, 0, 720906, 0, 0, 786442, 0, 0, 851978, 0, 0, 852002, 0, 0, 917514, 0, 0, 917538, 0, 0, 983050, 0, 0, 983074, 0, 0, 1048586, 0, 0, 1048610, 0, 0, 1114122, 0, 0, 1114146, 0, 0, 1179658, 0, 0, 1179682, 0, 0, 1245194, 0, 0, 1245218, 0, 0, 1310730, 0, 0, 1310754, 0, 0, 1376266, 0, 0, 1376290, 0, 0, 1441802, 0, 0, 1441816, 1, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441830, 0, 0, 1441831, 0, 0, 1441832, 0, 0, 1441833, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1441836, 0, 0, 1507338, 0, 0, 1572874, 0, 0, 1638410, 0, 0, 1703946, 0, 0, 1769482, 0, 0, 1835018, 0, 0, 1900554, 0, 0, 1966090, 0, 0 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 180, 271 )
 current = true
 
 [node name="Gatilhos" type="Node2D" parent="."]
 
-[node name="AreaQuedaBaixo" type="Area2D" parent="Gatilhos"]
+[node name="RestartArea" parent="Gatilhos" instance=ExtResource( 5 )]
+
+[node name="AreaQueda" type="Area2D" parent="Gatilhos"]
 collision_layer = 0
+collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaQuedaBaixo"]
-polygon = PoolVector2Array( 0, 41, -124, 104, -1, 74, 127, 104 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+polygon = PoolVector2Array( -113, 102, 0, 46, 113, 102 )
 
-[node name="AreaQuedaCima" type="Area2D" parent="Gatilhos"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+position = Vector2( -174, 90 )
+polygon = PoolVector2Array( -123, 105, 14, 40, 333, 39, 470, 106 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+position = Vector2( -642, 188 )
+polygon = PoolVector2Array( 241, -15, 271, -26, 310, -18, 354, 8, 390, 10, 356, 31 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+position = Vector2( 645, 189 )
+scale = Vector2( -1, 1 )
+polygon = PoolVector2Array( 264, -25, 271, -26, 310, -18, 354, 8, 390, 10, 355, 22 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+position = Vector2( -801, 55 )
+polygon = PoolVector2Array( 428, 107, 802, -79, 801, -53, 467, 115 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+position = Vector2( 802, 55 )
+scale = Vector2( -1, 1 )
+polygon = PoolVector2Array( 428, 107, 802, -79, 801, -53, 467, 115 )
+
+[node name="AreaSubirIndexZ" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaSubirIndexZ"]
+position = Vector2( 4.7, -2.2 )
+z_index = 501
+polygon = PoolVector2Array( -126, 104, -191, 104, -205, 110, -140, 110 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/AreaSubirIndexZ"]
+position = Vector2( -4, -3 )
+scale = Vector2( -1, 1 )
+z_index = 501
+polygon = PoolVector2Array( -126, 104, -191, 104, -205, 110, -140, 110 )
+
+[node name="AreaDescerIndexZ" type="Area2D" parent="Gatilhos"]
+position = Vector2( 13, -6 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaDescerIndexZ"]
+position = Vector2( 4.7, -2.2 )
+z_index = 501
+polygon = PoolVector2Array( -126, 104, -191, 104, -205, 110, -140, 110 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/AreaDescerIndexZ"]
+position = Vector2( -31, -4 )
+scale = Vector2( -1, 1 )
+z_index = 501
+polygon = PoolVector2Array( -126, 104, -191, 104, -205, 110, -140, 110 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Gatilhos/AreaDescerIndexZ"]
+position = Vector2( -13, 6 )
+polygon = PoolVector2Array( -113, 102, 0, 46, 113, 102 )
+
+[node name="AreaDescerIndexZ2" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Gatilhos/AreaDescerIndexZ2"]
+position = Vector2( -801, 55 )
+polygon = PoolVector2Array( 428, 107, 802, -79, 801, -53, 467, 115 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Gatilhos/AreaDescerIndexZ2"]
+position = Vector2( 802, 55 )
+rotation = 3.14159
 scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 428, 107, 802, -79, 801, -53, 467, 115 )
+
+[node name="AreaSubirIndexZ2" type="Area2D" parent="Gatilhos"]
 collision_layer = 0
+collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaQuedaCima"]
-polygon = PoolVector2Array( -124, -105, 127, -105, -1, -73 )
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Gatilhos/AreaSubirIndexZ2"]
+position = Vector2( -174, 90 )
+polygon = PoolVector2Array( -123, 105, 14, 40, 333, 39, 470, 106 )
 
-[connection signal="body_entered" from="Gatilhos/AreaQuedaCima" to="." method="mudarPosicaoChaoECoeficienteZ" binds= [ Vector2( 0, 3000 ), -1, 0, -2 ]]
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Gatilhos/AreaSubirIndexZ2"]
+position = Vector2( -642, 188 )
+polygon = PoolVector2Array( 241, -15, 271, -26, 310, -18, 354, 8, 390, 10, 356, 31 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Gatilhos/AreaSubirIndexZ2"]
+position = Vector2( 645, 189 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 264, -25, 271, -26, 310, -18, 354, 8, 390, 10, 355, 22 )
+
+[node name="PosicoesZ" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="PosicoesZ"]
+z_index = -250
+
+[node name="Cartesiano" type="TileMap" parent="PosicoesZ/1"]
+position = Vector2( 0, 57 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="Isometrico" type="TileMap" parent="PosicoesZ/1"]
+position = Vector2( 0, 40 )
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0 )
+
+[node name="2" type="Node2D" parent="PosicoesZ"]
+position = Vector2( -1, 0 )
+z_index = 500
+
+[node name="Cartesiano" type="TileMap" parent="PosicoesZ/2"]
+position = Vector2( 0, 57 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0 )
+
+[node name="Isometrico" type="TileMap" parent="PosicoesZ/2"]
+position = Vector2( 1, 40 )
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0 )
+
+[node name="3" type="Node2D" parent="PosicoesZ"]
+z_index = 1000
+
+[node name="Cartesiano" type="TileMap" parent="PosicoesZ/3"]
+tile_set = ExtResource( 1 )
+format = 1
+
+[node name="Isometrico" type="TileMap" parent="PosicoesZ/3"]
+position = Vector2( 0, 40 )
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -65526, 0, 0, -65525, 0, 0, -65524, 0, 0 )
+
+[connection signal="body_entered" from="Gatilhos/RestartArea" to="." method="respawnar" binds= [ Vector2( 0, 0 ) ]]
+[connection signal="body_entered" from="Gatilhos/AreaQueda" to="." method="mudarPosicaoChao" binds= [ Vector2( 0, 3000 ) ]]
+[connection signal="body_entered" from="Gatilhos/AreaSubirIndexZ" to="." method="mudarCoeficienteZ" binds= [ 1 ]]
+[connection signal="body_entered" from="Gatilhos/AreaDescerIndexZ" to="." method="mudarCoeficienteZ" binds= [ 0 ]]
+[connection signal="body_entered" from="Gatilhos/AreaDescerIndexZ2" to="." method="mudarCoeficienteZ" binds= [ -1 ]]
+[connection signal="body_entered" from="Gatilhos/AreaSubirIndexZ2" to="." method="mudarCoeficienteZ" binds= [ 2 ]]

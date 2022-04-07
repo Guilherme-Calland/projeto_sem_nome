@@ -23,3 +23,8 @@ func iniciarJogadores():
 	for j in jogadores:
 		j.rodar(atrito, gravidade)
 
+func mudarCoeficienteZ(body, inCoeficiente):
+	body.mudarCoeficienteZ(inCoeficiente)
+
+func mudarPosicaoChao(body, posicao):
+	body.mudarPosicaoChao(posicao)
