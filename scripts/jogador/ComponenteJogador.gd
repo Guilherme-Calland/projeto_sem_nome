@@ -13,9 +13,5 @@ func rodar(atrito, gravidade):
 func mudarZIndex(index):
 	z_index = index
 
-func mudarPosicaoChao(posicao):
-	$Jogador/Movimento/Fisica.posicaoChaoZ = posicao
-
 func connectSignals():
 	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
-	$Sombra.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=1]
+[ext_resource path="res://cenas/gatilhos/RestartArea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/estagios/testes/CenaTeste.gd" type="Script" id=4]
+
+[node name="CenaTeste" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Jogadores" type="Node2D" parent="."]
+
+[node name="ComponenteJogador" parent="Jogadores" instance=ExtResource( 3 )]
+z_index = 1
+
+[node name="ComponenteJogador2" parent="Jogadores" instance=ExtResource( 3 )]
+position = Vector2( 40, -20 )
+z_index = -20
+posicaoInicial = Vector2( 40, -20 )
+
+[node name="ComponenteJogador3" parent="Jogadores" instance=ExtResource( 3 )]
+position = Vector2( -40, -20 )
+z_index = -20
+posicaoInicial = Vector2( -40, -20 )
+
+[node name="ComponenteJogador4" parent="Jogadores" instance=ExtResource( 3 )]
+position = Vector2( 0, -40 )
+z_index = -40
+posicaoInicial = Vector2( 0, -40 )
+
+[node name="Blocos" type="TileMap" parent="."]
+z_index = -250
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 11, 0, 196607, 11, 0, 131072, 11, 0, 131073, 11, 0, 131074, 11, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 11, 0, 262143, 11, 0, 196608, 11, 0, 196609, 11, 0, 196610, 11, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 11, 0, 327679, 11, 0, 262144, 11, 0, 262145, 11, 0, 262146, 11, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 11, 0, 393215, 11, 0, 327680, 11, 0, 327681, 11, 0, 327682, 11, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 8, 0, 458751, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0 )
+
+[node name="Gatilhos" type="Node2D" parent="."]
+
+[node name="AreaQueda" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+polygon = PoolVector2Array( -631, 40, -450, 33, -229.609, 142.951, 1, 258, 448, 33, 636, 32, 1, 368 )
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Gatilhos/AreaQueda"]
+position = Vector2( -2, 66 )
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( -632, 28, -450, 33, -30, 241, 3, 225, 35, 241, 3, 257, 448, 33, 636, 32, 1, 368 )
+
+[node name="AreaGelo" type="Area2D" parent="Gatilhos"]
+visible = false
+position = Vector2( 101, -98 )
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/AreaGelo"]
+polygon = PoolVector2Array( -229, 259, -389, 178, -229, 98, -70, 178 )
+
+[node name="AreaAumentarCoeficienteZ" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Gatilhos/AreaAumentarCoeficienteZ"]
+polygon = PoolVector2Array( -631, 40, -450, 33, -229.609, 142.951, 1, 258, 448, 33, 636, 32, 1, 368 )
+
+[node name="AreaDiminuirCoeficienteZ" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Gatilhos/AreaDiminuirCoeficienteZ"]
+position = Vector2( -2, 66 )
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( -632, 28, -450, 33, -30, 241, 3, 225, 35, 241, 3, 257, 448, 33, 636, 32, 1, 368 )
+
+[node name="RestartArea" parent="Gatilhos" instance=ExtResource( 2 )]
+collision_mask = 1
+
+[connection signal="body_entered" from="Gatilhos/AreaQueda" to="." method="mudarPosicaoChao" binds= [ Vector2( 0, 3000 ) ]]
+[connection signal="body_entered" from="Gatilhos/AreaGelo" to="." method="mudarAtrito" binds= [ 0.75 ]]
+[connection signal="body_exited" from="Gatilhos/AreaGelo" to="." method="mudarAtrito" binds= [ 75.0 ]]
+[connection signal="body_entered" from="Gatilhos/AreaAumentarCoeficienteZ" to="." method="mudarCoeficienteZ" binds= [ 1 ]]
+[connection signal="body_entered" from="Gatilhos/AreaDiminuirCoeficienteZ" to="." method="mudarCoeficienteZ" binds= [ -1 ]]
+[connection signal="body_entered" from="Gatilhos/RestartArea" to="." method="respawnar" binds= [ Vector2( 0, 0 ) ]]
