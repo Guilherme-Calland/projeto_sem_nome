@@ -4,7 +4,7 @@
 [ext_resource path="res://cenas/gatilhos/RestartArea.tscn" type="PackedScene" id=2]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://recursos/tileSets/BlocosTemporariosCartesianos.tres" type="TileSet" id=4]
-[ext_resource path="res://scripts/estagios/testes/CenaTeste.gd" type="Script" id=5]
+[ext_resource path="res://scripts/estagios/CenaTemplate.gd" type="Script" id=5]
 
 [node name="CenaTeste2" type="Node2D"]
 script = ExtResource( 5 )
@@ -19,9 +19,11 @@ current = true
 [node name="Gatilhos" type="Node2D" parent="."]
 
 [node name="RestartArea" parent="Gatilhos" instance=ExtResource( 2 )]
+visible = false
 collision_mask = 1
 
 [node name="AreaQueda" type="Area2D" parent="Gatilhos"]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -59,6 +61,7 @@ collision_mask = 8
 polygon = PoolVector2Array( -320, 168, -288, 184, -160, 121, 159, 121, 288, 183, 319, 168, 0, 7, 0, 41, 129, 105, -126, 104, -5, 42, -7, 11 )
 
 [node name="AreaAumentarCoeficienteZ" type="Area2D" parent="Gatilhos"]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -74,6 +77,7 @@ z_index = 501
 polygon = PoolVector2Array( -5, 108, -133, 108, -129, 105, -191, 104, -324, 171, -292, 188, -163, 124, -6, 123 )
 
 [node name="AreaDiminuirCoeficienteZ" type="Area2D" parent="Gatilhos"]
+visible = false
 position = Vector2( 13, -6 )
 collision_layer = 0
 collision_mask = 8
