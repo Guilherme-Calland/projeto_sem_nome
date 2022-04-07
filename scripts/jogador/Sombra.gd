@@ -9,12 +9,3 @@ func rodar(posicao):
 
 func mudarPosicao(posicao):
 	global_position = posicao
-
-func mudarPosicaoChaoECoeficienteZ(posicao, coeficienteZ, cond1, cond2):
-	emit_signal('mudarPosicaoChaoECoeficienteZ', posicao, coeficienteZ, cond1, cond2)
-
-func mudarCoeficienteZ(inCoeficiente):
-	emit_signal('mudarCoeficienteZ', inCoeficiente)
-
-func mudarPosicaoChao(inPosicao):
-	emit_signal('mudarPosicaoChao', inPosicao)

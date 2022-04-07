@@ -6,6 +6,7 @@
 position = Vector2( 6, 1330 )
 scale = Vector2( 1, 20 )
 collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 scale = Vector2( 1000, 1 )

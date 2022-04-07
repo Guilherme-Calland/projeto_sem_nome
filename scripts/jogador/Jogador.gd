@@ -9,6 +9,7 @@ func _ready():
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
 func rodar(atrito, gravidade):
 	print($Movimento/Fisica.posicao)
+	print($Movimento/Fisica.posicaoXY)
 	#animacao
 	$Animacao.rodar($Input, $Movimento)
 	#movimento
