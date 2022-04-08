@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal respawnar
 signal mudarPosicaoChao
 signal mudarCoeficienteZ
+signal mudarAtrito
 
 func respawnar(posicao):
 	emit_signal("respawnar", posicao)
@@ -10,5 +11,9 @@ func respawnar(posicao):
 func mudarPosicaoChao(posicao):
 	emit_signal('mudarPosicaoChao', posicao)
 
-func mudarCoeficienteZ(inCoeficiente):
-	emit_signal('mudarCoeficienteZ', inCoeficiente)
+func mudarCoeficienteZ(inCoeficiente, posicaoZ):
+	emit_signal('mudarCoeficienteZ', inCoeficiente, posicaoZ)
+
+func mudarAtrito(inAtrito):
+	emit_signal("mudarAtrito", inAtrito)
+

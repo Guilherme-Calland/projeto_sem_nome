@@ -1,8 +1,15 @@
 extends Node
 
 # velocidade do boneco, export para podermos modificar enquanto jogamos
-export var velocidade = 75
+var velocidadePadrao = 75
 export var forcaPulo = 375
+var velocidade
+var correndo = false
+var patinando = false
+
+# variaveis do mundo
+var atrito
+var gravidade
 
 # vetores de base
 var vetorX = Vector2(1, 0.5)
@@ -49,16 +56,18 @@ var posicaoChaoZ = Vector2(0, 0)
 # posicao do chao no espaco XYZ
 var posicaoChao = Vector2(0, 0)
 
-# variaveis do mundo
-var atrito
-var gravidade
 
-func rodar(inAtrito, inGravidade):
-	atrito = inAtrito
+func rodar(inGravidade):
 	gravidade = inGravidade
-		
 	calcularSentido()
 	calcularPosicao()
+	if not correndo:
+		velocidade = velocidadePadrao
+	else:
+		velocidade = 2*velocidadePadrao
+	
+	if not patinando:
+		atrito = velocidade
 	
 func andar(inSentido):
 	if inSentido == 'sul':
@@ -117,13 +126,20 @@ func ficarNoChao():
 	sentidoZ.y = 0
 	posicaoZ = posicaoChaoZ
 
-func respawnar(inPosicao):
+func respawnar(inPosicao, inPosicaoZ):
 	sentidoX = Vector2(0,0)
 	sentidoY = Vector2(0,0)
 	sentidoZ = Vector2(0,0)
 	posicaoX = Vector2(inPosicao.x,0)
 	posicaoY = Vector2(0,inPosicao.y)
-	posicaoZ = Vector2(0,0)
+	posicaoXY = Vector2(0,0)
+	posicaoZ = inPosicaoZ
 	posicaoChaoZ = Vector2(0,0)
 	posicaoChao = Vector2(0,0)
 	calcularPosicao()
+
+func aumentarVelocidade():
+	velocidade = velocidadePadrao*2
+
+func diminuirVelocidade():
+	velocidade = velocidadePadrao

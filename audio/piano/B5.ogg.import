@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/B5.ogg-ee7c81a7cad7f848c2939e31d233f288.oggstr"
+
+[deps]
+
+source_file="res://audio/piano/B5.ogg"
+dest_files=[ "res://.import/B5.ogg-ee7c81a7cad7f848c2939e31d233f288.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

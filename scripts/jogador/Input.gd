@@ -15,3 +15,6 @@ func apertouBotao(botao):
 	
 	if botao == "pular":
 		return Input.is_action_just_pressed("pular")
+	
+	if botao == 'acaoSecundaria':
+		return Input.is_action_pressed("acaoSecundaria")

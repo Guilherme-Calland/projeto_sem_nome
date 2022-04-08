@@ -3,8 +3,8 @@ extends Node
 # sentido que o boneco ta olhando
 var olhandoPro = "sul"
 
-func rodar(inAtrito, inGravidade, input):
-	$Fisica.rodar(inAtrito, inGravidade)
+func rodar(inGravidade, input):
+	$Fisica.rodar(inGravidade)
 	
 	if input.apertouBotao('sul'):
 		if input.apertouBotao('leste') || input.apertouBotao('oeste'):
@@ -45,7 +45,12 @@ func rodar(inAtrito, inGravidade, input):
 		$Fisica.cair()
 	else:
 		$Fisica.ficarNoChao()
-
-func respawnar(posicao):
+	
+	if input.apertouBotao('acaoSecundaria'):
+		$Fisica.correndo = true
+	else:
+		$Fisica.correndo = false
+		
+func respawnar(posicao, posicaoZ):
 	olhandoPro = 'sul'
-	$Fisica.respawnar(posicao)
+	$Fisica.respawnar(posicao, posicaoZ)
