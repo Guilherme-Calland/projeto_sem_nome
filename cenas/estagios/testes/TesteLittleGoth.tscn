@@ -106,7 +106,7 @@ collision_mask = 8
 polygon = PoolVector2Array( 96, 176, 192, 129, 128, 97, 32, 144 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Chao"]
-polygon = PoolVector2Array( 126, 158, 156, 143, 576, 352, 545, 367 )
+polygon = PoolVector2Array( 129, 160, 159, 145, 576, 352, 545, 367 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Chao"]
 position = Vector2( 420, 494 )
@@ -141,14 +141,14 @@ position = Vector2( 83, -45 )
 polygon = PoolVector2Array( 93, 189, 119, 175, 136, 176, 108, 196 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Y0"]
-polygon = PoolVector2Array( 96, 176, 192, 129, 128, 97, 32, 144 )
+polygon = PoolVector2Array( 96, 176, 123, 162, 115, 156, 150, 137, 163, 143, 192, 129, 128, 97, 32, 144 )
 
 [node name="Y2" type="Area2D" parent="Gatilhos/Terreno"]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Y2"]
-polygon = PoolVector2Array( 134, 162, 164, 147, 576, 352, 545, 367 )
+polygon = PoolVector2Array( 122, 156, 151, 141, 576, 352, 545, 367 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Y2"]
 position = Vector2( 420, 494 )
@@ -174,16 +174,6 @@ polygon = PoolVector2Array( 114, 174, 126, 168, 545, 384, 544, 395 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Y2/Frente"]
 polygon = PoolVector2Array( 545, 384, 545, 396, 1135, 88, 1126, 85 )
-
-[node name="Y2" type="Area2D" parent="Gatilhos/Terreno/Y2"]
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Y2/Y2"]
-position = Vector2( -2, -1 )
-polygon = PoolVector2Array( 132, 161, 162, 146, 159, 144, 129, 159 )
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Y2/Y2"]
-position = Vector2( 1, 1 )
-polygon = PoolVector2Array( 132, 161, 162, 146, 159, 145, 129, 160 )
 
 [node name="Respawn" type="Area2D" parent="Gatilhos"]
 position = Vector2( 0, 1500 )
@@ -257,13 +247,12 @@ polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
 
 [connection signal="body_entered" from="Gatilhos/Terreno/Queda" to="." method="mudarPosicaoChao" binds= [ Vector2( 0, 3000 ) ]]
 [connection signal="body_entered" from="Gatilhos/Terreno/Chao" to="." method="mudarPosicaoChao" binds= [ Vector2( 0, 0 ) ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y0" to="." method="mudarCoeficienteZ" binds= [ 0, 0 ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y0/Atras" to="." method="mudarCoeficienteZ" binds= [ -1, 0.0 ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y0/Frente" to="." method="mudarCoeficienteZ" binds= [ 1.0, 0.0 ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y2" to="." method="mudarCoeficienteZ" binds= [ 2.0, 0.0 ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y2/Atras" to="." method="mudarCoeficienteZ" binds= [ 1.0, 0.0 ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y2/Frente" to="." method="mudarCoeficienteZ" binds= [ 3.0, 0.0 ]]
-[connection signal="body_entered" from="Gatilhos/Terreno/Y2/Y2" to="." method="mudarCoeficienteZ" binds= [ 2, 0 ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Y0" to="." method="mudarCoeficienteZ" binds= [ 0, 0, false ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Y0/Atras" to="." method="mudarCoeficienteZ" binds= [ -1, 0.0, true ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Y0/Frente" to="." method="mudarCoeficienteZ" binds= [ 1.0, 0.0, false ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Y2" to="." method="mudarCoeficienteZ" binds= [ 2.0, 0.0, false ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Y2/Atras" to="." method="mudarCoeficienteZ" binds= [ 1.0, 0.0, true ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Y2/Frente" to="." method="mudarCoeficienteZ" binds= [ 3.0, 0.0, false ]]
 [connection signal="body_entered" from="Gatilhos/Respawn" to="." method="respawnar" binds= [ Vector2( 96, 104 ), Vector2( 0, -200 ) ]]
 [connection signal="body_entered" from="Gatilhos/Audio/PianoA5" to="." method="tocarAudio" binds= [ "piano", "A5", 2, 0.0 ]]
 [connection signal="body_entered" from="Gatilhos/Audio/PianoE5" to="." method="tocarAudio" binds= [ "piano", "E5", 2, 0.0 ]]

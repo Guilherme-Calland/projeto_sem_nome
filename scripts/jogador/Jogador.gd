@@ -27,10 +27,14 @@ func respawnar(posicao, posicaoZ):
 	$Movimento.respawnar(posicao, posicaoZ)
 	$Animacao.respawnar()
 
-func mudarCoeficienteZ(inCoeficiente, posicaoZ):
+func mudarCoeficienteZ(inCoeficiente, posicaoZ, atras):
 	if coeficienteZIndex <= inCoeficiente + 2 and coeficienteZIndex >= inCoeficiente - 2:
-		if $Movimento/Fisica.posicaoZ.y == posicaoZ:
-			coeficienteZIndex = inCoeficiente
+		if not atras:
+			if $Movimento/Fisica.posicaoZ.y == posicaoZ:
+				coeficienteZIndex = inCoeficiente
+		else:
+			if $Movimento/Fisica.posicaoZ.y <= posicaoZ:
+				coeficienteZIndex = inCoeficiente
 
 func mudarPosicaoChao(inPosicao):
 	if $Movimento/Fisica.posicaoZ.y <= inPosicao.y:
