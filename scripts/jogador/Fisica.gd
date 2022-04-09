@@ -3,7 +3,7 @@ extends Node
 # velocidade do boneco, export para podermos modificar enquanto jogamos
 var velocidadePadrao = 75
 var forcaPulo = 375
-var velocidade
+var velocidade = 0.0
 var correndo = false
 var patinando = false
 
@@ -61,13 +61,9 @@ func rodar(inGravidade):
 	gravidade = inGravidade
 	calcularSentido()
 	calcularPosicao()
-	if not correndo:
-		velocidade = velocidadePadrao
-	else:
-		velocidade = 2*velocidadePadrao
+	setarVelocidade()
+	setarAtrito()
 	
-	if not patinando:
-		atrito = velocidade
 	
 func andar(inSentido):
 	if inSentido == 'sul':
@@ -143,3 +139,13 @@ func aumentarVelocidade():
 
 func diminuirVelocidade():
 	velocidade = velocidadePadrao
+
+func setarVelocidade():
+	if not correndo:
+		velocidade = velocidadePadrao
+	else:
+		velocidade = 2*velocidadePadrao
+
+func setarAtrito():
+	if not patinando:
+			atrito = velocidade

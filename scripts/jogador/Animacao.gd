@@ -9,6 +9,8 @@ func rodar(inInput, inMovimento):
 	movimento = inMovimento
 	fisica = movimento.get_child(0)
 	
+	setarVelocidadeAnimacao()
+	
 	if input.apertouBotao("oeste"):
 		inverterEixoHorizontalSprite(true)
 	elif input.apertouBotao("leste"):
@@ -47,3 +49,6 @@ func mudarAnimacao(nome, olhandoPro):
 
 func respawnar():
 	$AnimationPlayer.play("respawnar")
+
+func setarVelocidadeAnimacao():
+	$AnimationPlayer.playback_speed = fisica.velocidade/88
