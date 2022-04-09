@@ -3,7 +3,7 @@
 [ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/estagios/littleGoth/TesteLittleGothParte1.gd" type="Script" id=3]
-[ext_resource path="res://recursos/tileSets/BlocosTemporariosCartesianos.tres" type="TileSet" id=4]
+[ext_resource path="res://audio/musicaDeFundo/little_goth.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 105.5 )
@@ -11,13 +11,16 @@ extents = Vector2( 10, 105.5 )
 [node name="Cena" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+
 [node name="Jogadores" type="Node2D" parent="."]
 position = Vector2( 96, 104 )
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
 posicaoInicial = Vector2( 96, 104 )
-velocidadePadrao = 90
-forcaPulo = 400
+velocidadePadrao = 88.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 529, 206 )
@@ -25,43 +28,55 @@ current = true
 
 [node name="Terreno" type="Node2D" parent="."]
 
-[node name="Y0" type="Node2D" parent="Terreno"]
+[node name="Parte1" type="Node2D" parent="Terreno"]
+
+[node name="Y0" type="Node2D" parent="Terreno/Parte1"]
 z_index = -1
 
-[node name="BlocosIsometricos" type="TileMap" parent="Terreno/Y0"]
+[node name="BlocosIsometricos" type="TileMap" parent="Terreno/Parte1/Y0"]
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 32 )
 format = 1
 tile_data = PoolIntArray( 65541, 28, 0, 65542, 28, 0, 131077, 28, 0, 131078, 28, 0, 131079, 46, 0, 131080, 28, 0, 131081, 28, 0, 131082, 28, 0, 131083, 46, 0, 131084, 46, 0, 131085, 46, 0, 131086, 46, 0, 131087, 28, 0, 131088, 28, 0, 131089, 28, 0, 131090, 28, 0, 196613, 28, 0, 196614, 28, 0 )
 
-[node name="BlocosCartesianos" type="TileMap" parent="Terreno/Y0"]
-position = Vector2( 0, -2.629 )
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 17 )
-format = 1
-
-[node name="Y2" type="Node2D" parent="Terreno"]
+[node name="Y1" type="Node2D" parent="Terreno/Parte1"]
 z_index = 1000
 
-[node name="BlocosIsometricos" type="TileMap" parent="Terreno/Y2"]
+[node name="BlocosIsometricos" type="TileMap" parent="Terreno/Parte1/Y1"]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -983021, 28, 0, -917485, 28, 0, -851949, 28, 0, -786413, 28, 0, -720877, 28, 0, -655341, 28, 0, -589805, 28, 0, -524269, 28, 0, -458733, 28, 0, -393197, 28, 0, -327661, 47, 0, -262125, 47, 0, -196589, 28, 0, -131053, 47, 0, -65517, 47, 0, 19, 47, 0, 65555, 28, 0, 131079, 46, 0, 131080, 28, 0, 131081, 28, 0, 131082, 28, 0, 131083, 46, 0, 131084, 46, 0, 131085, 46, 0, 131086, 46, 0, 131087, 28, 0, 131088, 28, 0, 131089, 28, 0, 131090, 28, 0, 131091, 28, 0 )
+
+[node name="Parte2" type="Node2D" parent="Terreno"]
+position = Vector2( 0, 430 )
+
+[node name="Y0" type="Node2D" parent="Terreno/Parte2"]
+z_index = -1
+
+[node name="BlocosIsometricos" type="TileMap" parent="Terreno/Parte2/Y0"]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( 65541, 28, 0, 65542, 28, 0, 131077, 28, 0, 131078, 28, 0, 131079, 46, 0, 131080, 28, 0, 131081, 28, 0, 131082, 28, 0, 131083, 46, 0, 131084, 46, 0, 131085, 46, 0, 131086, 46, 0, 131087, 28, 0, 131088, 28, 0, 131089, 28, 0, 131090, 28, 0, 196613, 28, 0, 196614, 28, 0 )
+
+[node name="Y2" type="Node2D" parent="Terreno/Parte2"]
+z_index = 1000
+
+[node name="BlocosIsometricos" type="TileMap" parent="Terreno/Parte2/Y2"]
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 32 )
 format = 1
 tile_data = PoolIntArray( -983021, 28, 0, -917485, 28, 0, -851949, 28, 0, -786413, 28, 0, -720877, 28, 0, -655341, 47, 0, -589805, 28, 0, -524269, 28, 0, -458733, 28, 0, -393197, 28, 0, -327661, 47, 0, -262125, 47, 0, -196589, 28, 0, -131053, 47, 0, -65517, 47, 0, 19, 47, 0, 65555, 28, 0, 131079, 46, 0, 131080, 28, 0, 131081, 28, 0, 131082, 28, 0, 131083, 46, 0, 131084, 46, 0, 131085, 46, 0, 131086, 46, 0, 131087, 28, 0, 131088, 28, 0, 131089, 28, 0, 131090, 28, 0, 131091, 28, 0 )
 
-[node name="BlocosCartesianos" type="TileMap" parent="Terreno/Y2"]
-position = Vector2( 0, -2.629 )
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 17 )
-format = 1
-
 [node name="Gatilhos" type="Node2D" parent="."]
 z_index = 4096
 
 [node name="Terreno" type="Node2D" parent="Gatilhos"]
-visible = false
 
 [node name="Queda" type="Area2D" parent="Gatilhos/Terreno"]
 collision_layer = 0
@@ -193,8 +208,20 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Gatilhos/Estagio/MudarEstagio"]
-position = Vector2( -14, 1 )
-polygon = PoolVector2Array( -59, -8, 57, 53, 154, 3, 36, -55 )
+position = Vector2( -94, -53 )
+polygon = PoolVector2Array( -68, -2, 47, 58, 351, -98, 245, -134 )
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Gatilhos/Estagio/MudarEstagio"]
+position = Vector2( 89, 21 )
+polygon = PoolVector2Array( -65, 1, 47, 58, 351, -98, 215, -145 )
+
+[node name="Tocar" type="Area2D" parent="Gatilhos/Estagio"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Estagio/Tocar"]
+position = Vector2( 0, 1 )
+polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
 
 [node name="Audio" type="Node2D" parent="Gatilhos"]
 
@@ -205,11 +232,11 @@ position = Vector2( 0, 1 )
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Parte1/PianoA5"]
-polygon = PoolVector2Array( 129, 159, 160, 176, 193, 160, 160, 144 )
-
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audio/Parte1/PianoA5"]
 position = Vector2( 129, 64 )
+polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Audio/Parte1/PianoA5"]
 polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
 
 [node name="PianoE5" type="Area2D" parent="Gatilhos/Audio/Parte1"]
@@ -226,10 +253,6 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Parte1/PianoB5"]
-polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audio/Parte1/PianoB5"]
-position = Vector2( 574, -96 )
 polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
 
 [node name="PianoC6" type="Area2D" parent="Gatilhos/Audio/Parte1"]
@@ -271,7 +294,7 @@ position = Vector2( -63.8, 94.6 )
 polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
 
 [node name="Parte2" type="Node2D" parent="Gatilhos/Audio"]
-position = Vector2( 0, 200 )
+position = Vector2( 0, 430 )
 
 [node name="PianoA5" type="Area2D" parent="Gatilhos/Audio/Parte2"]
 position = Vector2( 0, 1 )
@@ -353,6 +376,7 @@ polygon = PoolVector2Array( 129, 160, 160, 176, 193, 160, 160, 144 )
 [connection signal="body_entered" from="Gatilhos/Terreno/Y2/Frente" to="." method="mudarCoeficienteZ" binds= [ 3.0 ]]
 [connection signal="body_entered" from="Gatilhos/Estagio/Respawn" to="." method="respawnar" binds= [ Vector2( 96, 104 ), Vector2( 0, 0 ) ]]
 [connection signal="body_entered" from="Gatilhos/Estagio/MudarEstagio" to="." method="_on_MudarEstagio_body_entered"]
+[connection signal="body_entered" from="Gatilhos/Estagio/Tocar" to="." method="_on_Tocar_body_entered"]
 [connection signal="body_entered" from="Gatilhos/Audio/Parte1/PianoA5" to="." method="tocarAudio" binds= [ "piano", "A5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Parte1/PianoE5" to="." method="tocarAudio" binds= [ "piano", "E5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Parte1/PianoB5" to="." method="tocarAudio" binds= [ "piano", "B5" ]]

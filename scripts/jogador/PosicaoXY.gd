@@ -19,3 +19,4 @@ func mudarAtrito(inAtrito):
 
 func tocarAudio(intrumento, nota):
 	emit_signal('tocarAudio', intrumento, nota)
+	

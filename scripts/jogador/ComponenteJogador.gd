@@ -1,20 +1,16 @@
 extends Node2D
 
 export var posicaoInicial = Vector2(0,0)
-export var velocidadePadrao = 75
-export var forcaPulo = 375
+export var velocidadePadrao = 75.0
+export var forcaPulo = 375.0
 export var gatilhoAudio = false
 
 func _ready():
 	connectSignals()
-	$Jogador.respawnar(posicaoInicial, Vector2(0, -200))
+	$Jogador.respawnar(posicaoInicial, Vector2(0, -500))
 
 func rodar(gravidade):
-	$Jogador.rodar(gravidade)
-	$Jogador/Movimento/Fisica.velocidadePadrao = velocidadePadrao
-	$Jogador/Movimento/Fisica.forcaPulo = forcaPulo
-	$Sombra.rodar($Jogador/Movimento/Fisica.posicaoChao)
-	$PosicaoXY.rodar($Jogador/Movimento/Fisica.posicaoXY)
+	iniciarPartes(gravidade)
 	escutarGatilhoAudio()
 #
 func mudarZIndex(index):
@@ -47,3 +43,10 @@ func escutarGatilhoAudio():
 		if $Jogador/Movimento/Fisica.noChao():
 			gatilhoAudio = false
 			$PosicaoXY.global_position = Vector2(0, -5000)
+
+func iniciarPartes(gravidade):
+	$Jogador.rodar(gravidade)
+	$Jogador/Movimento/Fisica.velocidadePadrao = velocidadePadrao
+	$Jogador/Movimento/Fisica.forcaPulo = forcaPulo
+	$Sombra.rodar($Jogador/Movimento/Fisica.posicaoChao)
+	$PosicaoXY.rodar($Jogador/Movimento/Fisica.posicaoXY)

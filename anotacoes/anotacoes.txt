@@ -1,0 +1,9 @@
+colisao:
+tem que mudar o componentJogador para ser um kinematic body
+e para ele seguir o jogador assim a sombra e o xy vao seguir 
+ele quando ele colidir. coloca um colisionshape nos pés dele.
+
+o sentido é o quanto ele se mexe a 1 frame.
+dividimos esse velor por 60 la em Fisica porque
+o jogo roda a 60fps. É IMPORTANTE QUE O JOGO RODE A 60 FPS.
+logo se a velocidade padrao é 64, levaria 1 segundo para cobrir um tile.

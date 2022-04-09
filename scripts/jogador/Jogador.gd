@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
 signal mudarZIndex
-signal gatilhoAudio
 var coeficienteZIndex = 0.0
-var gatilhoAudio = false
 
 func rodar(gravidade):
 	#animacao
@@ -11,12 +9,6 @@ func rodar(gravidade):
 	#movimento
 	$Movimento.rodar(gravidade, $Input)
 	mudarPosicao()
-	#audio
-	if not $Movimento/Fisica.noChao():
-		gatilhoAudio = true
-	else:
-		gatilhoAudio = false
-		
 	
 func mudarPosicao():
 	global_position = $Movimento/Fisica.posicao
