@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://graficos/jogador/jogadorTemporario/parado/spriteSheetParado.png" type="Texture" id=1]
 [ext_resource path="res://graficos/jogador/jogadorTemporario/andando/spriteSheetAndando.png" type="Texture" id=2]
@@ -9,9 +9,6 @@
 [ext_resource path="res://scripts/jogador/Movimento.gd" type="Script" id=7]
 [ext_resource path="res://graficos/jogador/jogadorTemporario/pulando/spriteSheetPulando.png" type="Texture" id=8]
 [ext_resource path="res://graficos/jogador/jogadorTemporario/respawn/spriteSheet.png" type="Texture" id=9]
-[ext_resource path="res://scripts/jogador/PosicaoXY.gd" type="Script" id=10]
-[ext_resource path="res://audio/piano/A4.ogg" type="AudioStream" id=11]
-[ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 7, 2 )
@@ -914,14 +911,12 @@ tracks/3/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 7, 1 )
-
 [node name="Jogador" type="KinematicBody2D"]
 collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 19 )
 shape = SubResource( 20 )
 
@@ -961,17 +956,3 @@ anims/paradoHorizonte = SubResource( 7 )
 anims/paradoNorte = SubResource( 10 )
 anims/paradoSul = SubResource( 4 )
 anims/respawnar = SubResource( 18 )
-
-[node name="PosicaoXY" type="KinematicBody2D" parent="."]
-collision_layer = 8
-collision_mask = 0
-script = ExtResource( 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PosicaoXY"]
-visible = false
-position = Vector2( 0, 20 )
-shape = SubResource( 19 )
-
-[node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-script = ExtResource( 12 )

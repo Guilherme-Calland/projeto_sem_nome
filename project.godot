@@ -54,6 +54,7 @@ acaoSecundaria={
 2d_physics/layer_2="Sombra"
 2d_physics/layer_3="Terreno"
 2d_physics/layer_4="InteracaoTerreno"
+2d_physics/layer_5="InteracaoNotas"
 
 [physics]
 

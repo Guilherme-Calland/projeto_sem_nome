@@ -42,6 +42,7 @@ func rodar(inGravidade, input):
 		$Fisica.pular()
 	
 	if not $Fisica.noChao():
+		
 		$Fisica.cair()
 	else:
 		$Fisica.ficarNoChao()

@@ -18,13 +18,12 @@ func iniciarJogadores():
 	for j in jogadores:
 		j.rodar(gravidade)
 
-func mudarCoeficienteZ(body, inCoeficiente, posicaoVetorZ, atras):
-	# coloca 1 var string dizendo se é chao, aí resolve o resto com ifs e elses.
-	body.mudarCoeficienteZ(inCoeficiente, posicaoVetorZ, atras)
+func mudarCoeficienteZ(body, inCoeficiente):
+	body.mudarCoeficienteZ(inCoeficiente)
 
 func mudarPosicaoChao(body, posicao):
 	body.mudarPosicaoChao(posicao)
 
-func tocarAudio(body, instrumento, nota, coeficienteZ, posicaoVetorZ):
-	body.tocarAudio(instrumento, nota, coeficienteZ, posicaoVetorZ)
+func tocarAudio(body, instrumento, nota):
+	body.tocarAudio(instrumento, nota)
 

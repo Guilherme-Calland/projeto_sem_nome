@@ -2,7 +2,7 @@ extends Node
 
 # velocidade do boneco, export para podermos modificar enquanto jogamos
 var velocidadePadrao = 75
-export var forcaPulo = 375
+var forcaPulo = 375
 var velocidade
 var correndo = false
 var patinando = false
