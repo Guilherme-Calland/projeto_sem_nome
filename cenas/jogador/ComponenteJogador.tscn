@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://cenas/jogador/Jogador.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/jogador/ComponenteJogador.gd" type="Script" id=2]
 [ext_resource path="res://cenas/jogador/Sombra.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cenas/jogador/PosicaoXY.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=5]
+[ext_resource path="res://audio/piano/A4.ogg" type="AudioStream" id=6]
 
 [node name="ComponenteJogador" type="Node2D"]
 script = ExtResource( 2 )
@@ -18,4 +19,5 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 script = ExtResource( 5 )

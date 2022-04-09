@@ -20,6 +20,8 @@ func tocarAudio(instrumento, nota):
 			stream = preload("res://audio/piano/C6.ogg")
 		elif nota == 'D6':
 			stream = preload("res://audio/piano/D6.ogg")
+		elif nota == 'DSH6':
+			stream = preload("res://audio/piano/DSH6.ogg")
 		elif nota == 'E6':
 			stream = preload("res://audio/piano/E6.ogg")
 	play()
