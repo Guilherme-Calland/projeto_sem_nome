@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-signal mudarZIndex
-var coeficienteZIndex = 0.0
-
 func rodar(gravidade):
 	#animacao
 	$Animacao.rodar($Input, $Movimento)
@@ -12,19 +9,22 @@ func rodar(gravidade):
 	
 func mudarPosicao():
 	global_position = $Movimento/Fisica.posicao
-	emit_signal("mudarZIndex", $Movimento/Fisica.posicaoXY.y + 500*coeficienteZIndex)
-		
-func respawnar(posicao, posicaoZ):
-	$Animacao.respawnar()
-	coeficienteZIndex = 0
-	$Movimento.respawnar(posicao, posicaoZ)
 
-func mudarCoeficienteZ(inCoeficiente):
-	coeficienteZIndex = inCoeficiente
+func respawnar(posicao):
+	$Animacao.respawnar()
+	$Movimento.respawnar(posicao)
 
 func mudarPosicaoChao(inPosicao):
-	if $Movimento/Fisica.posicaoZ.y <= inPosicao.y:
+	if estiverAcimaDaPosicao(inPosicao):
 		$Movimento/Fisica.posicaoChaoZ = inPosicao
+	if emUmChao(inPosicao):
+		$Movimento/Fisica.valorSecundarioZ = inPosicao
 
 func mudarAtrito(inAtrito):
 	$Movimento/Fisica.atrito = inAtrito
+
+func estiverAcimaDaPosicao(inPosicao):
+	return $Movimento/Fisica.posicaoZ.y <= inPosicao.y
+	
+func emUmChao(inPosicao):
+	return inPosicao.y < 300000

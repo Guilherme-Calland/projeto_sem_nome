@@ -21,7 +21,6 @@ position = Vector2( 0, 22 )
 shape = SubResource( 1 )
 
 [node name="Marcador" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, 19 )
 z_index = 200
 texture = ExtResource( 3 )

@@ -42,7 +42,6 @@ func rodar(inGravidade, input):
 		$Fisica.pular()
 	
 	if not $Fisica.noChao():
-		
 		$Fisica.cair()
 	else:
 		$Fisica.ficarNoChao()
@@ -52,6 +51,6 @@ func rodar(inGravidade, input):
 	else:
 		$Fisica.correndo = false
 		
-func respawnar(posicao, posicaoZ):
+func respawnar(posicao):
 	olhandoPro = 'sul'
-	$Fisica.respawnar(posicao, posicaoZ)
+	$Fisica.respawnar(posicao)

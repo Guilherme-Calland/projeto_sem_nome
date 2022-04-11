@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal mudarPosicaoChao
-signal mudarCoeficienteZ
+signal mudarZIndex
 signal mudarAtrito
 signal tocarAudio
 signal tocarMusicaEstagio
@@ -12,8 +12,8 @@ func rodar(posicao):
 func mudarPosicaoChao(posicao):
 	emit_signal('mudarPosicaoChao', posicao)
 
-func mudarCoeficienteZ(inCoeficiente):
-	emit_signal('mudarCoeficienteZ', inCoeficiente)
+func mudarZIndex(index):
+	emit_signal('mudarZIndex', index)
 
 func mudarAtrito(inAtrito):
 	emit_signal("mudarAtrito", inAtrito)

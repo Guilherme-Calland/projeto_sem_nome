@@ -14,7 +14,7 @@ func apertouBotao(botao):
 		return Input.is_action_pressed("norte") and not Input.is_action_pressed('sul')
 	
 	if botao == "pular":
-		return Input.is_action_just_pressed("pular")
+		return Input.is_action_pressed("pular")
 	
 	if botao == 'acaoSecundaria':
 		return Input.is_action_pressed("acaoSecundaria")

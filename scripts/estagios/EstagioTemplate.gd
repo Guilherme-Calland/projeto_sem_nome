@@ -10,16 +10,13 @@ func _process(_delta):
 func mudarAtrito(body, inAtrito):
 	body.mudarAtrito(inAtrito)
 
-func respawnar(body, posicao, posicaoZ):
-	body.respawnar(posicao, posicaoZ)
+func respawnar(body, posicao):
+	body.respawnar(posicao)
 
 func iniciarJogadores():
 	var jogadores = $Jogadores.get_children()
 	for j in jogadores:
 		j.rodar(gravidade)
-
-func mudarCoeficienteZ(body, inCoeficiente):
-	body.mudarCoeficienteZ(inCoeficiente)
 
 func mudarPosicaoChao(body, posicao):
 	body.mudarPosicaoChao(posicao)
@@ -27,3 +24,5 @@ func mudarPosicaoChao(body, posicao):
 func tocarAudio(body, instrumento, nota):
 	body.tocarAudio(instrumento, nota)
 
+func mudarZIndex(body, index):
+	body.mudarZIndex(index)

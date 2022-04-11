@@ -1,5 +1,7 @@
 extends Node
 
+const FPS = 60
+
 # velocidade do boneco, export para podermos modificar enquanto jogamos
 var velocidadePadrao = 75
 var forcaPulo = 375
@@ -46,6 +48,9 @@ var posicaoZ = Vector2(0, 0)
 
 # posicao no plano XY
 var posicaoXY = Vector2(0, 0)
+
+# valor que sera soma a posicaoXY quando o boneco subir ou descer um degrau
+var valorSecundarioZ = Vector2(0,0)
 
 # posicao no espaco XYZ
 var posicao = Vector2(0, 0)
@@ -105,12 +110,12 @@ func pular():
 	calcularPosicao()
 
 func calcularPosicao():
-	posicaoX += sentidoX/60
-	posicaoY += sentidoY/60
-	posicaoZ += sentidoZ/60
-	posicaoXY = posicaoX + posicaoY
+	posicaoX += sentidoX/FPS
+	posicaoY += sentidoY/FPS
+	posicaoZ += sentidoZ/FPS
+	posicaoXY = posicaoX + posicaoY + valorSecundarioZ
 	posicao = posicaoX + posicaoY + posicaoZ
-	posicaoChao = posicaoXY + posicaoChaoZ
+	posicaoChao = posicaoX + posicaoY + posicaoChaoZ
 
 func noChao():
 	return posicaoZ.y >= posicaoChaoZ.y
@@ -122,14 +127,13 @@ func ficarNoChao():
 	sentidoZ.y = 0
 	posicaoZ = posicaoChaoZ
 
-func respawnar(inPosicao, inPosicaoZ):
+func respawnar(inPosicao):
 	sentidoX = Vector2(0,0)
 	sentidoY = Vector2(0,0)
 	sentidoZ = Vector2(0,0)
 	posicaoX = Vector2(inPosicao.x,0)
 	posicaoY = Vector2(0,inPosicao.y)
 	posicaoXY = Vector2(0,0)
-	posicaoZ = inPosicaoZ
 	posicaoChaoZ = Vector2(0,0)
 	posicaoChao = Vector2(0,0)
 	calcularPosicao()

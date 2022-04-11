@@ -7,28 +7,21 @@ export var gatilhoAudio = false
 signal tocarMusicaEstagio
 
 func _ready():
+	z_index = 1
 	connectSignals()
-	$Jogador.respawnar(posicaoInicial, Vector2(0, -500))
 
 func rodar(gravidade):
 	iniciarPartes(gravidade)
 	escutarGatilhoAudio()
-#
-func mudarZIndex(index):
-	z_index = index
 
 func connectSignals():
-	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
-	$PosicaoXY.connect('mudarCoeficienteZ', self, 'mudarCoeficienteZ')
 	$PosicaoXY.connect('tocarAudio', self, 'tocarAudio')
 	$PosicaoXY.connect('tocarMusicaEstagio', self, 'tocarMusicaEstagio')
+	$PosicaoXY.connect('mudarZIndex', self, 'mudarZIndex')
 
 func mudarPosicaoChao(posicao):
 	$Jogador.mudarPosicaoChao(posicao)
-
-func mudarCoeficienteZ(inCoeficiente):
-	$Jogador.mudarCoeficienteZ(inCoeficiente)
 
 func mudarAtrito(inAtrito):
 	$Jogador.mudarAtrito(inAtrito)
@@ -42,9 +35,9 @@ func escutarGatilhoAudio():
 		if not $Jogador/Movimento/Fisica.noChao():
 			gatilhoAudio = true
 	elif gatilhoAudio:
+		$PosicaoXY.global_position = Vector2(0, -5000)
 		if $Jogador/Movimento/Fisica.noChao():
 			gatilhoAudio = false
-			$PosicaoXY.global_position = Vector2(0, -5000)
 
 func iniciarPartes(gravidade):
 	$Jogador.rodar(gravidade)
@@ -56,3 +49,6 @@ func iniciarPartes(gravidade):
 func tocarMusicaEstagio():
 	if $Jogador/Movimento/Fisica.noChao():
 		emit_signal("tocarMusicaEstagio")
+
+func mudarZIndex(index):
+	z_index = index
