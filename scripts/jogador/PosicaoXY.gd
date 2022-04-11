@@ -4,7 +4,6 @@ signal mudarPosicaoChao
 signal mudarZIndex
 signal mudarAtrito
 signal tocarAudio
-signal tocarMusicaEstagio
 
 func rodar(posicao):
 	global_position = posicao
@@ -21,5 +20,3 @@ func mudarAtrito(inAtrito):
 func tocarAudio(intrumento, nota):
 	emit_signal('tocarAudio', intrumento, nota)
 	
-func tocarMusicaEstagio():
-	emit_signal("tocarMusicaEstagio")

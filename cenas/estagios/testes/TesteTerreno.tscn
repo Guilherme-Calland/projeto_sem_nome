@@ -13,6 +13,8 @@ script = ExtResource( 1 )
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
 z_index = 1
+velocidadePadrao = 88.0
+forcaPulo = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

@@ -26,3 +26,4 @@ func tocarAudio(body, instrumento, nota):
 
 func mudarZIndex(body, index):
 	body.mudarZIndex(index)
+

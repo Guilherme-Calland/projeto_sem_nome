@@ -16,5 +16,5 @@ shape = SubResource( 1 )
 
 [node name="Marcador" type="Sprite" parent="."]
 position = Vector2( 0, 19 )
-z_index = 100
+z_index = 1000
 texture = ExtResource( 1 )
