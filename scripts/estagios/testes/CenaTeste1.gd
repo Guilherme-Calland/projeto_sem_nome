@@ -6,7 +6,6 @@ var atrito = 75
 #essa funcao roda 1 vez por frame
 func _process(_delta):
 	$Jogadores/ComponenteJogador.rodar(atrito, gravidade)
-#	iniciarJogadores()
 
 # sinal que é chamado quando o boneco entra em um terreno diferente
 func mudarAtrito(_body, inAtrito):

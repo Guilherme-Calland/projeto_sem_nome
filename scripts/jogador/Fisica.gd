@@ -69,7 +69,6 @@ func rodar(inGravidade):
 	setarVelocidade()
 	setarAtrito()
 	
-	
 func andar(inSentido):
 	if inSentido == 'sul':
 		# clamp(valor, limite inferior, limite superior)
@@ -133,9 +132,10 @@ func respawnar(inPosicao):
 	sentidoZ = Vector2(0,0)
 	posicaoX = Vector2(inPosicao.x,0)
 	posicaoY = Vector2(0,inPosicao.y)
-	posicaoXY = Vector2(0,0)
+	posicaoXY = Vector2(0,-300000)
 	posicaoChaoZ = Vector2(0,0)
 	posicaoChao = Vector2(0,0)
+	valorSecundarioZ = Vector2(0,0)
 	calcularPosicao()
 
 func aumentarVelocidade():
@@ -153,3 +153,13 @@ func setarVelocidade():
 func setarAtrito():
 	if not patinando:
 			atrito = velocidade
+
+func acimaDaPosicao(posicao):
+	return posicaoZ.y <= posicao
+
+func mudarPosicaoChao(inPosicao, inPosicaoZTerreno):
+	if acimaDaPosicao(inPosicaoZTerreno):
+		posicaoChaoZ.y = inPosicao
+#		if inPosicao < 300000:
+#			valorSecundarioZ.y = inPosicao
+#			print(inPosicao)

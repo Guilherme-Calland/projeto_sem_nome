@@ -2,21 +2,26 @@ extends KinematicBody2D
 
 signal mudarPosicaoChao
 signal mudarZIndex
-signal mudarAtrito
 signal tocarAudio
+signal colisao
+signal sairColisao
 
 func rodar(posicao):
 	global_position = posicao
 
-func mudarPosicaoChao(posicao):
-	emit_signal('mudarPosicaoChao', posicao)
+func mudarPosicaoChao(posicaoZChao, posicaoZTerreno):
+	emit_signal('mudarPosicaoChao', posicaoZChao, posicaoZTerreno)
 
-func mudarZIndex(index):
-	emit_signal('mudarZIndex', index)
+func mudarZIndex(index, posicaoZTerreno):
+	emit_signal('mudarZIndex', index, posicaoZTerreno)
 
-func mudarAtrito(inAtrito):
-	emit_signal("mudarAtrito", inAtrito)
+func colidir(sentidoColisao, posicaoZTerreno):
+	emit_signal('colisao', sentidoColisao, posicaoZTerreno)
+
+func sairColisao():
+	emit_signal('sairColisao')
 
 func tocarAudio(intrumento, nota):
 	emit_signal('tocarAudio', intrumento, nota)
+
 	

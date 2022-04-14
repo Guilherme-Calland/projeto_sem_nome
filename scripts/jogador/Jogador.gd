@@ -14,17 +14,11 @@ func respawnar(posicao):
 	$Animacao.respawnar()
 	$Movimento.respawnar(posicao)
 
-func mudarPosicaoChao(inPosicao):
-	if estiverAcimaDaPosicao(inPosicao):
-		$Movimento/Fisica.posicaoChaoZ = inPosicao
-	if emUmChao(inPosicao):
-		$Movimento/Fisica.valorSecundarioZ = inPosicao
-
-func mudarAtrito(inAtrito):
-	$Movimento/Fisica.atrito = inAtrito
+func mudarPosicaoChao(inPosicao, posicaoZTerreno):
+	$Movimento/Fisica.mudarPosicaoChao(inPosicao, posicaoZTerreno)
 
 func estiverAcimaDaPosicao(inPosicao):
-	return $Movimento/Fisica.posicaoZ.y <= inPosicao.y
+	return $Movimento/Fisica.posicaoZ.y <= inPosicao
 	
 func emUmChao(inPosicao):
-	return inPosicao.y < 300000
+	return inPosicao < 300000

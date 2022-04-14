@@ -17,22 +17,30 @@ func rodar(inInput, inMovimento):
 		inverterEixoHorizontalSprite(false)
 		
 	if fisica.noChao():
+		var sentidoAnimacao = 'sul'
+		var animacao
+		if movimento.colidindo:
+			animacao = 'colidindo'
+		else:
+			animacao = 'andando'
+			
 		if input.apertouBotao("sul"):
 			if input.apertouBotao("oeste") || input.apertouBotao("leste"):
-				mudarAnimacao("andando", 'diagonalSul')
+				sentidoAnimacao = 'diagonalSul'
 			else:
-				mudarAnimacao('andando', 'sul')
+				sentidoAnimacao = 'sul'
 		elif input.apertouBotao("norte"):
 			if input.apertouBotao("oeste") || input.apertouBotao("leste"):
-				mudarAnimacao('andando', 'diagonalNorte')
+				sentidoAnimacao = 'diagonalNorte'
 			else:
-				mudarAnimacao('andando', 'norte')
+				sentidoAnimacao = 'norte'
 		else:
 			if input.apertouBotao("oeste") || input.apertouBotao('leste'):
-				mudarAnimacao('andando', 'horizonte')
-
+				sentidoAnimacao = 'horizonte'
 		if nenhumBotaoDirecaoApertado():
 			mudarAnimacao('parado', movimento.olhandoPro)
+		else:
+			mudarAnimacao(animacao, sentidoAnimacao)
 	if not fisica.noChao():
 		mudarAnimacao('noAr', movimento.olhandoPro)
 		
