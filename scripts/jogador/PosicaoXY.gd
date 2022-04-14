@@ -9,11 +9,11 @@ signal sairColisao
 func rodar(posicao):
 	global_position = posicao
 
-func mudarPosicaoChao(posicaoZChao, posicaoZTerreno):
-	emit_signal('mudarPosicaoChao', posicaoZChao, posicaoZTerreno)
+func mudarPosicaoChao(posicaoZChao):
+	emit_signal('mudarPosicaoChao', posicaoZChao)
 
-func mudarZIndex(index, posicaoZTerreno):
-	emit_signal('mudarZIndex', index, posicaoZTerreno)
+func mudarZIndex(index):
+	emit_signal('mudarZIndex', index)
 
 func colidir(sentidoColisao, posicaoZTerreno):
 	emit_signal('colisao', sentidoColisao, posicaoZTerreno)

@@ -18,24 +18,21 @@ posicaoInicial = Vector2( -188, 162 )
 forcaPulo = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 123, 309 )
+position = Vector2( 120, 276 )
 current = true
 
 [node name="Secoes" type="Node2D" parent="."]
 
 [node name="Cena" parent="Secoes" instance=ExtResource( 3 )]
 position = Vector2( -105, 146 )
-posicaoZQueda = 300000
 
 [node name="Cena2" parent="Secoes" instance=ExtResource( 3 )]
-position = Vector2( -72, 301 )
+position = Vector2( 189, 184 )
 zIndexTerreno = 2
-posicaoZQueda = 300000
 
 [node name="Cena3" parent="Secoes" instance=ExtResource( 3 )]
-position = Vector2( 244, 312 )
+position = Vector2( 239, 351 )
 zIndexTerreno = 4
-posicaoZQueda = 300000
 
 [node name="Gatilhos" type="Node2D" parent="."]
 

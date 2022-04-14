@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal mudarZIndex
+
 func rodar(gravidade):
 	#animacao
 	$Animacao.rodar($Input, $Movimento)
@@ -13,9 +15,10 @@ func mudarPosicao():
 func respawnar(posicao):
 	$Animacao.respawnar()
 	$Movimento.respawnar(posicao)
+	emit_signal('mudarZIndex', 1, 0)
 
-func mudarPosicaoChao(inPosicao, posicaoZTerreno):
-	$Movimento/Fisica.mudarPosicaoChao(inPosicao, posicaoZTerreno)
+func mudarPosicaoChao(inPosicao):
+	$Movimento/Fisica.mudarPosicaoChao(inPosicao)
 
 func estiverAcimaDaPosicao(inPosicao):
 	return $Movimento/Fisica.posicaoZ.y <= inPosicao

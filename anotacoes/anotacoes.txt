@@ -1,1 +1,1 @@
-começa do zero. a partir do componente jogador, cria um node para mudarPosicaoChao, um para ZIndex e outro para colisão.
+tira colisão e coloca só nivelamento e zindex do jeito que tu tinha feito recentemente.

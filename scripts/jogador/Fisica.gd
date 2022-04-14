@@ -157,9 +157,7 @@ func setarAtrito():
 func acimaDaPosicao(posicao):
 	return posicaoZ.y <= posicao
 
-func mudarPosicaoChao(inPosicao, inPosicaoZTerreno):
-	if acimaDaPosicao(inPosicaoZTerreno):
-		posicaoChaoZ.y = inPosicao
-#		if inPosicao < 300000:
-#			valorSecundarioZ.y = inPosicao
-#			print(inPosicao)
+func mudarPosicaoChao(inPosicao):
+	posicaoChaoZ.y = inPosicao
+#	if inPosicao < 300000:
+#		valorSecundarioZ.y = inPosicao

@@ -15,35 +15,12 @@ tile_data = PoolIntArray( -131074, 34, 0, -131073, 34, 0, -196608, 34, 0, -19660
 
 [node name="Gatilhos" type="Node2D" parent="."]
 
-[node name="Chao" type="Node2D" parent="Gatilhos"]
-
-[node name="Nordeste" type="Area2D" parent="Gatilhos/Chao"]
+[node name="Chao" type="Area2D" parent="Gatilhos"]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Chao/Nordeste"]
-polygon = PoolVector2Array( -192, 32, 0, 0, -63, 96 )
-
-[node name="Sudeste" type="Area2D" parent="Gatilhos/Chao"]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Chao/Sudeste"]
-polygon = PoolVector2Array( 31, -79, -1, -1, -190, 32 )
-
-[node name="Sudoeste" type="Area2D" parent="Gatilhos/Chao"]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Chao/Sudoeste"]
-polygon = PoolVector2Array( 0, 0, 32, -80, 159, -15 )
-
-[node name="Noroeste" type="Area2D" parent="Gatilhos/Chao"]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Chao/Noroeste"]
-polygon = PoolVector2Array( -63, 96, 0, 0, 160, -16 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Chao"]
+polygon = PoolVector2Array( -191, 32, -64, 97, 161, -16, 31, -79 )
 
 [node name="Queda" type="Node2D" parent="Gatilhos"]
 
@@ -52,22 +29,15 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Queda/Atras"]
-polygon = PoolVector2Array( -193, 31, -212, 30, 31, -89, 179, -16, 161, -16, 32, -79 )
+polygon = PoolVector2Array( -193, 31, -212, 30, 31, -89, 179, -16, 161, -16, 31, -80 )
 
 [node name="Frente" type="Area2D" parent="Gatilhos/Queda"]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Queda/Frente"]
-polygon = PoolVector2Array( -213, 31, -63, 108, 179, -15, 159, -17, -63, 97, -191, 31 )
+polygon = PoolVector2Array( -213, 31, -63, 108, 179, -15, 160, -15, -63, 97, -193, 32 )
 
-[connection signal="body_entered" from="Gatilhos/Chao/Nordeste" to="." method="mudarArea" binds= [ 0, 1, "nordeste" ]]
-[connection signal="body_exited" from="Gatilhos/Chao/Nordeste" to="." method="sairColisao"]
-[connection signal="body_entered" from="Gatilhos/Chao/Sudeste" to="." method="mudarArea" binds= [ 0, 1, "sudeste" ]]
-[connection signal="body_exited" from="Gatilhos/Chao/Sudeste" to="." method="sairColisao"]
-[connection signal="body_entered" from="Gatilhos/Chao/Sudoeste" to="." method="mudarArea" binds= [ 0, 1, "sudoeste" ]]
-[connection signal="body_exited" from="Gatilhos/Chao/Sudoeste" to="." method="sairColisao"]
-[connection signal="body_entered" from="Gatilhos/Chao/Noroeste" to="." method="mudarArea" binds= [ 0, 1, "noroeste" ]]
-[connection signal="body_exited" from="Gatilhos/Chao/Noroeste" to="." method="sairColisao"]
-[connection signal="body_entered" from="Gatilhos/Queda/Atras" to="." method="mudarArea" binds= [ 1, 0, "sem colisao" ]]
-[connection signal="body_entered" from="Gatilhos/Queda/Frente" to="." method="mudarArea" binds= [ 1, 2, "sem colisao" ]]
+[connection signal="body_entered" from="Gatilhos/Chao" to="." method="mudarArea" binds= [ 0, 1, "sem colisao" ]]
+[connection signal="body_entered" from="Gatilhos/Queda/Atras" to="." method="mudarArea" binds= [ 300000, 0, "sem colisao" ]]
+[connection signal="body_entered" from="Gatilhos/Queda/Frente" to="." method="mudarArea" binds= [ 300000, 2, "sem colisao" ]]

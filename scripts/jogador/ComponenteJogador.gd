@@ -17,6 +17,7 @@ func connectSignals():
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
 	$PosicaoXY.connect('tocarAudio', self, 'tocarAudio')
 	$PosicaoXY.connect('mudarZIndex', self, 'mudarZIndex')
+	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
 	$PosicaoXY.connect('colisao', self, 'colidir')
 	$PosicaoXY.connect('sairColisao', self, 'sairColisao')
 
@@ -34,12 +35,11 @@ func iniciarPartes(gravidade):
 	$Sombra.rodar($Jogador/Movimento/Fisica.posicaoChao)
 	$PosicaoXY.rodar($Jogador/Movimento/Fisica.posicaoXY)
 
-func mudarPosicaoChao(posicaoZChao, posicaoZTerreno):
-	$Jogador.mudarPosicaoChao(posicaoZChao, posicaoZTerreno)
+func mudarPosicaoChao(posicaoZChao):
+	$Jogador.mudarPosicaoChao(posicaoZChao)
 
-func mudarZIndex(index, posicaoZTerreno):
-	if $Jogador/Movimento/Fisica.acimaDaPosicao(posicaoZTerreno):
-		z_index = index
+func mudarZIndex(index):
+	z_index = index
 
 func colidir(sentidoColisao, posicaoZTerreno):
 	$Jogador/Movimento.colidir(sentidoColisao, posicaoZTerreno)
