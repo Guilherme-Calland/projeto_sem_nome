@@ -8,6 +8,9 @@ var colidindoLeste = false
 var colidindoOeste = false
 var colidindo = false
 
+var noAr = true
+var trancaPulo = false
+
 func rodar(inGravidade, input):
 	$Fisica.rodar(inGravidade)
 	
@@ -43,13 +46,18 @@ func rodar(inGravidade, input):
 		elif $Fisica.sentido('oeste'):
 			$Fisica.parar('oeste')
 	
-	if input.apertouBotao('pular') and $Fisica.noChao():
-		$Fisica.pular()
-	
 	if not $Fisica.noChao():
+		noAr = true
 		$Fisica.cair()
 	else:
+		if noAr:
+			noAr = false
+			trancaPulo = true
+			$TimerPulo.start()
 		$Fisica.ficarNoChao()
+	
+	if input.apertouBotao('pular') and $Fisica.noChao() and not trancaPulo:
+		$Fisica.pular()
 	
 	if input.apertouBotao('acaoSecundaria'):
 		$Fisica.correndo = true
@@ -91,3 +99,7 @@ func sairColisao():
 	colidindoSul = false
 	colidindoOeste = false
 	colidindoLeste = false
+
+
+func _on_TimerPulo_timeout():
+	trancaPulo = false

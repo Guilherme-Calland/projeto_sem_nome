@@ -159,5 +159,3 @@ func acimaDaPosicao(posicao):
 
 func mudarPosicaoChao(inPosicao):
 	posicaoChaoZ.y = inPosicao
-#	if inPosicao < 300000:
-#		valorSecundarioZ.y = inPosicao

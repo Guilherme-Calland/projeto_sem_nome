@@ -3,6 +3,7 @@ extends Node2D
 export var posicaoInicial = Vector2(0,0)
 export var velocidadePadrao = 75.0
 export var forcaPulo = 375.0
+export var indexJogador = 0
 
 func _ready():
 	z_index = 1
@@ -12,12 +13,12 @@ func _ready():
 
 func rodar(gravidade):
 	iniciarPartes(gravidade)
-
+	global_position = $Jogador/Movimento/Fisica.posicaoY
+	
 func connectSignals():
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
 	$PosicaoXY.connect('tocarAudio', self, 'tocarAudio')
 	$PosicaoXY.connect('mudarZIndex', self, 'mudarZIndex')
-	$Jogador.connect('mudarZIndex', self, 'mudarZIndex')
 	$PosicaoXY.connect('colisao', self, 'colidir')
 	$PosicaoXY.connect('sairColisao', self, 'sairColisao')
 
@@ -29,6 +30,7 @@ func tocarAudio(intrumento, nota):
 		$Audio.tocarAudio(intrumento, nota)
 
 func iniciarPartes(gravidade):
+	$Jogador/Input.index_jogador = indexJogador
 	$Jogador.rodar(gravidade)
 	$Jogador/Movimento/Fisica.velocidadePadrao = velocidadePadrao
 	$Jogador/Movimento/Fisica.forcaPulo = forcaPulo

@@ -1,1 +1,6 @@
-tira colisão e coloca só nivelamento e zindex do jeito que tu tinha feito recentemente.
+nao coloca as condicoes de acimaDe porque qdo dá respawn da uns bugs.
+
+quando for fazer colisoes coloca em fisica, colidindo1, colidindo2, colidindoLeste1, colidindoLeste2
+
+com velocidadePadrao de 80, o tempo da musica é 175bpm
+se aumentar 10% a velocidade padrao, incremente tbm 10% o bpm.
