@@ -6,7 +6,7 @@ export var forcaPulo = 375.0
 export var indexJogador = 0
 
 func _ready():
-	z_index = 1
+	z_index = 100
 	connectSignals()
 	$Jogador/Movimento/Fisica.posicaoX.x = posicaoInicial.x
 	$Jogador/Movimento/Fisica.posicaoY.y = posicaoInicial.y

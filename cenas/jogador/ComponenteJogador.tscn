@@ -9,6 +9,8 @@
 
 [node name="ComponenteJogador" type="Node2D"]
 script = ExtResource( 2 )
+velocidadePadrao = 80.0
+forcaPulo = 400.0
 
 [node name="Sombra" parent="." instance=ExtResource( 3 )]
 
