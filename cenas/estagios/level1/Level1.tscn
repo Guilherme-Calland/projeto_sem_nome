@@ -38,6 +38,7 @@ __meta__ = {
 texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Xilofone"]
+scale = Vector2( 0.75, 0.75 )
 polygon = PoolVector2Array( -1, 18, 33, 1, 0, -14, -33, 2 )
 
 [node name="Pandeiro" type="Area2D" parent="Gatilhos"]
@@ -52,6 +53,7 @@ __meta__ = {
 texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Pandeiro"]
+scale = Vector2( 0.75, 0.75 )
 polygon = PoolVector2Array( -31, 5, 0, 21, 33, 5, 0, -12 )
 
 [node name="Terreno" type="Node2D" parent="."]

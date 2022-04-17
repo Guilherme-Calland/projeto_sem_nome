@@ -27,9 +27,13 @@ func connectSignals():
 func mudarAtrito(inAtrito):
 	$Jogador.mudarAtrito(inAtrito)
 
-func tocarAudio(intrumento, nota):
+func tocarAudio(instrumento, nota):
 	if $Jogador/Movimento/Fisica.noChao():
-		$Audio.tocarAudio(intrumento, nota)
+		if not $Audio.playing:
+			$Audio.tocarAudio(instrumento, nota)
+		else:
+			$AudioAuxiliar.tocarAudio(instrumento, nota)
+		
 
 func iniciarPartes(gravidade):
 	$Jogador/Input.index_jogador = indexJogador

@@ -33,7 +33,6 @@ collision_mask = 0
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisaoIntrumento"]
-visible = false
 position = Vector2( 0, 20 )
 scale = Vector2( 0.668, 0.113 )
 shape = SubResource( 1 )
@@ -45,4 +44,7 @@ texture = ExtResource( 7 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 2 )
+script = ExtResource( 5 )
+
+[node name="AudioAuxiliar" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 5 )
