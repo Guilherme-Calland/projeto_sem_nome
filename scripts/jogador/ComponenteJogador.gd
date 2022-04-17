@@ -18,9 +18,11 @@ func rodar(gravidade):
 func connectSignals():
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
 	$PosicaoXY.connect('tocarAudio', self, 'tocarAudio')
+	$ColisaoIntrumento.connect('tocarAudio', self, 'tocarAudio')
 	$PosicaoXY.connect('mudarZIndex', self, 'mudarZIndex')
 	$PosicaoXY.connect('colisao', self, 'colidir')
 	$PosicaoXY.connect('sairColisao', self, 'sairColisao')
+	$Jogador/Movimento.connect('aterrisando', self, 'engatilharColisaoInstrumento')
 
 func mudarAtrito(inAtrito):
 	$Jogador.mudarAtrito(inAtrito)
@@ -36,6 +38,7 @@ func iniciarPartes(gravidade):
 	$Jogador/Movimento/Fisica.forcaPulo = forcaPulo
 	$Sombra.rodar($Jogador/Movimento/Fisica.posicaoChao)
 	$PosicaoXY.rodar($Jogador/Movimento/Fisica.posicaoXY)
+	$ColisaoIntrumento.global_position = $Jogador.global_position
 
 func mudarPosicaoChao(posicaoZChao):
 	$Jogador.mudarPosicaoChao(posicaoZChao)
@@ -48,3 +51,6 @@ func colidir(sentidoColisao, posicaoZTerreno):
 
 func sairColisao():
 	$Jogador/Movimento.sairColisao()
+
+func engatilharColisaoInstrumento(b):
+	$ColisaoIntrumento/CollisionShape2D.set_deferred('disabled', !b)

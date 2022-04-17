@@ -10,6 +10,9 @@ var colidindo = false
 
 var noAr = true
 var trancaPulo = false
+var trancaAterrisagem = true
+
+signal aterrisando
 
 func rodar(inGravidade, input):
 	$Fisica.rodar(inGravidade)
@@ -49,11 +52,16 @@ func rodar(inGravidade, input):
 	if not $Fisica.noChao():
 		noAr = true
 		$Fisica.cair()
-	else:
+	elif $Fisica.noChao():
 		if noAr:
 			noAr = false
 			trancaPulo = true
 			$TimerPulo.start()
+			emit_signal('aterrisando', true)
+		else:
+			if not trancaAterrisagem:
+				trancaAterrisagem = true
+				emit_signal('aterrisando', false)
 		$Fisica.ficarNoChao()
 	
 	if input.apertouBotao('pular') and $Fisica.noChao() and not trancaPulo:
@@ -100,6 +108,6 @@ func sairColisao():
 	colidindoOeste = false
 	colidindoLeste = false
 
-
 func _on_TimerPulo_timeout():
 	trancaPulo = false
+	trancaAterrisagem = false

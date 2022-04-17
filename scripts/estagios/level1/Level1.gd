@@ -17,7 +17,7 @@ var xilofonePosicoes = [
 	Vector2(350,60), # C6
 	Vector2(480,90), # A5
 	Vector2(418,127), # F5
-	Vector2(480,90), # G5
+	Vector2(450,140), # G5
 	Vector2(510,175), # C6
 ]
 var xilofoneIndex = 0

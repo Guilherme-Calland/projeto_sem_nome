@@ -19,9 +19,9 @@ z_index = 1
 z_index = 1000
 
 [node name="Xilofone" type="Area2D" parent="Gatilhos"]
-position = Vector2( 508, 175 )
+position = Vector2( 449, 143 )
 collision_layer = 0
-collision_mask = 8
+collision_mask = 16
 __meta__ = {
 "_edit_group_": true
 }
