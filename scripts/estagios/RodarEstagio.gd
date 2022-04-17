@@ -1,4 +1,4 @@
-extends Node
+extends "res://scripts/estagios/EstagioTemplate.gd"
 
 export var gravidade = 20
 
@@ -13,3 +13,4 @@ func iniciarJogadores():
 
 func respawnar(body, posicao):
 	body.respawnar(posicao)
+	

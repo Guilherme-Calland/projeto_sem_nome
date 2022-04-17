@@ -5,7 +5,7 @@
 [ext_resource path="res://cenas/jogador/Sombra.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cenas/jogador/PosicaoXY.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=5]
-[ext_resource path="res://audio/piano/A4.ogg" type="AudioStream" id=6]
+[ext_resource path="res://audio/musicaDeFundo/Level1/faixa_2.ogg" type="AudioStream" id=6]
 
 [node name="ComponenteJogador" type="Node2D"]
 script = ExtResource( 2 )
