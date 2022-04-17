@@ -1,5 +1,7 @@
 extends "res://scripts/estagios/RodarEstagio.gd"
 
+var iniciou = false
+
 var xilofoneNotas = ['C6','A5','F5','G5','E6','C6','F6', 'B5', 'G6', 'E6','F6', 'B5','C6','A5','F5','G5','C6']
 var xilofonePosicoes = [
 	Vector2(160, 90), # C6
@@ -40,7 +42,6 @@ var pandeiroPosicoes = [
 	Vector2(415,155),
 	Vector2(450, 140),
 	Vector2(480,160),
-	Vector2(544,188)
 ]
 var pandeiroIndex = 0
 
@@ -49,10 +50,24 @@ func _ready():
 	$Gatilhos/Pandeiro.global_position = pandeiroPosicoes[0]
 	
 func _process(_delta):
-	if Input.is_action_pressed('start'):
+	if not iniciou:
+		if Input.is_action_just_pressed('start'):
+			iniciou = true
+			xilofoneIndex = 0
+			pandeiroIndex = 0
+			$Gatilhos/Xilofone.global_position = xilofonePosicoes[xilofoneIndex]
+			$Gatilhos/Pandeiro.global_position = pandeiroPosicoes[pandeiroIndex]
+			if not $Musica/Faixa1.playing:
+				$Musica/Faixa1.stream = preload("res://audio/musicaDeFundo/Level1/com_pandeiro_e_xilofone.ogg")
+				$Musica/Faixa1.play()
+	elif iniciou:
 		if not $Musica/Faixa1.playing:
+			$Musica/Faixa1.stream = preload("res://audio/musicaDeFundo/Level1/sem_nada.ogg")
 			$Musica/Faixa1.play()
-
+		if Input.is_action_just_pressed('start'):
+			$Musica/Faixa1.stop()
+			iniciou = false
+			
 func tocarAudioEEngatilharProximo(body, instrumento):
 	if instrumento == 'xilofone':
 		body.tocarAudio('xilofone',xilofoneNotas[xilofoneIndex])
