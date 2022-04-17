@@ -20,7 +20,6 @@ velocidadePadrao = 80.0
 forcaPulo = 400.0
 
 [node name="Sombra" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="Jogador" parent="." instance=ExtResource( 1 )]
 
