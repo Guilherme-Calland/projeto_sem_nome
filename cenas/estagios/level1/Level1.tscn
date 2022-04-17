@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://recursos/tileSets/BlocosTemporarios.tres" type="TileSet" id=1]
 [ext_resource path="res://audio/musicaDeFundo/Level1/faixa_1.ogg" type="AudioStream" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://graficos/extras/marcador_verde.png" type="Texture" id=4]
 [ext_resource path="res://scripts/estagios/level1/Level1.gd" type="Script" id=5]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=6]
+[ext_resource path="res://graficos/extras/marcador_rosa.png" type="Texture" id=7]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 5 )
@@ -19,7 +20,7 @@ z_index = 1
 z_index = 1000
 
 [node name="Xilofone" type="Area2D" parent="Gatilhos"]
-position = Vector2( 449, 143 )
+position = Vector2( 259, 143 )
 collision_layer = 0
 collision_mask = 16
 __meta__ = {
@@ -31,6 +32,20 @@ texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Xilofone"]
 polygon = PoolVector2Array( -1, 18, 33, 1, 0, -14, -33, 2 )
+
+[node name="Pandeiro" type="Area2D" parent="Gatilhos"]
+position = Vector2( 544, 188 )
+collision_layer = 0
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Gatilhos/Pandeiro"]
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Pandeiro"]
+polygon = PoolVector2Array( -31, 5, 0, 21, 33, 5, 0, -12 )
 
 [node name="Terreno" type="Node2D" parent="."]
 
@@ -54,4 +69,5 @@ current = true
 [node name="Faixa1" type="AudioStreamPlayer" parent="Musica"]
 stream = ExtResource( 2 )
 
-[connection signal="body_entered" from="Gatilhos/Xilofone" to="." method="tocarAudioEEngatilharProximo"]
+[connection signal="body_entered" from="Gatilhos/Xilofone" to="." method="tocarAudioEEngatilharProximo" binds= [ "xilofone" ]]
+[connection signal="body_entered" from="Gatilhos/Pandeiro" to="." method="tocarAudioEEngatilharProximo" binds= [ "pandeiro" ]]
