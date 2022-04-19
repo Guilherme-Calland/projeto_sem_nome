@@ -34,13 +34,13 @@ func _input(_event):
 		removerPlayer(1)
 
 func instanciarNovoPlayer(idDispositivo):
+	qtdJoysticks += 1
 	if idDispositivo != 0:
-		print('Jogador ' + str(qtdJoysticks + 2) +  ' se juntou ao jogo.')
+		print('Jogador ' + str(qtdJoysticks + 1) +  ' se juntou ao jogo.')
 		var player = preload("res://cenas/jogador/ComponenteJogador.tscn").instance()
 		player.posicaoInicial = $Jogadores.get_children().pop_back().get_child(2).global_position + Vector2(20, 10)
 		player.indexJogador = qtdJoysticks
 		$Jogadores.add_child(player)
-	qtdJoysticks += 1
 
 func removerPlayer(idDispositivo):
 	if $Jogadores.get_child_count() > 1:

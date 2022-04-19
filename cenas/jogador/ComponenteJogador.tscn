@@ -5,7 +5,7 @@
 [ext_resource path="res://cenas/jogador/Sombra.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cenas/jogador/PosicaoXY.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=5]
-[ext_resource path="res://graficos/jogador/jogadorTemporario/marcadores/ColisaoIntrumento.png" type="Texture" id=7]
+[ext_resource path="res://graficos/jogador/marcadores/ColisaoIntrumento.png" type="Texture" id=6]
 [ext_resource path="res://scripts/jogador/ColisaoIntrumento.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -39,7 +39,7 @@ disabled = true
 
 [node name="Marcador" type="Sprite" parent="ColisaoIntrumento"]
 position = Vector2( 0, 20 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 2 )

@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
+var indexJogador = 0
+
 func rodar(gravidade):
 	#animacao
 	$Animacao.rodar($Input, $Movimento)
+	$Animacao.indexJogador = indexJogador
 	#movimento
 	$Movimento.rodar(gravidade, $Input)
 	mudarPosicao()

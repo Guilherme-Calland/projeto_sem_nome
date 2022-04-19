@@ -15,6 +15,7 @@ func rodar(gravidade):
 	iniciarPartes(gravidade)
 	#assim no Ysort ele vai ficar na frente ou atras do jogador
 	global_position = $Jogador/Movimento/Fisica.posicaoXY
+	$Jogador.indexJogador = indexJogador
 	
 func connectSignals():
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')
