@@ -1244,7 +1244,4 @@ anims/paradoNorte = SubResource( 10 )
 anims/paradoSul = SubResource( 4 )
 anims/respawnar = SubResource( 18 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
 [connection signal="timeout" from="Movimento/TimerPulo" to="Movimento" method="_on_TimerPulo_timeout"]

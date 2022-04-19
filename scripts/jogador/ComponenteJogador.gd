@@ -6,14 +6,15 @@ export var forcaPulo = 375.0
 export var indexJogador = 0
 
 func _ready():
-	z_index = 100
+	z_index = 1
 	connectSignals()
-	$Jogador/Movimento/Fisica.posicaoX.x = posicaoInicial.x
-	$Jogador/Movimento/Fisica.posicaoY.y = posicaoInicial.y
+	$Jogador.respawnar(posicaoInicial)
+	global_position = posicaoInicial
 
 func rodar(gravidade):
 	iniciarPartes(gravidade)
-	global_position = $Jogador/Movimento/Fisica.posicaoY
+	#assim no Ysort ele vai ficar na frente ou atras do jogador
+	global_position = $Jogador/Movimento/Fisica.posicaoXY
 	
 func connectSignals():
 	$PosicaoXY.connect('mudarPosicaoChao', self, 'mudarPosicaoChao')

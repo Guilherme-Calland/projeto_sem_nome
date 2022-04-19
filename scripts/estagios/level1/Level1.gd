@@ -49,7 +49,7 @@ func _ready():
 	$Gatilhos/Xilofone.global_position = xilofonePosicoes[0]
 	$Gatilhos/Pandeiro.global_position = pandeiroPosicoes[0]
 	
-func _process(_delta):
+func _input(_event):
 	if not iniciou:
 		if Input.is_action_just_pressed('start'):
 			iniciou = true
@@ -61,12 +61,15 @@ func _process(_delta):
 				$Musica/Faixa1.stream = preload("res://audio/musicaDeFundo/Level1/com_pandeiro_e_xilofone.ogg")
 				$Musica/Faixa1.play()
 	elif iniciou:
-		if not $Musica/Faixa1.playing:
-			$Musica/Faixa1.stream = preload("res://audio/musicaDeFundo/Level1/sem_nada.ogg")
-			$Musica/Faixa1.play()
 		if Input.is_action_just_pressed('start'):
 			$Musica/Faixa1.stop()
 			iniciou = false
+
+func _process(_delta):
+	if iniciou:
+		if not $Musica/Faixa1.playing:
+			$Musica/Faixa1.stream = preload("res://audio/musicaDeFundo/Level1/sem_nada.ogg")
+			$Musica/Faixa1.play()
 			
 func tocarAudioEEngatilharProximo(body, instrumento):
 	if instrumento == 'xilofone':

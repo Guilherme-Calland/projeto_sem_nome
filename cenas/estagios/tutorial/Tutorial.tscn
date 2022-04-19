@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
+[ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/estagios/RodarEstagio.gd" type="Script" id=3]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Terreno" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Terreno"]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( 65528, 2, 0, 65529, 3, 0, 65530, 3, 0, 65531, 3, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 2, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 2, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -138 )
+current = true
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Jogadores" type="Node2D" parent="."]
+
+[node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
+position = Vector2( -255, -129 )
+posicaoInicial = Vector2( -255, -130 )
