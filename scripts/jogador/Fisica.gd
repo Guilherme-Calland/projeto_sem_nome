@@ -132,7 +132,7 @@ func respawnar(inPosicao):
 	sentidoZ = Vector2(0,0)
 	posicaoX = Vector2(inPosicao.x,0)
 	posicaoY = Vector2(0,inPosicao.y)
-	posicaoXY = Vector2(0,-300000)
+	posicaoXY = Vector2(0,0)
 	posicaoChaoZ = Vector2(0,0)
 	posicaoChao = Vector2(0,0)
 	valorSecundarioZ = Vector2(0,0)

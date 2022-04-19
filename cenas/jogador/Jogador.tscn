@@ -4363,7 +4363,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=18]
 resource_name = "respawnar"
-length = 0.1
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Animacao/Sprite:texture")
@@ -4387,7 +4387,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 3 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Animacao/Sprite:vframes")
@@ -4408,10 +4408,24 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 2, 0, 1 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Animacao")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "mostrarSombra"
+} ]
 }
 
 [node name="Jogador" type="KinematicBody2D"]

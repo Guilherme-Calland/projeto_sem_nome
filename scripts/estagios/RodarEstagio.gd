@@ -1,4 +1,4 @@
-extends "res://scripts/estagios/EstagioTemplate.gd"
+extends Node2D
 
 export var gravidade = 20
 var qtdJoysticks = 0
@@ -47,3 +47,10 @@ func removerPlayer(idDispositivo):
 		print('Jogador ' + str(qtdJoysticks + 1) +  ' saiu do jogo.')
 		$Jogadores.get_child(qtdJoysticks).queue_free()
 		qtdJoysticks -= 1
+		
+func tocarAudio(body, instrumento, nota):
+	body.tocarAudio(instrumento, nota)
+
+func mudarArea(body, posicaoChao, indexZJogador):
+	body.mudarPosicaoChao(posicaoChao)
+	body.mudarZIndex(indexZJogador)

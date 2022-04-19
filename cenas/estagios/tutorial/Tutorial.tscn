@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/estagios/RodarEstagio.gd" type="Script" id=3]
+[ext_resource path="res://graficos/background/bg1.png" type="Texture" id=4]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( -2, 0 )
+texture = ExtResource( 4 )
 
 [node name="Terreno" type="Node2D" parent="."]
 
@@ -19,8 +26,6 @@ tile_data = PoolIntArray( 65528, 2, 0, 65529, 3, 0, 65530, 3, 0, 65531, 3, 0, 65
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -138 )
 current = true
-
-[node name="Background" type="Node2D" parent="."]
 
 [node name="Jogadores" type="Node2D" parent="."]
 

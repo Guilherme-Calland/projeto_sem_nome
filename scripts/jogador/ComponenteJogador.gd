@@ -25,6 +25,7 @@ func connectSignals():
 	$PosicaoXY.connect('colisao', self, 'colidir')
 	$PosicaoXY.connect('sairColisao', self, 'sairColisao')
 	$Jogador/Movimento.connect('aterrisando', self, 'engatilharColisaoInstrumento')
+	$Jogador/Animacao.connect('mostrarSombra', self, 'mostrarSombra')
 
 func mudarAtrito(inAtrito):
 	$Jogador.mudarAtrito(inAtrito)
@@ -36,7 +37,6 @@ func tocarAudio(instrumento, nota):
 		else:
 			$AudioAuxiliar.tocarAudio(instrumento, nota)
 		
-
 func iniciarPartes(gravidade):
 	$Jogador/Input.index_jogador = indexJogador
 	$Jogador.rodar(gravidade)
@@ -60,3 +60,6 @@ func sairColisao():
 
 func engatilharColisaoInstrumento(b):
 	$ColisaoIntrumento/CollisionShape2D.set_deferred('disabled', !b)
+
+func mostrarSombra(m):
+	$Sombra.visible = m
