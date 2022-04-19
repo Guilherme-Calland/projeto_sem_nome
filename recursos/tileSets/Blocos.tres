@@ -8,10 +8,10 @@
 2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 160 )
+2/region = Rect2( 0, 0, 64, 1500 )
 2/tile_mode = 0
-2/occluder_offset = Vector2( 32, 80 )
-2/navigation_offset = Vector2( 32, 80 )
+2/occluder_offset = Vector2( 32, 750 )
+2/navigation_offset = Vector2( 32, 750 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 2/shape_one_way = false

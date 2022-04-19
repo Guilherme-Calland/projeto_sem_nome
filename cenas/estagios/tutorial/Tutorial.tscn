@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/estagios/RodarEstagio.gd" type="Script" id=3]
+[ext_resource path="res://scripts/estagios/tutorial/Tutorial.gd" type="Script" id=3]
 [ext_resource path="res://graficos/background/bg1.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 3 )
@@ -14,6 +16,18 @@ script = ExtResource( 3 )
 position = Vector2( -2, 0 )
 texture = ExtResource( 4 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 660, 299 )
+current = true
+smoothing_enabled = true
+
+[node name="Jogadores" type="Node2D" parent="."]
+
+[node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
+position = Vector2( -239, -126 )
+z_index = 1
+posicaoInicial = Vector2( -255, -130 )
+
 [node name="Terreno" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Terreno"]
@@ -23,12 +37,54 @@ cell_size = Vector2( 64, 32 )
 format = 1
 tile_data = PoolIntArray( 65528, 2, 0, 65529, 3, 0, 65530, 3, 0, 65531, 3, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 2, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 2, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -138 )
-current = true
+[node name="Gatilhos" type="Node2D" parent="."]
 
-[node name="Jogadores" type="Node2D" parent="."]
-
-[node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
+[node name="Chao" type="Area2D" parent="Gatilhos"]
 position = Vector2( -255, -129 )
-posicaoInicial = Vector2( -255, -130 )
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Chao"]
+polygon = PoolVector2Array( -33, 19, 1, 0, 862, 433, 830, 448 )
+
+[node name="Queda" type="Node2D" parent="Gatilhos"]
+
+[node name="Frente" type="Area2D" parent="Gatilhos/Queda"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Queda/Frente"]
+polygon = PoolVector2Array( -288, -107, 573, 318, 607, 303, 636, 304, 573, 331, -318, -109 )
+
+[node name="Atras" type="Area2D" parent="Gatilhos/Queda"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Queda/Atras"]
+polygon = PoolVector2Array( -317, -111, -288, -110, -254, -131, 605, 302, 635, 303, -256, -146 )
+
+[node name="Respawn" type="Area2D" parent="Gatilhos"]
+position = Vector2( 0, 1200 )
+scale = Vector2( 10000, 20 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatilhos/Respawn"]
+shape = SubResource( 1 )
+
+[node name="MoverCamera" type="Node2D" parent="Gatilhos"]
+
+[node name="Dummy" type="Node2D" parent="Gatilhos/MoverCamera"]
+
+[node name="MoverCamera" type="Area2D" parent="Gatilhos/MoverCamera"]
+position = Vector2( 237, 110 )
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/MoverCamera/MoverCamera"]
+polygon = PoolVector2Array( 62, -52, 206, 17, 11, 126, -128, 58 )
+
+[connection signal="body_entered" from="Gatilhos/Chao" to="." method="mudarArea" binds= [ 0.0, 1.0 ]]
+[connection signal="body_entered" from="Gatilhos/Queda/Frente" to="." method="mudarArea" binds= [ 300000.0, 2.0 ]]
+[connection signal="body_entered" from="Gatilhos/Queda/Atras" to="." method="mudarArea" binds= [ 300000.0, 0.0 ]]
+[connection signal="body_entered" from="Gatilhos/Respawn" to="." method="respawnar"]
+[connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera" to="." method="onMoverCameraGatilho"]

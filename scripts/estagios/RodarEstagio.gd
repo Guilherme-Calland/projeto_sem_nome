@@ -17,9 +17,6 @@ func iniciarJogadores():
 	var jogadores = $Jogadores.get_children()
 	for j in jogadores:
 		j.rodar(gravidade)
-
-func respawnar(body, posicao):
-	body.respawnar(posicao)
 	
 func onJoyConnectionChanged(idDispositivo, connectado):
 	if connectado:
