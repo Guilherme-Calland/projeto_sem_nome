@@ -6,9 +6,8 @@ export var forcaPulo = 375.0
 export var indexJogador = 0
 
 func _ready():
-	z_index = 1
 	connectSignals()
-	$Jogador.respawnar(posicaoInicial)
+	$Jogador.respawnar(posicaoInicial, 1)
 	global_position = posicaoInicial
 
 func rodar(gravidade):
@@ -55,8 +54,8 @@ func mudarZIndex(index):
 	if $Jogador/Movimento/Fisica.posicaoZ.y <= 0:
 		z_index = index
 
-func resetarZIndex():
-	z_index = 1
+func resetarZIndex(index):
+	z_index = index
 
 func colidir(sentidoColisao, posicaoZTerreno):
 	$Jogador/Movimento.colidir(sentidoColisao, posicaoZTerreno)

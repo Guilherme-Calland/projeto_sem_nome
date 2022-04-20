@@ -14,8 +14,8 @@ func rodar(gravidade):
 func mudarPosicao():
 	global_position = $Movimento/Fisica.posicao
 
-func respawnar(posicao):
-	emit_signal('resetarZIndex')
+func respawnar(posicao, zIndex):
+	emit_signal('resetarZIndex', zIndex)
 	$Animacao.respawnar()
 	$Movimento.respawnar(posicao)
 
