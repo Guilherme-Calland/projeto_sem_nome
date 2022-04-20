@@ -6,6 +6,7 @@ var gameLocalIndex = 0
 
 func _ready():
 	moverCamera()
+	
 
 func respawnar(body):
 	body.respawnar(posicoesRespawn[gameLocalIndex - 1])
