@@ -26,6 +26,7 @@ func connectSignals():
 	$PosicaoXY.connect('sairColisao', self, 'sairColisao')
 	$Jogador/Movimento.connect('aterrisando', self, 'engatilharColisaoInstrumento')
 	$Jogador/Animacao.connect('mostrarSombra', self, 'mostrarSombra')
+	$Jogador.connect('resetarZIndex', self, 'resetarZIndex')
 
 func mudarAtrito(inAtrito):
 	$Jogador.mudarAtrito(inAtrito)
@@ -47,10 +48,15 @@ func iniciarPartes(gravidade):
 	$ColisaoIntrumento.global_position = $Jogador.global_position
 
 func mudarPosicaoChao(posicaoZChao):
-	$Jogador.mudarPosicaoChao(posicaoZChao)
+	if $Jogador/Movimento/Fisica.posicaoZ.y <= 0:
+		$Jogador.mudarPosicaoChao(posicaoZChao)
 
 func mudarZIndex(index):
-	z_index = index
+	if $Jogador/Movimento/Fisica.posicaoZ.y <= 0:
+		z_index = index
+
+func resetarZIndex():
+	z_index = 1
 
 func colidir(sentidoColisao, posicaoZTerreno):
 	$Jogador/Movimento.colidir(sentidoColisao, posicaoZTerreno)

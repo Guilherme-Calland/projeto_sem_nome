@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var indexJogador = 0
+signal resetarZIndex
 
 func rodar(gravidade):
 	#animacao
@@ -14,6 +15,7 @@ func mudarPosicao():
 	global_position = $Movimento/Fisica.posicao
 
 func respawnar(posicao):
+	emit_signal('resetarZIndex')
 	$Animacao.respawnar()
 	$Movimento.respawnar(posicao)
 
