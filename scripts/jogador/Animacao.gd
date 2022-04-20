@@ -56,8 +56,8 @@ func inverterEixoHorizontalSprite(b):
 func mudarAnimacao(nome, olhandoPro):
 	if $AnimationPlayer.current_animation != 'respawnar':
 		var valor = str(nome) + olhandoPro[0].to_upper() + str(olhandoPro.trim_prefix(str(olhandoPro[0])))
-		if indexJogador > 0 and indexJogador < 4:
-			valor += str(indexJogador + 1)
+		if indexJogador%4 > 0:
+			valor += str((indexJogador%4) + 1)
 		$AnimationPlayer.play(valor)
 
 func respawnar():

@@ -1,7 +1,7 @@
 extends Node2D
 
 export var gravidade = 20
-var qtdJoysticks = 0
+var qtdJoysticks = 1
 
 func _ready():
 	Input.connect("joy_connection_changed", self, "onJoyConnectionChanged")
@@ -31,18 +31,18 @@ func _input(_event):
 		removerPlayer(1)
 
 func instanciarNovoPlayer(idDispositivo):
-	qtdJoysticks += 1
 	if idDispositivo != 0:
-		print('Jogador ' + str(qtdJoysticks + 1) +  ' se juntou ao jogo.')
+		qtdJoysticks += 1
+		print('Jogador ' + str(qtdJoysticks) +  ' se juntou ao jogo.')
 		var player = preload("res://cenas/jogador/ComponenteJogador.tscn").instance()
 		player.posicaoInicial = $Jogadores.get_children().pop_back().get_child(2).global_position + Vector2(20, 10)
-		player.indexJogador = qtdJoysticks
+		player.indexJogador = qtdJoysticks - 1
 		$Jogadores.add_child(player)
 
 func removerPlayer(idDispositivo):
 	if $Jogadores.get_child_count() > 1:
-		print('Jogador ' + str(qtdJoysticks + 1) +  ' saiu do jogo.')
-		$Jogadores.get_child(qtdJoysticks).queue_free()
+		print('Jogador ' + str(qtdJoysticks) +  ' saiu do jogo.')
+		$Jogadores.get_child(qtdJoysticks - 1).queue_free()
 		qtdJoysticks -= 1
 		
 func tocarAudio(body, instrumento, nota):

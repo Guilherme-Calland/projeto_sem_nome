@@ -21,7 +21,7 @@ position = Vector2( 660, 299 )
 current = true
 smoothing_enabled = true
 
-[node name="Jogadores" type="Node2D" parent="."]
+[node name="Jogadores" type="YSort" parent="."]
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
 position = Vector2( -239, -126 )
