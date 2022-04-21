@@ -43,4 +43,6 @@ func tocarAudio(instrumento, nota):
 			stream = preload('res://audio/xilofone/G6.ogg')
 	elif instrumento == 'pandeiro':
 		stream = preload('res://audio/pandeiro/som.ogg')
+	elif instrumento == 'bumbo':
+		stream = preload("res://audio/bumbo/kick.ogg")
 	play()
