@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
@@ -11,182 +11,16 @@
 [ext_resource path="res://graficos/extras/quadrado_nota.png" type="Texture" id=9]
 [ext_resource path="res://graficos/extras/quadrado_pula.png" type="Texture" id=10]
 [ext_resource path="res://graficos/extras/quadrado_vazio.png" type="Texture" id=11]
+[ext_resource path="res://graficos/extras/marcador_preto.png" type="Texture" id=12]
+[ext_resource path="res://graficos/extras/marcador_laranja.png" type="Texture" id=13]
+[ext_resource path="res://graficos/extras/marcador_azul.png" type="Texture" id=14]
+[ext_resource path="res://graficos/extras/marcador_roxo.png" type="Texture" id=15]
+[ext_resource path="res://audio/musicaDeFundo/tutorial/tutorial_silencio_700BPM.ogg" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 3 )
-
-[node name="Cenario" type="Node2D" parent="."]
-z_index = -100
-
-[node name="Bg" type="Sprite" parent="Cenario"]
-position = Vector2( 482, -53 )
-scale = Vector2( 100, 100 )
-texture = ExtResource( 4 )
-
-[node name="TutorialBemVindo" type="Sprite" parent="Cenario"]
-visible = false
-position = Vector2( 242, -270 )
-scale = Vector2( 1.72134, 1.64583 )
-texture = ExtResource( 5 )
-
-[node name="Movimento" type="Sprite" parent="Cenario"]
-visible = false
-position = Vector2( 232, -74 )
-texture = ExtResource( 8 )
-
-[node name="Xbox-Controller" type="Sprite" parent="Cenario"]
-modulate = Color( 1, 1, 1, 0.458824 )
-position = Vector2( 96, -154 )
-texture = ExtResource( 6 )
-
-[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Xbox-Controller"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( -38, -20 )
-texture = ExtResource( 7 )
-
-[node name="MarcadorBotao" type="Sprite" parent="Cenario/Xbox-Controller"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( -19, 4 )
-texture = ExtResource( 7 )
-
-[node name="Xbox-Controller2" type="Sprite" parent="Cenario"]
-visible = false
-modulate = Color( 1, 1, 1, 0.458824 )
-position = Vector2( 668, 201 )
-texture = ExtResource( 6 )
-
-[node name="MarcadorBotao" type="Sprite" parent="Cenario/Xbox-Controller2"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( 36, -10 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
-
-[node name="Xbox-Controller3" type="Sprite" parent="Cenario"]
-visible = false
-modulate = Color( 1, 1, 1, 0.458824 )
-position = Vector2( 1567, 124 )
-texture = ExtResource( 6 )
-
-[node name="MarcadorBotao" type="Sprite" parent="Cenario/Xbox-Controller3"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( 36, -10 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
-
-[node name="Xbox-Controller4" type="Sprite" parent="Cenario"]
-visible = false
-modulate = Color( 1, 1, 1, 0.458824 )
-position = Vector2( 1193, 284 )
-texture = ExtResource( 6 )
-
-[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Xbox-Controller4"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( -38, -49 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
-
-[node name="MarcadorBotao3" type="Sprite" parent="Cenario/Xbox-Controller4"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( 27, -20 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
-
-[node name="Auxilios" type="Node2D" parent="Cenario"]
-modulate = Color( 1, 1, 1, 0.784314 )
-
-[node name="Auxilio1" type="Node2D" parent="Cenario/Auxilios"]
-position = Vector2( -59, -17 )
-
-[node name="Nota" type="Sprite" parent="Cenario/Auxilios/Auxilio1"]
-position = Vector2( 2111, -240 )
-texture = ExtResource( 9 )
-
-[node name="Pula" type="Sprite" parent="Cenario/Auxilios/Auxilio1"]
-position = Vector2( 2161, -190 )
-texture = ExtResource( 10 )
-
-[node name="Vazio" type="Sprite" parent="Cenario/Auxilios/Auxilio1"]
-position = Vector2( 2161, -240 )
-texture = ExtResource( 11 )
-
-[node name="Vazio2" type="Sprite" parent="Cenario/Auxilios/Auxilio1"]
-position = Vector2( 2111, -190 )
-texture = ExtResource( 11 )
-
-[node name="Auxilio2" type="Node2D" parent="Cenario/Auxilios"]
-position = Vector2( 138, -109 )
-
-[node name="Nota3" type="Sprite" parent="Cenario/Auxilios/Auxilio2"]
-position = Vector2( 2161, -190 )
-texture = ExtResource( 9 )
-
-[node name="Pula3" type="Sprite" parent="Cenario/Auxilios/Auxilio2"]
-position = Vector2( 2111, -190 )
-texture = ExtResource( 10 )
-
-[node name="Vazio9" type="Sprite" parent="Cenario/Auxilios/Auxilio2"]
-position = Vector2( 2161, -140 )
-texture = ExtResource( 11 )
-
-[node name="Vazio10" type="Sprite" parent="Cenario/Auxilios/Auxilio2"]
-position = Vector2( 2111, -140 )
-texture = ExtResource( 11 )
-
-[node name="Auxilio3" type="Node2D" parent="Cenario/Auxilios"]
-position = Vector2( 157, -84 )
-
-[node name="Nota4" type="Sprite" parent="Cenario/Auxilios/Auxilio3"]
-position = Vector2( 2299, -261 )
-texture = ExtResource( 9 )
-
-[node name="Pula4" type="Sprite" parent="Cenario/Auxilios/Auxilio3"]
-position = Vector2( 2249, -261 )
-texture = ExtResource( 10 )
-
-[node name="Vazio7" type="Sprite" parent="Cenario/Auxilios/Auxilio3"]
-position = Vector2( 2299, -311 )
-texture = ExtResource( 11 )
-
-[node name="Vazio8" type="Sprite" parent="Cenario/Auxilios/Auxilio3"]
-position = Vector2( 2249, -311 )
-texture = ExtResource( 11 )
-
-[node name="Auxilio4" type="Node2D" parent="Cenario/Auxilios"]
-position = Vector2( 417, -222 )
-
-[node name="Nota2" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2161, -190 )
-texture = ExtResource( 9 )
-
-[node name="Pula" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2260, -240 )
-texture = ExtResource( 10 )
-
-[node name="Vazio" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2161, -240 )
-texture = ExtResource( 11 )
-
-[node name="Vazio6" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2111, -190 )
-texture = ExtResource( 11 )
-
-[node name="Vazio5" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2111, -240 )
-texture = ExtResource( 11 )
-
-[node name="Vazio2" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2211, -240 )
-texture = ExtResource( 11 )
-
-[node name="Vazio3" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2211, -190 )
-texture = ExtResource( 11 )
-
-[node name="Vazio4" type="Sprite" parent="Cenario/Auxilios/Auxilio4"]
-position = Vector2( 2260, -190 )
-texture = ExtResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 2440, -223 )
@@ -248,7 +82,7 @@ mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -2686946, 8, 0 )
+tile_data = PoolIntArray( -2686946, 6, 0 )
 
 [node name="menos2" type="TileMap" parent="Terreno"]
 z_index = -2
@@ -289,7 +123,201 @@ cell_size = Vector2( 64, 32 )
 format = 1
 tile_data = PoolIntArray( -3801056, 7, 0 )
 
+[node name="Cenario" type="Node2D" parent="."]
+z_index = -100
+
+[node name="Bg" type="Sprite" parent="Cenario"]
+position = Vector2( 511, 83 )
+scale = Vector2( 100, 100 )
+z_index = -100
+texture = ExtResource( 4 )
+
+[node name="TutorialBemVindo" type="Sprite" parent="Cenario"]
+visible = false
+position = Vector2( 242, -270 )
+scale = Vector2( 1.72134, 1.64583 )
+texture = ExtResource( 5 )
+
+[node name="Movimento" type="Sprite" parent="Cenario"]
+visible = false
+position = Vector2( 232, -74 )
+texture = ExtResource( 8 )
+
+[node name="Controller" type="Sprite" parent="Cenario"]
+modulate = Color( 1, 1, 1, 0.458824 )
+position = Vector2( 96, -154 )
+texture = ExtResource( 6 )
+
+[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+position = Vector2( -38, -20 )
+texture = ExtResource( 7 )
+
+[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+position = Vector2( -19, 4 )
+texture = ExtResource( 7 )
+
+[node name="Controller2" type="Sprite" parent="Cenario"]
+visible = false
+modulate = Color( 1, 1, 1, 0.458824 )
+position = Vector2( 668, 201 )
+texture = ExtResource( 6 )
+
+[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller2"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+position = Vector2( 36, -10 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 7 )
+
+[node name="Controller3" type="Sprite" parent="Cenario"]
+visible = false
+modulate = Color( 1, 1, 1, 0.458824 )
+position = Vector2( 1567, 124 )
+texture = ExtResource( 6 )
+
+[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller3"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+position = Vector2( 36, -10 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 7 )
+
+[node name="Controller4" type="Sprite" parent="Cenario"]
+visible = false
+modulate = Color( 1, 1, 1, 0.458824 )
+position = Vector2( 1193, 284 )
+texture = ExtResource( 6 )
+
+[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller4"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+position = Vector2( -38, -49 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 7 )
+
+[node name="MarcadorBotao3" type="Sprite" parent="Cenario/Controller4"]
+modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+position = Vector2( 27, -20 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 7 )
+
+[node name="Auxilios" type="Node2D" parent="Cenario"]
+modulate = Color( 1, 1, 1, 0.784314 )
+
+[node name="AuxilioXilofone" type="Node2D" parent="Cenario/Auxilios"]
+position = Vector2( -59, -17 )
+
+[node name="1" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2111, -240 )
+texture = ExtResource( 9 )
+
+[node name="2" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2161, -240 )
+texture = ExtResource( 11 )
+
+[node name="3" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2111, -190 )
+texture = ExtResource( 11 )
+
+[node name="4" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2161, -190 )
+texture = ExtResource( 10 )
+
+[node name="Marcador" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2111, -240 )
+texture = ExtResource( 14 )
+
+[node name="Marcador2" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2171, -66 )
+z_index = 100
+texture = ExtResource( 14 )
+
+[node name="AuxilioPandeiro1" type="Node2D" parent="Cenario/Auxilios"]
+position = Vector2( 138, -109 )
+
+[node name="1" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2111, -190 )
+texture = ExtResource( 10 )
+
+[node name="2" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2161, -190 )
+texture = ExtResource( 9 )
+
+[node name="3" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2111, -140 )
+texture = ExtResource( 11 )
+
+[node name="4" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2161, -140 )
+texture = ExtResource( 11 )
+
+[node name="Marcador" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2111, -187 )
+texture = ExtResource( 15 )
+
+[node name="AuxilioPandeiro2" type="Node2D" parent="Cenario/Auxilios"]
+position = Vector2( 157, -84 )
+
+[node name="1" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2249, -311 )
+texture = ExtResource( 11 )
+
+[node name="2" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2299, -311 )
+texture = ExtResource( 11 )
+
+[node name="3" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2249, -261 )
+texture = ExtResource( 10 )
+
+[node name="4" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2299, -261 )
+texture = ExtResource( 9 )
+
+[node name="Marcador" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2249, -312 )
+texture = ExtResource( 13 )
+
+[node name="AuxilioBumbo" type="Node2D" parent="Cenario/Auxilios"]
+position = Vector2( 417, -222 )
+
+[node name="1" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2111, -240 )
+texture = ExtResource( 11 )
+
+[node name="2" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2161, -240 )
+texture = ExtResource( 11 )
+
+[node name="3" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2211, -240 )
+texture = ExtResource( 11 )
+
+[node name="4" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2260, -240 )
+texture = ExtResource( 10 )
+
+[node name="5" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2111, -190 )
+texture = ExtResource( 11 )
+
+[node name="6" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2161, -190 )
+texture = ExtResource( 9 )
+
+[node name="7" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2211, -190 )
+texture = ExtResource( 11 )
+
+[node name="8" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2260, -190 )
+texture = ExtResource( 11 )
+
+[node name="Marcador" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2112, -241 )
+texture = ExtResource( 12 )
+
 [node name="Gatilhos" type="Node2D" parent="."]
+visible = false
 z_index = 1000
 
 [node name="Chao" type="Node2D" parent="Gatilhos"]
@@ -347,7 +375,6 @@ position = Vector2( 639, 318 )
 polygon = PoolVector2Array( -33, 19, 1, 2, 356.45, 180.186, 386, 195, 997, -108, 1024, -94, 417, 211, 385, 226 )
 
 [node name="Queda" type="Node2D" parent="Gatilhos"]
-visible = false
 
 [node name="zIndexMenos7" type="Node2D" parent="Gatilhos/Queda"]
 
@@ -474,7 +501,6 @@ collision_layer = 0
 shape = SubResource( 1 )
 
 [node name="MoverCamera" type="Node2D" parent="Gatilhos"]
-visible = false
 
 [node name="MoverCamera" type="Area2D" parent="Gatilhos/MoverCamera"]
 position = Vector2( 237, 110 )
@@ -494,11 +520,12 @@ collision_mask = 8
 polygon = PoolVector2Array( 62, -52, 206, 17, 11, 126, -128, 58 )
 
 [node name="MoverCamera3" type="Area2D" parent="Gatilhos/MoverCamera"]
-position = Vector2( 1991, -7 )
+position = Vector2( 1941, 18 )
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/MoverCamera/MoverCamera3"]
+position = Vector2( -88, 50 )
 polygon = PoolVector2Array( 66, -47, 191, 11, -10, 117, -128, 58 )
 
 [node name="Audio" type="Node2D" parent="Gatilhos"]
@@ -506,45 +533,52 @@ polygon = PoolVector2Array( 66, -47, 191, 11, -10, 117, -128, 58 )
 [node name="Xilofone" type="Node2D" parent="Gatilhos/Audio"]
 
 [node name="C6" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
+position = Vector2( 2112, -81 )
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/C6"]
+position = Vector2( -2112, 81 )
 polygon = PoolVector2Array( 2081, -80, 2112, -95, 2144, -80, 2112, -64 )
 
 [node name="A5" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
-position = Vector2( -32, -16 )
+position = Vector2( 2080, -96 )
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/A5"]
+position = Vector2( -2112, 80 )
 polygon = PoolVector2Array( 2081, -80, 2112, -96, 2144, -79, 2112, -64 )
 
 [node name="F5" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
-position = Vector2( -64, 0 )
+position = Vector2( 2049, -81 )
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/F5"]
+position = Vector2( -2113, 81 )
 polygon = PoolVector2Array( 2081, -80, 2112, -96, 2145, -80, 2112, -64 )
 
 [node name="G5" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
-position = Vector2( -32, 16 )
+position = Vector2( 2081, -65 )
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/G5"]
+position = Vector2( -2113, 81 )
 polygon = PoolVector2Array( 2081, -80, 2112, -96, 2145, -80, 2112, -64 )
 
 [node name="Pandeiro" type="Area2D" parent="Gatilhos/Audio"]
+position = Vector2( 2271, -161 )
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audio/Pandeiro"]
-position = Vector2( 160, -80 )
+[node name="Pandeiro1" type="CollisionPolygon2D" parent="Gatilhos/Audio/Pandeiro"]
+position = Vector2( -2111.1, 81.3 )
 polygon = PoolVector2Array( 2081, -80, 2112, -95, 2144, -80, 2112, -64 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Pandeiro"]
+[node name="Pandeiro2" type="CollisionPolygon2D" parent="Gatilhos/Audio/Pandeiro"]
+position = Vector2( -2272, 160 )
 polygon = PoolVector2Array( 2401, -240, 2432, -224, 2464, -240, 2432, -255 )
 
 [node name="Bumbo" type="Area2D" parent="Gatilhos/Audio"]
@@ -556,6 +590,11 @@ collision_mask = 16
 polygon = PoolVector2Array( 2401, -240, 2432, -224, 2464, -240, 2432, -255 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AuxiliarAudio700BPM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+pitch_scale = 2.0
+autoplay = true
 
 [connection signal="body_entered" from="Gatilhos/Chao/zIndexMenos7" to="." method="mudarArea" binds= [ 0.0, -7.0 ]]
 [connection signal="body_entered" from="Gatilhos/Chao/Indexmenos5" to="." method="mudarArea" binds= [ 0.0, -5.0 ]]
@@ -579,9 +618,10 @@ polygon = PoolVector2Array( 2401, -240, 2432, -224, 2464, -240, 2432, -255 )
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera" to="." method="onMoverCameraGatilho"]
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera2" to="." method="onMoverCameraGatilho"]
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera3" to="." method="onMoverCameraGatilho"]
-[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone", "C6" ]]
-[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone", "A5" ]]
-[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone", "F5" ]]
-[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/G5" to="." method="tocarAudio" binds= [ "xilofone", "G5" ]]
+[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
+[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone2", "A5" ]]
+[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone2", "F5" ]]
+[connection signal="body_entered" from="Gatilhos/Audio/Xilofone/G5" to="." method="tocarAudio" binds= [ "xilofone2", "G5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Pandeiro" to="." method="tocarAudio" binds= [ "pandeiro", "" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Bumbo" to="." method="tocarAudio" binds= [ "bumbo", "" ]]
+[connection signal="finished" from="AuxiliarAudio700BPM" to="." method="_on_AuxiliarAudio700BPM_finished"]
