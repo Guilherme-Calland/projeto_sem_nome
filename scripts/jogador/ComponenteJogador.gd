@@ -34,8 +34,13 @@ func tocarAudio(instrumento, nota):
 	if $Jogador/Movimento/Fisica.noChao():
 		if not $Audio.playing:
 			$Audio.tocarAudio(instrumento, nota)
-		else:
-			$AudioAuxiliar.tocarAudio(instrumento, nota)
+		elif not $Audio/AudioAuxiliar1.playing:
+			$Audio/AudioAuxiliar1.tocarAudio(instrumento, nota)
+		elif not $Audio/AudioAuxiliar2.playing:
+			$Audio/AudioAuxiliar2.tocarAudio(instrumento, nota)
+		elif not $Audio/AudioAuxiliar3.playing:
+			$Audio/AudioAuxiliar3.tocarAudio(instrumento, nota)
+		
 		
 func iniciarPartes(gravidade):
 	$Jogador/Input.index_jogador = indexJogador
