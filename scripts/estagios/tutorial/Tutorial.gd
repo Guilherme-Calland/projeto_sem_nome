@@ -4,6 +4,7 @@ var posicoesRespawn = [Vector2(-255,-130), Vector2(286, 138), Vector2(1023, 507)
 var posicoesCamera = [Vector2(95, -150), Vector2(660, 300), Vector2(1265, 285), Vector2(2440,-223)]
 var zIndexesRespawn = [1,1,3,1]
 var gameLocalIndex = 0
+var engatilhouAudios = false
 
 var posicoesMarcadorXilofone = [
 	Vector2(2111- 59, -240-17),
@@ -24,6 +25,13 @@ var posicoesMarcadorPandeiro1 = [
 	Vector2(2161, -190),
 	Vector2(2111, -140),
 	Vector2(2161, -140),
+]
+
+var posicoesMarcadorPandeiro2 = [
+	Vector2(2249, -311),
+	Vector2(2299, -311),
+	Vector2(2249, -261),
+	Vector2(2299, -261)
 ]
 
 var posicoesMarcadorBumbo = [
@@ -70,18 +78,30 @@ func moverCamera():
 	gameLocalIndex += 1
 
 func _on_AuxiliarAudio700BPM_finished():
-	$AuxiliarAudio700BPM.play()
+	$Audios/AuxiliarAudio700BPM.play()
 	moverMarcadorBumbo()
 	indexBumbo = (indexBumbo + 1)%8
+	var numeroDeJogadores = $Jogadores.get_child_count()
 	if (indexBumbo + 1)%2 == 0:
+		if indexIntrumento == 1 and numeroDeJogadores < 2 and engatilhouAudios:
+			$Audios/Player2SubstituteAudio.tocarAudio('pandeiro', '')
+		if indexIntrumento == 3 and numeroDeJogadores < 3 and engatilhouAudios:
+			$Audios/Player3SubstituteAudio.tocarAudio('pandeiro', '')
 		moverMarcadoresInstrumento()
 		indexIntrumento = (indexIntrumento + 1)%4
-	if (indexBumbo + 1)%3 == 0:
+	if (indexBumbo + 1)%8 == 0:
 		indexXilofone = (indexXilofone + 1)%4
+	if indexBumbo == 6 and numeroDeJogadores < 4 and engatilhouAudios:
+		$Audios/Player4SubstituteAudio.tocarAudio('bumbo', '')
 	
 func moverMarcadorBumbo():
 	$Cenario/Auxilios/AuxilioBumbo/Marcador.global_position = posicoesMarcadorBumbo[indexBumbo] + Vector2(417, -222)
 
 func moverMarcadoresInstrumento():
 	$Cenario/Auxilios/AuxilioXilofone/Marcador.global_position = posicoesMarcadorXilofone[indexIntrumento]
+	$Cenario/Auxilios/AuxilioXilofone/Marcador2.global_position = posicoesMarcadorXilofone2[indexXilofone]
 	$Cenario/Auxilios/AuxilioPandeiro1/Marcador.global_position = posicoesMarcadorPandeiro1[indexIntrumento] + Vector2(138, -109)
+	$Cenario/Auxilios/AuxilioPandeiro2/Marcador.global_position = posicoesMarcadorPandeiro2[indexIntrumento] + Vector2(157, -84)
+
+func _on_IniciarAudios_body_entered(_body):
+	engatilhouAudios = true

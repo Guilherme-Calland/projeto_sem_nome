@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://graficos/extras/marcador_azul.png" type="Texture" id=14]
 [ext_resource path="res://graficos/extras/marcador_roxo.png" type="Texture" id=15]
 [ext_resource path="res://audio/musicaDeFundo/tutorial/tutorial_silencio_700BPM.ogg" type="AudioStream" id=16]
+[ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -526,9 +527,16 @@ collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/MoverCamera/MoverCamera3"]
 position = Vector2( -88, 50 )
-polygon = PoolVector2Array( 66, -47, 191, 11, -10, 117, -128, 58 )
+polygon = PoolVector2Array( 66, -47, 191, 11, -10, 117, -135, 52 )
 
 [node name="Audio" type="Node2D" parent="Gatilhos"]
+
+[node name="IniciarAudios" type="Area2D" parent="Gatilhos/Audio"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/IniciarAudios"]
+polygon = PoolVector2Array( 1720, 120, 1844, 186, 2046, 80, 1918, 21 )
 
 [node name="Xilofone" type="Node2D" parent="Gatilhos/Audio"]
 
@@ -591,10 +599,21 @@ polygon = PoolVector2Array( 2401, -240, 2432, -224, 2464, -240, 2432, -255 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="AuxiliarAudio700BPM" type="AudioStreamPlayer" parent="."]
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="AuxiliarAudio700BPM" type="AudioStreamPlayer" parent="Audios"]
 stream = ExtResource( 16 )
 pitch_scale = 2.0
 autoplay = true
+
+[node name="Player2SubstituteAudio" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 17 )
+
+[node name="Player3SubstituteAudio" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 17 )
+
+[node name="Player4SubstituteAudio" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 17 )
 
 [connection signal="body_entered" from="Gatilhos/Chao/zIndexMenos7" to="." method="mudarArea" binds= [ 0.0, -7.0 ]]
 [connection signal="body_entered" from="Gatilhos/Chao/Indexmenos5" to="." method="mudarArea" binds= [ 0.0, -5.0 ]]
@@ -618,10 +637,11 @@ autoplay = true
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera" to="." method="onMoverCameraGatilho"]
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera2" to="." method="onMoverCameraGatilho"]
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera3" to="." method="onMoverCameraGatilho"]
+[connection signal="body_entered" from="Gatilhos/Audio/IniciarAudios" to="." method="_on_IniciarAudios_body_entered"]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone2", "A5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone2", "F5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/G5" to="." method="tocarAudio" binds= [ "xilofone2", "G5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Pandeiro" to="." method="tocarAudio" binds= [ "pandeiro", "" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Bumbo" to="." method="tocarAudio" binds= [ "bumbo", "" ]]
-[connection signal="finished" from="AuxiliarAudio700BPM" to="." method="_on_AuxiliarAudio700BPM_finished"]
+[connection signal="finished" from="Audios/AuxiliarAudio700BPM" to="." method="_on_AuxiliarAudio700BPM_finished"]
