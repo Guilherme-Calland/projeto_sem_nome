@@ -5,3 +5,7 @@ se aumentar 10% a velocidade padrao, incremente tbm 10% o bpm.
 
 coloca um rect na tela que tem o tempo das notas de todos os 4 jogadores.
 um em cada canto da tela.
+
+se fizer um break room, ao invez de botar o nome: procura vetores com blcos ABC ou algo assim.
+
+
