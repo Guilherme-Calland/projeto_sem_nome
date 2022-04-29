@@ -1,20 +1,7 @@
-nao coloca as condicoes de acimaDe porque qdo dá respawn da uns bugs.
-
 quando for fazer colisoes coloca em fisica, colidindo1, colidindo2, colidindoLeste1, colidindoLeste2
 
 com velocidadePadrao de 80, o tempo da musica é 175bpm
 se aumentar 10% a velocidade padrao, incremente tbm 10% o bpm.
 
-um jeito talez simples de resolver o problema da colisao, seria
-manter tudo sem nivelação e criar um static body nos terrenos com
-colisao, que interage com um novo corpo do ComponenteJogador chamado
-colisao, cujo colisao é disabled até ele cair abaixo da posicao 0.
-
-faz com que se voce aperta k, godot dá queue_free() no jogador2.
-
-ou senão, se só 1 controle é detectado, ele dá queue free no jogador2.
-
-https://godotengine.org/qa/17892/check-if-controller-connected-or-not
-
-faz com que, quando ele detecta um controle2, ele spawna do lado e um pouco pra baixo
-do player 1.
+coloca um rect na tela que tem o tempo das notas de todos os 4 jogadores.
+um em cada canto da tela.

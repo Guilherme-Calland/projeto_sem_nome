@@ -106,7 +106,6 @@ func calcularSentido():
 	
 func pular():
 	sentidoZ = vetorCima * forcaPulo
-	calcularPosicao()
 
 func calcularPosicao():
 	posicaoX += sentidoX/FPS
