@@ -37,6 +37,7 @@ energy = 0.88
 modulate = Color( 1, 1, 1, 0.909804 )
 position = Vector2( 256, -244 )
 scale = Vector2( 1.60784, 1.45098 )
+z_index = -400
 texture = ExtResource( 6 )
 
 [node name="Gatilhos" type="Node2D" parent="."]

@@ -15,6 +15,10 @@ run/main_scene="res://cenas/estagios/areaComum/AreaComum.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
+[display]
+
+window/size/fullscreen=true
+
 [input]
 
 norte={
