@@ -4,6 +4,7 @@ var input
 var movimento
 var fisica
 var indexJogador = 0
+signal seTornarVisivel
 
 signal mostrarSombra
 
@@ -54,7 +55,7 @@ func inverterEixoHorizontalSprite(b):
 	$Sprite.flip_h = b
 
 func mudarAnimacao(nome, olhandoPro):
-	if $AnimationPlayer.current_animation != 'respawnar':
+	if $AnimationPlayer.current_animation != 'respawnar' and $AnimationPlayer.current_animation != 'teleportar':
 		var valor = str(nome) + olhandoPro[0].to_upper() + str(olhandoPro.trim_prefix(str(olhandoPro[0])))
 		if indexJogador%4 > 0:
 			valor += str((indexJogador%4) + 1)
@@ -69,3 +70,9 @@ func setarVelocidadeAnimacao():
 
 func mostrarSombra():
 	emit_signal('mostrarSombra', true)
+
+func teleportar():
+	$AnimationPlayer.play("teleportar")
+
+func seTornarVisivel():
+	emit_signal("seTornarVisivel")

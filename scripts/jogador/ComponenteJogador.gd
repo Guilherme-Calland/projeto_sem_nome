@@ -7,8 +7,7 @@ export var indexJogador = 0
 
 func _ready():
 	connectSignals()
-	$Jogador.respawnar(posicaoInicial, 1)
-	global_position = posicaoInicial
+	$AparecerTimer.start()
 
 func rodar(gravidade):
 	iniciarPartes(gravidade)
@@ -26,6 +25,8 @@ func connectSignals():
 	$Jogador/Movimento.connect('aterrisando', self, 'engatilharColisaoInstrumento')
 	$Jogador/Animacao.connect('mostrarSombra', self, 'mostrarSombra')
 	$Jogador.connect('resetarZIndex', self, 'resetarZIndex')
+	$Jogador.connect("seExcluir", self, "seExcluir")
+	$Jogador/Animacao.connect("seTornarVisivel", self, "seTornarVisivel")
 
 func mudarAtrito(inAtrito):
 	$Jogador.mudarAtrito(inAtrito)
@@ -73,3 +74,16 @@ func engatilharColisaoInstrumento(b):
 
 func mostrarSombra(m):
 	$Sombra.visible = m
+	
+func teleportar():
+	$Jogador/Animacao.teleportar()
+
+func seExcluir():
+	queue_free()
+
+func _on_AparecerTimer_timeout():
+	$Jogador.respawnar(posicaoInicial, 1)
+	global_position = posicaoInicial
+
+func seTornarVisivel():
+	visible = true

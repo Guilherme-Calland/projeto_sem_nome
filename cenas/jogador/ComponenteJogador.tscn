@@ -16,6 +16,7 @@ data = PoolByteArray( 79, 103, 103, 83, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 35, 99, 0,
 loop = true
 
 [node name="ComponenteJogador" type="Node2D"]
+visible = false
 script = ExtResource( 2 )
 velocidadePadrao = 80.0
 forcaPulo = 400.0
@@ -55,3 +56,9 @@ script = ExtResource( 5 )
 
 [node name="AudioAuxiliar3" type="AudioStreamPlayer" parent="Audio"]
 script = ExtResource( 5 )
+
+[node name="AparecerTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="AparecerTimer" to="." method="_on_AparecerTimer_timeout"]

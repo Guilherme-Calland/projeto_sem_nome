@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var indexJogador = 0
 signal resetarZIndex
+signal seExcluir
 
 func rodar(gravidade):
 	#animacao
@@ -27,3 +28,8 @@ func estiverAcimaDaPosicao(inPosicao):
 	
 func emUmChao(inPosicao):
 	return inPosicao < 300000
+
+func seExcluir():
+	emit_signal("seExcluir")
+
+

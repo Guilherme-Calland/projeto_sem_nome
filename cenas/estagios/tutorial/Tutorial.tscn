@@ -17,7 +17,7 @@
 [ext_resource path="res://graficos/extras/marcador_roxo.png" type="Texture" id=15]
 [ext_resource path="res://audio/musicaDeFundo/tutorial/tutorial_silencio_700BPM.ogg" type="AudioStream" id=16]
 [ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=17]
-[ext_resource path="res://graficos/luz/luz.png" type="Texture" id=18]
+[ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -118,6 +118,7 @@ format = 1
 tile_data = PoolIntArray( -1245152, 2, 0, -1179616, 3, 0, -1114080, 3, 0, -1048544, 3, 0, -983008, 3, 0, -917472, 3, 0, -851936, 3, 0, -786400, 3, 0, -720864, 2, 0, -655328, 3, 0, -589792, 3, 0, -524256, 3, 0, -458720, 3, 0, -393184, 3, 0, -327648, 3, 0, -262112, 3, 0, -196576, 3, 0, -131040, 3, 0, -65504, 3, 0, 20, 2, 0, 21, 3, 0, 22, 3, 0, 23, 3, 0, 24, 3, 0, 25, 3, 0, 26, 3, 0, 27, 3, 0, 28, 3, 0, 29, 3, 0, 30, 3, 0, 31, 3, 0, 32, 2, 0 )
 
 [node name="Exit" type="TileMap" parent="Terreno"]
+z_index = -10
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 32 )
@@ -317,11 +318,9 @@ texture = ExtResource( 11 )
 position = Vector2( 2112, -241 )
 texture = ExtResource( 12 )
 
-[node name="Light2D" type="Light2D" parent="Cenario"]
-position = Vector2( 2881, -402 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 18 )
-color = Color( 0.396078, 0.396078, 0.396078, 1 )
+[node name="Brilho" parent="Cenario" instance=ExtResource( 18 )]
+position = Vector2( 2882, -403 )
+energy = 0.8
 
 [node name="Gatilhos" type="Node2D" parent="."]
 visible = false
