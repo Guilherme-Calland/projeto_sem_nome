@@ -7,7 +7,7 @@ var proximoEstagio
 func _ready():
 	Input.connect("joy_connection_changed", self, "onJoyConnectionChanged")
 	for i in range(0,4):
-		if Input.is_joy_known(i):
+		if Input.get_joy_name(i) != '':
 			instanciarNovoPlayer(i)
 
 #essa funcao roda 1 vez por frame
@@ -68,3 +68,4 @@ func _on_Timer_timeout():
 
 func _on_EstagioTimer2_timeout():
 	get_tree().change_scene(proximoEstagio)
+

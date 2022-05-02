@@ -16,7 +16,6 @@ data = PoolByteArray( 79, 103, 103, 83, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 35, 99, 0,
 loop = true
 
 [node name="ComponenteJogador" type="Node2D"]
-visible = false
 script = ExtResource( 2 )
 velocidadePadrao = 80.0
 forcaPulo = 400.0

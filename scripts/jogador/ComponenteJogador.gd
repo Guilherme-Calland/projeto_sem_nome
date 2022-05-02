@@ -6,8 +6,9 @@ export var forcaPulo = 375.0
 export var indexJogador = 0
 
 func _ready():
+	$Jogador.respawnar(posicaoInicial, 1)
+	global_position = posicaoInicial
 	connectSignals()
-	$AparecerTimer.start()
 
 func rodar(gravidade):
 	iniciarPartes(gravidade)
@@ -80,10 +81,3 @@ func teleportar():
 
 func seExcluir():
 	queue_free()
-
-func _on_AparecerTimer_timeout():
-	$Jogador.respawnar(posicaoInicial, 1)
-	global_position = posicaoInicial
-
-func seTornarVisivel():
-	visible = true
