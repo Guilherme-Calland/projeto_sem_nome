@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=1]
 [ext_resource path="res://graficos/background/bgbranco.png" type="Texture" id=2]
-[ext_resource path="res://scripts/estagios/RodarEstagio.gd" type="Script" id=3]
+[ext_resource path="res://scripts/estagios/areaComum/AreaComum.gd" type="Script" id=3]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graficos/extras/abc-svgrepo-com.svg" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="AreaComum" type="Node2D"]
 script = ExtResource( 3 )
@@ -38,13 +40,60 @@ scale = Vector2( 1.60784, 1.45098 )
 texture = ExtResource( 6 )
 
 [node name="Gatilhos" type="Node2D" parent="."]
+z_index = 1000
 
 [node name="EntrarEstagio" type="Area2D" parent="Gatilhos"]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/EntrarEstagio"]
-polygon = PoolVector2Array( 224, -175, 256, -160, 288, -175, 255, -192 )
+polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
+
+[node name="Chao" type="Node2D" parent="Gatilhos"]
+
+[node name="index1" type="Area2D" parent="Gatilhos/Chao"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Chao/index1"]
+polygon = PoolVector2Array( -192, 32, 30, 146, 416, -48, 191, -160 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Chao/index1"]
+polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Chao/index1"]
+position = Vector2( 192, 97 )
+polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Chao/index1"]
+position = Vector2( 95, 48 )
+polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
+
+[node name="Tras" type="Node2D" parent="Gatilhos"]
+
+[node name="index0" type="Area2D" parent="Gatilhos/Tras"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Tras/index0"]
+polygon = PoolVector2Array( -235, 32, 189, -180, 463, -45, 416, -49, 190, -161, -190, 30 )
+
+[node name="Frente" type="Node2D" parent="Gatilhos"]
+
+[node name="index2" type="Area2D" parent="Gatilhos/Frente"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Frente/index2"]
+polygon = PoolVector2Array( -192, 31, -235, 31, 33, 170, 460, -45, 418, -49, 32, 147 )
+
+[node name="Respawn" type="Area2D" parent="Gatilhos"]
+position = Vector2( 0, 1200 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatilhos/Respawn"]
+scale = Vector2( 1000, 20 )
+shape = SubResource( 1 )
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -91,5 +140,9 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="Gatilhos/EntrarEstagio" to="." method="entrarEstagio" binds= [ "tutorial" ]]
+[connection signal="body_entered" from="Gatilhos/Chao/index1" to="." method="mudarArea" binds= [ 0.0, 1.0 ]]
+[connection signal="body_entered" from="Gatilhos/Tras/index0" to="." method="mudarArea" binds= [ 300000.0, 0.0 ]]
+[connection signal="body_entered" from="Gatilhos/Frente/index2" to="." method="mudarArea" binds= [ 300000.0, 2.0 ]]
+[connection signal="body_entered" from="Gatilhos/Respawn" to="." method="respawnar"]
 [connection signal="timeout" from="TrocarEstagioTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="EstagioTimer2" to="." method="_on_EstagioTimer2_timeout"]

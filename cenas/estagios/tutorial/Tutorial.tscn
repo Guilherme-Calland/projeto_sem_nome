@@ -323,7 +323,6 @@ position = Vector2( 2882, -403 )
 energy = 0.8
 
 [node name="Gatilhos" type="Node2D" parent="."]
-visible = false
 z_index = 1000
 
 [node name="Chao" type="Node2D" parent="Gatilhos"]
@@ -371,6 +370,9 @@ polygon = PoolVector2Array( -33, 19, 1, 0, 862, 433, 830, 448 )
 position = Vector2( 2845, -143 )
 scale = Vector2( -1, 1 )
 polygon = PoolVector2Array( -258, -95, -226, -112, 893, 448, 862, 464 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Chao/zIndex1"]
+polygon = PoolVector2Array( 3103, -270, 3136, -254, 3167, -270, 3135, -287 )
 
 [node name="zIndex3" type="Area2D" parent="Gatilhos/Chao"]
 collision_layer = 0
@@ -602,6 +604,13 @@ collision_mask = 16
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Audio/Bumbo"]
 polygon = PoolVector2Array( 2401, -240, 2432, -224, 2464, -240, 2432, -255 )
 
+[node name="entrarEstagio" type="Area2D" parent="Gatilhos"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/entrarEstagio"]
+polygon = PoolVector2Array( 2848, -399, 2881, -383, 2912, -399, 2880, -416 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Audios" type="Node2D" parent="."]
@@ -619,6 +628,14 @@ script = ExtResource( 17 )
 
 [node name="Player4SubstituteAudio" type="AudioStreamPlayer" parent="Audios"]
 script = ExtResource( 17 )
+
+[node name="TrocarEstagioTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="EstagioTimer2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="body_entered" from="Gatilhos/Chao/zIndexMenos7" to="." method="mudarArea" binds= [ 0.0, -7.0 ]]
 [connection signal="body_entered" from="Gatilhos/Chao/Indexmenos5" to="." method="mudarArea" binds= [ 0.0, -5.0 ]]
@@ -649,4 +666,7 @@ script = ExtResource( 17 )
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/G5" to="." method="tocarAudio" binds= [ "xilofone2", "G5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Pandeiro" to="." method="tocarAudio" binds= [ "pandeiro", "" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Bumbo" to="." method="tocarAudio" binds= [ "bumbo", "" ]]
+[connection signal="body_entered" from="Gatilhos/entrarEstagio" to="." method="entrarEstagio" binds= [ "areaComum" ]]
 [connection signal="finished" from="Audios/AuxiliarAudio700BPM" to="." method="_on_AuxiliarAudio700BPM_finished"]
+[connection signal="timeout" from="TrocarEstagioTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="EstagioTimer2" to="." method="_on_EstagioTimer2_timeout"]

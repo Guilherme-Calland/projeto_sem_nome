@@ -56,6 +56,8 @@ func mudarArea(body, posicaoChao, indexZJogador):
 func entrarEstagio(_body, estagioNome):
 	if estagioNome == 'tutorial':
 		proximoEstagio = "res://cenas/estagios/tutorial/Tutorial.tscn"
+	elif estagioNome == 'areaComum':
+		proximoEstagio = "res://cenas/estagios/areaComum/AreaComum.tscn"
 	$TrocarEstagioTimer.start()
 
 func _on_Timer_timeout():
