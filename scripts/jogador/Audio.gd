@@ -50,6 +50,14 @@ func tocarAudio(instrumento, nota):
 			stream = preload('res://audio/xilofone2/F5.ogg')
 		elif nota == 'G5':
 			stream = preload('res://audio/xilofone2/G5.ogg')
+		elif nota == 'E6':
+			stream = preload('res://audio/xilofone2/E6.ogg')
+		elif nota == 'F6':
+			stream = preload('res://audio/xilofone2/F6.ogg')
+		elif nota == 'B5':
+			stream = preload('res://audio/xilofone2/B5.ogg')
+		elif nota == 'G6':
+			stream = preload('res://audio/xilofone2/G6.ogg')
 	elif instrumento == 'pandeiro':
 		stream = preload('res://audio/pandeiro/som.ogg')
 	elif instrumento == 'bumbo':

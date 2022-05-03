@@ -9,6 +9,7 @@
 script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 144, 84 )
 current = true
 
 [node name="Jogadores" type="YSort" parent="."]
@@ -23,6 +24,59 @@ mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( 0, 1, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 3, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 4, 0, 11, 0, 0 )
+tile_data = PoolIntArray( 0, 1, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 3, 0, 6, 0, 0, 7, 0, 0, 8, 1, 0, 10, 4, 0, 65537, 3, 0, 65542, 0, 0, 131073, 0, 0, 131078, 0, 0, 196609, 0, 0, 196614, 3, 0, 262145, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 3, 0, 327681, 3, 0, 327689, 0, 0, 393217, 0, 0, 458753, 0, 0, 458761, 3, 0, 524289, 0, 0, 524297, 1, 0, 589825, 3, 0, 589826, 1, 0, 589827, 0, 0, 589828, 3, 0, 589830, 0, 0, 589831, 3, 0, 589832, 0, 0, 589833, 1, 0 )
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
+
+[node name="Gatilhos" type="Node2D" parent="."]
+
+[node name="Audios" type="Node2D" parent="Gatilhos"]
+
+[node name="Xilofone" type="Node2D" parent="Gatilhos/Audios"]
+
+[node name="C6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
+polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
+
+[node name="F5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F5"]
+position = Vector2( -32, -48 )
+polygon = PoolVector2Array( 101, 210, 124, 222, 155, 206, 132, 194 )
+
+[node name="E6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/E6"]
+polygon = PoolVector2Array( 134, 226, 156, 237, 188, 221, 164, 209 )
+
+[node name="F6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F6"]
+position = Vector2( 32, -16 )
+polygon = PoolVector2Array( 5, 290, 29, 302, 59, 286, 37, 274 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F6"]
+position = Vector2( -193, -63 )
+polygon = PoolVector2Array( 5, 290, 29, 302, 59, 286, 37, 274 )
+
+[node name="G6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G6"]
+polygon = PoolVector2Array( -91, 274, -68, 286, -37, 269, -61, 258 )
+
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone2", "F5" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/E6" to="." method="tocarAudio" binds= [ "xilofone2", "E6" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/F6" to="." method="tocarAudio" binds= [ "xilofone2", "F6" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/G6" to="." method="tocarAudio" binds= [ "xilofone2", "G6" ]]
