@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://audio/musicaDeFundo/tutorial/tutorial_silencio_700BPM.ogg" type="AudioStream" id=16]
 [ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=17]
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=18]
+[ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -60,15 +61,14 @@ mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -3014626, 2, 0 )
 
 [node name="menos6Pandeiro" type="TileMap" parent="Terreno"]
 z_index = -6
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 19 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -3014626, 7, 0 )
+tile_data = PoolIntArray( -3014626, 4, 0 )
 
 [node name="menos4" type="TileMap" parent="Terreno"]
 z_index = -4
@@ -76,15 +76,14 @@ mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -2686946, 2, 0 )
 
 [node name="menos4Pandeiro" type="TileMap" parent="Terreno"]
 z_index = -4
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 19 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -2686946, 6, 0 )
+tile_data = PoolIntArray( -2686946, 4, 0 )
 
 [node name="menos2" type="TileMap" parent="Terreno"]
 z_index = -2
@@ -97,10 +96,10 @@ tile_data = PoolIntArray( -2359267, 2, 0, -2359266, 2, 0, -2293731, 2, 0, -22937
 [node name="menos2Xilofone" type="TileMap" parent="Terreno"]
 z_index = -2
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 19 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -2359267, 4, 0, -2359266, 5, 0, -2293731, 6, 0, -2293730, 7, 0 )
+tile_data = PoolIntArray( -2359267, 3, 0, -2359266, 3, 0, -2293731, 3, 0, -2293730, 3, 0 )
 
 [node name="0" type="TileMap" parent="Terreno"]
 mode = 1

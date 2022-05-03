@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/estagios/estagio1/Estagio1.gd" type="Script" id=1]
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=2]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cenas/estagios/estagio1/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,13 +22,29 @@ z_index = 1
 
 [node name="Terreno" type="Node2D" parent="."]
 
+[node name="indexMenos4" type="TileMap" parent="Terreno"]
+z_index = -4
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -524285, 3, 0, -524284, 0, 0, -524283, 1, 0, -524282, 0, 0, -524281, 3, 0 )
+
+[node name="indexMenos2" type="TileMap" parent="Terreno"]
+z_index = -2
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -524279, 3, 0, -458743, 0, 0, -393213, 3, 0, -393207, 0, 0, -327677, 0, 0, -327671, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 3, 0, -65533, 0, 0, 65533, 1, 0 )
+
 [node name="index0" type="TileMap" parent="Terreno"]
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 collision_layer = 0
 format = 1
-tile_data = PoolIntArray( 65535, 0, 0, 0, 1, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 3, 0, 6, 0, 0, 7, 0, 0, 8, 1, 0, 10, 4, 0, 65537, 3, 0, 327681, 3, 0, 589825, 3, 0 )
+tile_data = PoolIntArray( -262135, 3, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 3, 0, 65535, 0, 0, 0, 1, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 3, 0, 6, 0, 0, 7, 0, 0, 8, 1, 0, 65537, 3, 0, 327681, 3, 0, 589825, 3, 0 )
 
 [node name="index2" type="TileMap" parent="Terreno"]
 z_index = 2
@@ -36,7 +53,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 collision_layer = 0
 format = 1
-tile_data = PoolIntArray( 65537, 3, 0, 65542, 0, 0, 131073, 0, 0, 131078, 0, 0, 196609, 0, 0, 196614, 3, 0, 262145, 0, 0, 262150, 0, 0, 327681, 3, 0, 327686, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 3, 0 )
+tile_data = PoolIntArray( -196595, 1, 0, -131059, 0, 0, -65523, 0, 0, 13, 3, 0, 65537, 3, 0, 65542, 0, 0, 131073, 0, 0, 131078, 0, 0, 196609, 0, 0, 196614, 3, 0, 262145, 0, 0, 262150, 0, 0, 327681, 3, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 3, 0 )
 
 [node name="index4" type="TileMap" parent="Terreno"]
 z_index = 4
@@ -44,7 +61,7 @@ mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( 327687, 0, 0, 327688, 0, 0, 327689, 3, 0, 589826, 1, 0, 589827, 0, 0, 589828, 3, 0 )
+tile_data = PoolIntArray( 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 3, 0, 589826, 1, 0, 589827, 0, 0, 589828, 3, 0 )
 
 [node name="index6" type="TileMap" parent="Terreno"]
 z_index = 6
@@ -70,6 +87,10 @@ collision_mask = 16
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
 polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
 
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
+position = Vector2( 192, -160 )
+polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
+
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
 position = Vector2( -416, 80 )
 polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
@@ -77,6 +98,17 @@ polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
 position = Vector2( -160, -48 )
 polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
+
+[node name="A5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/A5"]
+polygon = PoolVector2Array( 134, 34, 156, 46, 186, 30, 165, 18 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/A5"]
+position = Vector2( 383, 127 )
+polygon = PoolVector2Array( 134, 34, 156, 46, 186, 30, 165, 18 )
 
 [node name="F5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
 collision_layer = 0
@@ -98,6 +130,10 @@ collision_mask = 16
 position = Vector2( -34, 17 )
 polygon = PoolVector2Array( 134, 226, 156, 237, 188, 221, 164, 209 )
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/E6"]
+position = Vector2( 383, -192 )
+polygon = PoolVector2Array( 134, 226, 156, 237, 188, 221, 164, 209 )
+
 [node name="F6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
 collision_layer = 0
 collision_mask = 16
@@ -117,16 +153,61 @@ collision_mask = 16
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G6"]
 polygon = PoolVector2Array( -91, 274, -68, 286, -37, 269, -61, 258 )
 
+[node name="G5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G5"]
+polygon = PoolVector2Array( 261, -30, 284, -18, 314, -34, 292, -46 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G5"]
+position = Vector2( 127, 256 )
+polygon = PoolVector2Array( 261, -30, 284, -18, 314, -34, 292, -46 )
+
+[node name="B5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/B5"]
+polygon = PoolVector2Array( 452, 2, 477, 15, 507, -2, 484, -14 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/B5"]
+position = Vector2( -63, 96 )
+polygon = PoolVector2Array( 452, 2, 477, 15, 507, -2, 484, -14 )
+
 [node name="Nivelamento" type="Node2D" parent="Gatilhos"]
 
 [node name="Chao" type="Node2D" parent="Gatilhos/Nivelamento"]
+
+[node name="zIndexMenos3" type="Area2D" parent="Gatilhos/Nivelamento/Chao"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndexMenos3"]
+polygon = PoolVector2Array( 320, -64, 351, -80, 510, -1, 480, 17 )
+
+[node name="zIndexMenos1" type="Area2D" parent="Gatilhos/Nivelamento/Chao"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndexMenos1"]
+polygon = PoolVector2Array( -129, -32, -97, -16, -64, -32, -97, -49 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndexMenos1"]
+polygon = PoolVector2Array( 135, 60, 104, 44, 289, -49, 299.827, -43.2255, 319, -33 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndexMenos1"]
+polygon = PoolVector2Array( 541, 15, 422, 77, 456, 92, 577, 32 )
 
 [node name="zIndex1" type="Area2D" parent="Gatilhos/Nivelamento/Chao"]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndex1"]
-polygon = PoolVector2Array( -64, 1, 258, 163, 289, 145, -32, -15 )
+polygon = PoolVector2Array( -64, 1, 258, 163, 289, 145, 129, 63, 135, 60, 103, 44, 97, 47, -32, -15 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndex1"]
+polygon = PoolVector2Array( 457, 92, 450, 96, 577, 160, 546, 176, 385, 97, 422, 77 )
 
 [node name="zIndex3" type="Area2D" parent="Gatilhos/Nivelamento/Chao"]
 collision_layer = 0
@@ -136,7 +217,10 @@ collision_mask = 8
 polygon = PoolVector2Array( 37, 47, -256, 193, -289, 176, 5, 30 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndex3"]
-polygon = PoolVector2Array( 63, 191, 200, 126, 165, 110, 0, 192 )
+polygon = PoolVector2Array( 72, 188, 198, 127, 165, 110, 38, 174 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndex3"]
+polygon = PoolVector2Array( 384, 224, 416, 240, 550, 173, 517, 158, 513, 160 )
 
 [node name="zIndex5" type="Area2D" parent="Gatilhos/Nivelamento/Chao"]
 collision_layer = 0
@@ -146,7 +230,7 @@ collision_mask = 8
 polygon = PoolVector2Array( -255, 194, -221, 177, -129, 224, -161, 241 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Chao/zIndex5"]
-polygon = PoolVector2Array( 2, 193, 66, 192, 66, 192, 160, 240, 127, 257, 1, 193 )
+polygon = PoolVector2Array( 2, 193, 40, 174, 70, 189, 66, 192, 160, 240, 127, 257, 1, 193 )
 
 [node name="zIndex7" type="Area2D" parent="Gatilhos/Nivelamento/Chao"]
 collision_layer = 0
@@ -157,12 +241,38 @@ polygon = PoolVector2Array( -128, 257, -96, 240, -1, 288, 64, 256, 97, 272, 0, 3
 
 [node name="Tras" type="Node2D" parent="Gatilhos/Nivelamento"]
 
+[node name="zIndexMenos4" type="Area2D" parent="Gatilhos/Nivelamento/Tras"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndexMenos4"]
+polygon = PoolVector2Array( 297, -65, 351, -92, 532, 0, 511, -1, 352, -81, 321, -64 )
+
+[node name="zIndexMenos2" type="Area2D" parent="Gatilhos/Nivelamento/Tras"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndexMenos2"]
+polygon = PoolVector2Array( 94, 35, 288, -58, 342, -31, 319, -33, 289, -49, 96, 48 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndexMenos2"]
+polygon = PoolVector2Array( 319, -64, 297, -65, 481, 29, 532, 0, 511, 0, 480, 18 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndexMenos2"]
+polygon = PoolVector2Array( 538, 3, 359, 97, 384, 97, 541, 15, 579, 31, 606, 31 )
+
 [node name="zIndex0" type="Area2D" parent="Gatilhos/Nivelamento/Tras"]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndex0"]
-polygon = PoolVector2Array( -64, 0, -103, 0, -31, -41, 319, 140, 289, 144, -31, -17 )
+polygon = PoolVector2Array( -64, 0, -103, 0, -38, -34, 95, 36, 94, 47, -31, -17 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndex0"]
+polygon = PoolVector2Array( 318, 142, 157, 65, 342, -30, 320, -33, 131, 64, 291, 143 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Tras/zIndex0"]
+polygon = PoolVector2Array( 577, 34, 450, 96, 580, 160, 606, 161, 470, 97, 607, 32 )
 
 [node name="zIndex6" type="Area2D" parent="Gatilhos/Nivelamento/Tras"]
 collision_layer = 0
@@ -186,6 +296,9 @@ polygon = PoolVector2Array( -103, 1, -36, 32, -317, 176, -289, 176, -4, 32, -64,
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Frente/zIndex2"]
 polygon = PoolVector2Array( 33, 64, 135, 113, -27, 191, 0, 192, 158, 112, 31, 49 )
 
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Frente/zIndex2"]
+polygon = PoolVector2Array( 358, 98, 492, 162, 360, 223, 385, 223, 512, 161, 384, 98 )
+
 [node name="zIndex4" type="Area2D" parent="Gatilhos/Nivelamento/Frente"]
 collision_layer = 0
 collision_mask = 8
@@ -194,7 +307,10 @@ collision_mask = 8
 polygon = PoolVector2Array( -126, 224, -97, 222, -181, 177, 33, 63, 31, 49, -218, 176 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Frente/zIndex4"]
-polygon = PoolVector2Array( 187, 244, 85, 192, 193, 142, 258, 176, 320, 142, 290, 146, 256, 164, 192, 130, 67, 191, 159, 240 )
+polygon = PoolVector2Array( 187, 244, 85, 192, 193, 142, 258, 176, 320, 142, 291, 144, 256, 164, 192, 130, 67, 191, 159, 240 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Nivelamento/Frente/zIndex4"]
+polygon = PoolVector2Array( 359, 225, 417, 253, 606, 161, 574, 162, 417, 242, 383, 225 )
 
 [node name="zIndex6" type="Area2D" parent="Gatilhos/Nivelamento/Frente"]
 collision_layer = 0
@@ -218,15 +334,28 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gatilhos/Respawn"]
 shape = SubResource( 1 )
 
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="Brilho" parent="Cenario" instance=ExtResource( 5 )]
+position = Vector2( -95, -34 )
+energy = 0.9
+
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone2", "A5" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone2", "F5" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/E6" to="." method="tocarAudio" binds= [ "xilofone2", "E6" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/F6" to="." method="tocarAudio" binds= [ "xilofone2", "F6" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/G6" to="." method="tocarAudio" binds= [ "xilofone2", "G6" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/G5" to="." method="tocarAudio" binds= [ "xilofone2", "G5" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/B5" to="." method="tocarAudio" binds= [ "xilofone2", "B5" ]]
+[connection signal="body_entered" from="Gatilhos/Nivelamento/Chao/zIndexMenos3" to="." method="mudarArea" binds= [ 0.0, -3.0 ]]
+[connection signal="body_entered" from="Gatilhos/Nivelamento/Chao/zIndexMenos1" to="." method="mudarArea" binds= [ 0.0, -1.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Chao/zIndex1" to="." method="mudarArea" binds= [ 0.0, 1.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Chao/zIndex3" to="." method="mudarArea" binds= [ 0.0, 3.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Chao/zIndex5" to="." method="mudarArea" binds= [ 0.0, 5.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Chao/zIndex7" to="." method="mudarArea" binds= [ 0.0, 7.0 ]]
+[connection signal="body_entered" from="Gatilhos/Nivelamento/Tras/zIndexMenos4" to="." method="mudarArea" binds= [ 300000.0, -4.0 ]]
+[connection signal="body_entered" from="Gatilhos/Nivelamento/Tras/zIndexMenos2" to="." method="mudarArea" binds= [ 300000.0, -2.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Tras/zIndex0" to="." method="mudarArea" binds= [ 300000.0, 0.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Tras/zIndex6" to="." method="mudarArea" binds= [ 300000.0, 6.0 ]]
 [connection signal="body_entered" from="Gatilhos/Nivelamento/Frente/zIndex2" to="." method="mudarArea" binds= [ 300000.0, 2.0 ]]
