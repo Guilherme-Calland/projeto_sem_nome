@@ -13,7 +13,8 @@ current = true
 
 [node name="Jogadores" type="YSort" parent="."]
 
-[node name="ComponenteJogador" parent="Jogadores" instance=ExtResource( 3 )]
+[node name="Player1" parent="Jogadores" instance=ExtResource( 3 )]
+z_index = 1
 
 [node name="Terreno" type="Node2D" parent="."]
 
