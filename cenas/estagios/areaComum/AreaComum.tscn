@@ -21,6 +21,9 @@ current = true
 [node name="Jogadores" type="YSort" parent="."]
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 4 )]
+position = Vector2( 290, -115 )
+z_index = 1
+posicaoInicial = Vector2( 290, -115 )
 
 [node name="Cenario" type="Node2D" parent="."]
 
@@ -63,13 +66,6 @@ texture = ExtResource( 8 )
 [node name="Gatilhos" type="Node2D" parent="."]
 visible = false
 z_index = 1000
-
-[node name="EntrarEstagio" type="Area2D" parent="Gatilhos"]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/EntrarEstagio"]
-polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
 
 [node name="Chao" type="Node2D" parent="Gatilhos"]
 
@@ -117,6 +113,22 @@ collision_layer = 0
 scale = Vector2( 1000, 20 )
 shape = SubResource( 1 )
 
+[node name="MudarEstagio" type="Node2D" parent="Gatilhos"]
+
+[node name="Tutorial" type="Area2D" parent="Gatilhos/MudarEstagio"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/MudarEstagio/Tutorial"]
+polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
+
+[node name="Level1" type="Area2D" parent="Gatilhos/MudarEstagio"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/MudarEstagio/Level1"]
+polygon = PoolVector2Array( 320, -127, 352, -112, 384, -128, 352, -144 )
+
 [node name="Tiles" type="Node2D" parent="."]
 
 [node name="Terreno" type="Node2D" parent="Tiles"]
@@ -161,10 +173,11 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[connection signal="body_entered" from="Gatilhos/EntrarEstagio" to="." method="entrarEstagio" binds= [ "tutorial" ]]
 [connection signal="body_entered" from="Gatilhos/Chao/index1" to="." method="mudarArea" binds= [ 0.0, 1.0 ]]
 [connection signal="body_entered" from="Gatilhos/Tras/index0" to="." method="mudarArea" binds= [ 300000.0, 0.0 ]]
 [connection signal="body_entered" from="Gatilhos/Frente/index2" to="." method="mudarArea" binds= [ 300000.0, 2.0 ]]
 [connection signal="body_entered" from="Gatilhos/Respawn" to="." method="respawnar"]
+[connection signal="body_entered" from="Gatilhos/MudarEstagio/Tutorial" to="." method="entrarEstagio" binds= [ "tutorial" ]]
+[connection signal="body_entered" from="Gatilhos/MudarEstagio/Level1" to="." method="entrarEstagio" binds= [ "estagio1" ]]
 [connection signal="timeout" from="TrocarEstagioTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="EstagioTimer2" to="." method="_on_EstagioTimer2_timeout"]
