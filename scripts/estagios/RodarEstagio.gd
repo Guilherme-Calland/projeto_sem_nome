@@ -78,10 +78,12 @@ func trocarEstagio(estagioNome):
 	gatilhoMudarEstagio = false
 	$TrocarEstagioTimer.start()
 	if estagioNome == 'tutorial':
+		SharedPreferences.iniciarTransicaoMudancaEstagio('transicaoTutorial')
 		SharedPreferences.caminho = 'tutorial'
 		SharedPreferences.posicaoInicial = SharedPreferences.posInicialTutorial
 		proximoEstagio = "res://cenas/estagios/tutorial/Tutorial.tscn"
 	elif estagioNome == 'areaComum':
+		SharedPreferences.iniciarTransicaoMudancaEstagio('transicaoAreaComum')
 		if SharedPreferences.caminho == 'tutorial':
 			SharedPreferences.posicaoInicial = Vector2(191,-164)
 		elif SharedPreferences.caminho == 'estagio1':
@@ -92,10 +94,12 @@ func trocarEstagio(estagioNome):
 			SharedPreferences.posicaoInicial = Vector2(0,0)
 		proximoEstagio = "res://cenas/estagios/areaComum/AreaComum.tscn"
 	elif estagioNome == 'estagio1':
+		SharedPreferences.iniciarTransicaoMudancaEstagio('transicaoEstagio1')
 		SharedPreferences.caminho = 'estagio1'
 		SharedPreferences.posicaoInicial = SharedPreferences.posInicialEstagio1
 		proximoEstagio = "res://cenas/estagios/estagio1/estagio1.tscn"
 	elif estagioNome == 'estagio2':
+		SharedPreferences.iniciarTransicaoMudancaEstagio('transicaoEstagio2')
 		SharedPreferences.caminho = 'estagio2'
 		SharedPreferences.posicaoInicial = SharedPreferences.posInicialEstagio2
 		proximoEstagio = "res://cenas/estagios/estagio2/estagio2.tscn"
