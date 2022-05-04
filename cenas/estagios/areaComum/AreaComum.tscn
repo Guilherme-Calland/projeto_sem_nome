@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=1]
 [ext_resource path="res://graficos/background/bgbranco.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graficos/extras/abc-svgrepo-com.svg" type="Texture" id=6]
+[ext_resource path="res://graficos/extras/note-svgrepo-com.svg" type="Texture" id=7]
+[ext_resource path="res://graficos/extras/note-svgrepo-com (1).svg" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -28,10 +30,20 @@ position = Vector2( -41, -23 )
 z_index = -1000
 texture = ExtResource( 2 )
 
-[node name="Brilho" parent="Cenario" instance=ExtResource( 5 )]
+[node name="BrilhoTutorial" parent="Cenario" instance=ExtResource( 5 )]
 position = Vector2( 256, -176 )
 color = Color( 0, 1, 0.611765, 1 )
 energy = 0.88
+
+[node name="BrilhoLevel1" parent="Cenario" instance=ExtResource( 5 )]
+position = Vector2( 352, -131 )
+color = Color( 0.968627, 0, 1, 1 )
+energy = 0.9
+
+[node name="BrilhoLevel2" parent="Cenario" instance=ExtResource( 5 )]
+position = Vector2( 450, -84 )
+color = Color( 1, 0.678431, 0, 1 )
+energy = 0.8
 
 [node name="PlacaTutorial" type="Sprite" parent="Cenario"]
 modulate = Color( 1, 1, 1, 0.909804 )
@@ -40,7 +52,16 @@ scale = Vector2( 1.60784, 1.45098 )
 z_index = -400
 texture = ExtResource( 6 )
 
+[node name="PlacaLevel1" type="Sprite" parent="Cenario"]
+position = Vector2( 355, -184 )
+texture = ExtResource( 7 )
+
+[node name="PlacaLevel2" type="Sprite" parent="Cenario"]
+position = Vector2( 447, -140 )
+texture = ExtResource( 8 )
+
 [node name="Gatilhos" type="Node2D" parent="."]
+visible = false
 z_index = 1000
 
 [node name="EntrarEstagio" type="Area2D" parent="Gatilhos"]

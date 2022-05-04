@@ -99,7 +99,7 @@ mode = 1
 tile_set = ExtResource( 19 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -2359267, 3, 0, -2359266, 3, 0, -2293731, 3, 0, -2293730, 3, 0 )
+tile_data = PoolIntArray( -2359267, 3, 0, -2359266, 9, 0, -2293731, 9, 0, -2293730, 3, 0 )
 
 [node name="0" type="TileMap" parent="Terreno"]
 mode = 1
@@ -325,6 +325,7 @@ energy = 0.8
 z_index = 1000
 
 [node name="Chao" type="Node2D" parent="Gatilhos"]
+visible = false
 
 [node name="zIndexMenos7" type="Area2D" parent="Gatilhos/Chao"]
 collision_layer = 0
@@ -382,6 +383,7 @@ position = Vector2( 639, 318 )
 polygon = PoolVector2Array( -33, 19, 1, 2, 356.45, 180.186, 386, 195, 997, -108, 1024, -94, 417, 211, 385, 226 )
 
 [node name="Queda" type="Node2D" parent="Gatilhos"]
+visible = false
 
 [node name="zIndexMenos7" type="Node2D" parent="Gatilhos/Queda"]
 
@@ -553,7 +555,7 @@ collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/C6"]
 position = Vector2( -2112, 81 )
-polygon = PoolVector2Array( 2081, -80, 2112, -95, 2144, -80, 2112, -64 )
+polygon = PoolVector2Array( 2085, -82, 2108, -94, 2141, -78, 2117, -66 )
 
 [node name="A5" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
 position = Vector2( 2080, -96 )
@@ -562,7 +564,7 @@ collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/A5"]
 position = Vector2( -2112, 80 )
-polygon = PoolVector2Array( 2081, -80, 2112, -96, 2144, -79, 2112, -64 )
+polygon = PoolVector2Array( 2085, -79, 2116, -94, 2139, -82, 2109, -66 )
 
 [node name="F5" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
 position = Vector2( 2049, -81 )
@@ -571,7 +573,7 @@ collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/F5"]
 position = Vector2( -2113, 81 )
-polygon = PoolVector2Array( 2081, -80, 2112, -96, 2145, -80, 2112, -64 )
+polygon = PoolVector2Array( 2085, -82, 2109, -94, 2141, -78, 2116, -66 )
 
 [node name="G5" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
 position = Vector2( 2081, -65 )
@@ -580,7 +582,7 @@ collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/Xilofone/G5"]
 position = Vector2( -2113, 81 )
-polygon = PoolVector2Array( 2081, -80, 2112, -96, 2145, -80, 2112, -64 )
+polygon = PoolVector2Array( 2085, -78, 2116, -94, 2139, -83, 2108, -66 )
 
 [node name="Pandeiro" type="Area2D" parent="Gatilhos/Audio"]
 position = Vector2( 2271, -161 )

@@ -30,7 +30,7 @@ mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 format = 1
-tile_data = PoolIntArray( -65538, 5, 0, -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 3, 0, -65532, 8, 0, 65535, 8, 0, 4, 8, 0, 131071, 8, 0, 65538, 4, 0, 65540, 8, 0, 65542, 4, 0, 196607, 8, 0, 131073, 4, 0, 131076, 3, 0, 262143, 3, 0, 196612, 8, 0, 196613, 8, 0, 196614, 8, 0, 196615, 3, 0, 196616, 8, 0, 327679, 8, 0, 262144, 8, 0, 262145, 8, 0, 262146, 3, 0, 262147, 8, 0, 262152, 8, 0, 327683, 8, 0, 327686, 4, 0, 327688, 8, 0, 327690, 4, 0, 393217, 4, 0, 393219, 8, 0, 393221, 4, 0, 393224, 3, 0, 458755, 3, 0, 458760, 8, 0, 458761, 8, 0, 458762, 8, 0, 458763, 3, 0, 458764, 8, 0, 458765, 8, 0, 458766, 8, 0, 458767, 8, 0, 458768, 8, 0, 524291, 8, 0, 524292, 8, 0, 524293, 8, 0, 524294, 3, 0, 524295, 8, 0, 524300, 8, 0, 524304, 3, 0, 589831, 8, 0, 589834, 4, 0, 589836, 8, 0, 589838, 4, 0, 589840, 8, 0, 589842, 4, 0, 655365, 4, 0, 655367, 8, 0, 655369, 4, 0, 655372, 3, 0, 655376, 8, 0, 720903, 3, 0, 720908, 8, 0, 720909, 8, 0, 720910, 8, 0, 720911, 3, 0, 720912, 8, 0, 786439, 8, 0, 786440, 8, 0, 786441, 8, 0, 786442, 3, 0, 786443, 8, 0, 851975, 8, 0, 851979, 8, 0, 917511, 8, 0, 917513, 4, 0, 917515, 8, 0, 983047, 8, 0, 983051, 3, 0, 1048583, 8, 0, 1048584, 3, 0, 1048585, 6, 0, 1048586, 6, 0, 1048587, 6, 0, 1179657, 4, 0 )
+tile_data = PoolIntArray( -65538, 5, 0, -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 3, 0, -65532, 8, 0, 65535, 8, 0, 4, 8, 0, 131071, 8, 0, 65538, 4, 0, 65540, 8, 0, 65542, 4, 0, 196607, 8, 0, 131073, 4, 0, 131076, 9, 0, 262143, 9, 0, 196612, 8, 0, 196613, 8, 0, 196614, 8, 0, 196615, 3, 0, 196616, 8, 0, 327679, 8, 0, 262144, 8, 0, 262145, 8, 0, 262146, 3, 0, 262147, 8, 0, 262152, 8, 0, 327683, 8, 0, 327686, 4, 0, 327688, 8, 0, 327690, 4, 0, 327693, 8, 0, 393217, 4, 0, 393219, 8, 0, 393221, 4, 0, 393224, 9, 0, 458755, 9, 0, 458760, 8, 0, 458761, 8, 0, 458762, 8, 0, 458763, 3, 0, 458764, 8, 0, 458765, 3, 0, 458766, 8, 0, 458767, 8, 0, 458768, 8, 0, 524291, 8, 0, 524292, 8, 0, 524293, 8, 0, 524294, 3, 0, 524295, 8, 0, 524300, 8, 0, 524304, 9, 0, 589831, 8, 0, 589834, 4, 0, 589836, 8, 0, 589838, 4, 0, 589840, 8, 0, 589842, 4, 0, 655365, 4, 0, 655367, 8, 0, 655369, 4, 0, 655372, 9, 0, 655376, 8, 0, 720903, 9, 0, 720908, 8, 0, 720909, 8, 0, 720910, 8, 0, 720911, 3, 0, 720912, 8, 0, 786439, 8, 0, 786440, 8, 0, 786441, 8, 0, 786442, 3, 0, 786443, 8, 0, 851973, 8, 0, 851975, 9, 0, 851979, 8, 0, 917511, 8, 0, 917513, 4, 0, 917515, 8, 0, 983047, 8, 0, 983051, 9, 0, 1048583, 8, 0, 1048584, 3, 0, 1048585, 6, 0, 1048586, 6, 0, 1048587, 6, 0, 1179657, 4, 0 )
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
@@ -47,29 +47,31 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
-polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
+position = Vector2( 668, -71 )
+polygon = PoolVector2Array( 133, 94, 166, 110, 188, 98, 156, 82 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
-position = Vector2( 192, -160 )
+position = Vector2( 924, 57 )
 polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
-position = Vector2( -416, 80 )
-polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
+position = Vector2( 679, 308 )
+polygon = PoolVector2Array( 123, 99, 155, 116, 178, 103, 145, 87 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C6"]
-position = Vector2( -160, -48 )
-polygon = PoolVector2Array( 132, 98, 156, 110, 188, 94, 163, 82 )
+position = Vector2( 604, 215 )
+polygon = PoolVector2Array( 133, 96, 166, 112, 189, 100, 157, 84 )
 
 [node name="A5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/A5"]
+position = Vector2( 923, -7 )
 polygon = PoolVector2Array( 134, 34, 156, 46, 186, 30, 165, 18 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/A5"]
-position = Vector2( 383, 127 )
+position = Vector2( 923, 377 )
 polygon = PoolVector2Array( 134, 34, 156, 46, 186, 30, 165, 18 )
 
 [node name="F5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
@@ -77,11 +79,11 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F5"]
-position = Vector2( -32, -48 )
+position = Vector2( 763, -120 )
 polygon = PoolVector2Array( 101, 210, 124, 222, 155, 206, 132, 194 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F5"]
-position = Vector2( -256, -96 )
+position = Vector2( 571, 169 )
 polygon = PoolVector2Array( 101, 210, 124, 222, 155, 206, 132, 194 )
 
 [node name="E6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
@@ -89,23 +91,23 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/E6"]
-position = Vector2( -34, 17 )
-polygon = PoolVector2Array( 134, 226, 156, 237, 188, 221, 164, 209 )
+position = Vector2( 687, -68 )
+polygon = PoolVector2Array( 115, 219, 146, 235, 169, 223, 137, 208 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/E6"]
-position = Vector2( 383, -192 )
-polygon = PoolVector2Array( 134, 226, 156, 237, 188, 221, 164, 209 )
+position = Vector2( 922, 58 )
+polygon = PoolVector2Array( 134, 225, 156, 237, 188, 221, 164, 209 )
 
 [node name="F6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F6"]
-position = Vector2( 32, -16 )
+position = Vector2( 858, -71 )
 polygon = PoolVector2Array( 5, 290, 29, 302, 59, 286, 37, 274 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/F6"]
-position = Vector2( -192, -64 )
+position = Vector2( 859, 57 )
 polygon = PoolVector2Array( 5, 290, 29, 302, 59, 286, 37, 274 )
 
 [node name="G6" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
@@ -113,29 +115,98 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G6"]
-polygon = PoolVector2Array( -91, 274, -68, 286, -37, 269, -61, 258 )
+position = Vector2( 896, 10 )
+polygon = PoolVector2Array( -94, 269, -62, 284, -40, 273, -71, 257 )
 
 [node name="G5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G5"]
-polygon = PoolVector2Array( 261, -30, 284, -18, 314, -34, 292, -46 )
+position = Vector2( 739, 121 )
+polygon = PoolVector2Array( 254, -34, 286, -18, 309, -30, 278, -46 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/G5"]
-position = Vector2( 127, 256 )
-polygon = PoolVector2Array( 261, -30, 284, -18, 314, -34, 292, -46 )
+position = Vector2( 930, 413 )
+polygon = PoolVector2Array( 255, -38, 287, -22, 311, -34, 278, -50 )
 
 [node name="B5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/B5"]
-polygon = PoolVector2Array( 452, 2, 477, 15, 507, -2, 484, -14 )
+position = Vector2( 543, 219 )
+polygon = PoolVector2Array( 450, -4, 482, 11, 506, 0, 473, -16 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/B5"]
-position = Vector2( -63, 96 )
-polygon = PoolVector2Array( 452, 2, 477, 15, 507, -2, 484, -14 )
+position = Vector2( 542, 344 )
+polygon = PoolVector2Array( 451, -1, 484, 15, 506, 3, 474, -13 )
+
+[node name="C5" type="Area2D" parent="Gatilhos/Audios/Xilofone"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Xilofone/C5"]
+polygon = PoolVector2Array( 1121, 315, 1143, 327, 1175, 311, 1151, 299 )
+
+[node name="Pandeiro" type="Area2D" parent="Gatilhos/Audios"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 193, 64 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 0, 128 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 64, 128 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( -128, 192 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 192, 192 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 0, 256 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 64, 256 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( -128, 320 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 192, 320 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 64, 0 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( -256, 384 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( 320, 384 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Gatilhos/Audios/Pandeiro"]
+position = Vector2( -128, 64 )
+polygon = PoolVector2Array( 917, 29, 927, 29, 938, 32, 946, 36, 948, 43, 942, 48, 929, 51, 917, 51, 906, 48, 899, 41, 899, 37, 904, 33 )
 
 [node name="Respawn" type="Area2D" parent="Gatilhos"]
 position = Vector2( 0, 1200 )
@@ -148,11 +219,23 @@ shape = SubResource( 1 )
 [node name="Cenario" type="Node2D" parent="."]
 
 [node name="Brilho" parent="Cenario" instance=ExtResource( 5 )]
-position = Vector2( 1, -53 )
+position = Vector2( -255, 303 )
+z_index = 100
+energy = 0.7
+
+[node name="Brilho2" parent="Cenario" instance=ExtResource( 5 )]
+position = Vector2( 256, 305 )
+z_index = 100
+energy = 0.7
+
+[node name="Brilho3" parent="Cenario" instance=ExtResource( 5 )]
+position = Vector2( -1.99999, -55 )
+z_index = 100
 energy = 0.7
 
 [node name="Background" type="Sprite" parent="Cenario"]
 modulate = Color( 0.780392, 0.517647, 1, 1 )
+position = Vector2( -17, 6 )
 z_index = -1000
 texture = ExtResource( 6 )
 
@@ -164,4 +247,6 @@ texture = ExtResource( 6 )
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/G6" to="." method="tocarAudio" binds= [ "xilofone2", "G6" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/G5" to="." method="tocarAudio" binds= [ "xilofone2", "G5" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/B5" to="." method="tocarAudio" binds= [ "xilofone2", "B5" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Xilofone/C5" to="." method="tocarAudio" binds= [ "xilofone2", "C5" ]]
+[connection signal="body_entered" from="Gatilhos/Audios/Pandeiro" to="." method="tocarAudio" binds= [ "pandeiro", "" ]]
 [connection signal="body_entered" from="Gatilhos/Respawn" to="." method="respawnar"]

@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=5 format=2]
+[gd_resource type="TileSet" load_steps=6 format=2]
 
 [ext_resource path="res://graficos/blocos/blocosEvaldo/bloco_basico_branco.png" type="Texture" id=1]
 [ext_resource path="res://graficos/blocos/blocosEvaldo/bloco_suporte_branco.png" type="Texture" id=2]
 [ext_resource path="res://graficos/blocos/blocosEvaldo/pandeiro.png" type="Texture" id=3]
 [ext_resource path="res://graficos/blocos/blocosEvaldo/xilofone-uma-tecla.png" type="Texture" id=4]
+[ext_resource path="res://graficos/blocos/blocosEvaldo/xilofone-horizontal.png" type="Texture" id=5]
 
 [resource]
 0/name = "BlocoBasicoBranco"
@@ -118,3 +119,17 @@
 8/shape_one_way_margin = 0.0
 8/shapes = [  ]
 8/z_index = 0
+9/name = "Xilofone-horizontal"
+9/texture = ExtResource( 5 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 66, 64 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 33, 32 )
+9/navigation_offset = Vector2( 33, 32 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
