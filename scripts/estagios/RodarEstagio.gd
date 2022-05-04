@@ -18,11 +18,7 @@ func _ready():
 #essa funcao roda 1 vez por frame
 func _process(_delta):
 	iniciarJogadores()
-	if gatilhoMudarEstagio:
-		if jogadorObservado.noChao():
-			trocarEstagio(proximoEstagioNome)
-		if !jogadorObservado.acimaDoChao():
-			gatilhoMudarEstagio = false
+	observarMudancaEstagio()
 
 func iniciarJogadores():
 	var jogadores = $Jogadores.get_children()
@@ -105,3 +101,10 @@ func trocarEstagio(estagioNome):
 		proximoEstagio = "res://cenas/estagios/estagio2/estagio2.tscn"
 	else: 
 		$TrocarEstagioTimer.stop()
+
+func observarMudancaEstagio():
+	if gatilhoMudarEstagio:
+		if jogadorObservado.noChao():
+			trocarEstagio(proximoEstagioNome)
+		if !jogadorObservado.acimaDoChao():
+			gatilhoMudarEstagio = false
