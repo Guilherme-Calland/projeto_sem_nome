@@ -6,6 +6,8 @@ signal tocarAudio
 signal colisao
 signal sairColisao
 
+var indexJogador
+
 func rodar(posicao):
 	global_position = posicao
 

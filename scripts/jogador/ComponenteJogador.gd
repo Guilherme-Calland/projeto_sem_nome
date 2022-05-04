@@ -46,6 +46,7 @@ func tocarAudio(instrumento, nota):
 		
 func iniciarPartes(gravidade):
 	$Jogador/Input.index_jogador = indexJogador
+	$PosicaoXY.indexJogador = indexJogador
 	$Jogador.rodar(gravidade)
 	$Jogador/Movimento/Fisica.velocidadePadrao = velocidadePadrao
 	$Jogador/Movimento/Fisica.forcaPulo = forcaPulo
@@ -81,3 +82,6 @@ func teleportar():
 
 func seExcluir():
 	queue_free()
+
+func acimaDoChao():
+	return $Jogador/Movimento/Fisica.posicaoZ.y <= 0

@@ -54,13 +54,19 @@ func mudarArea(body, posicaoChao, indexZJogador):
 	body.mudarZIndex(indexZJogador)
 
 func entrarEstagio(body, estagioNome):
-	if estagioNome == 'tutorial':
-		proximoEstagio = "res://cenas/estagios/tutorial/Tutorial.tscn"
-	elif estagioNome == 'areaComum':
-		proximoEstagio = "res://cenas/estagios/areaComum/AreaComum.tscn"
-	elif estagioNome == 'estagio1':
-		proximoEstagio = "res://cenas/estagios/estagio1/estagio1.tscn"
-	$TrocarEstagioTimer.start()
+	if $Jogadores.get_child(body.indexJogador).acimaDoChao():
+		$TrocarEstagioTimer.start()
+		if estagioNome == 'tutorial':
+			proximoEstagio = "res://cenas/estagios/tutorial/Tutorial.tscn"
+		elif estagioNome == 'areaComum':
+			proximoEstagio = "res://cenas/estagios/areaComum/AreaComum.tscn"
+		elif estagioNome == 'estagio1':
+			proximoEstagio = "res://cenas/estagios/estagio1/estagio1.tscn"
+		elif estagioNome == 'estagio2':
+			proximoEstagio = "res://cenas/estagios/estagio2/estagio2.tscn"
+		else: 
+			$TrocarEstagioTimer.stop()
+	
 
 func _on_Timer_timeout():
 	var jogadores = $Jogadores.get_children()

@@ -21,9 +21,7 @@ current = true
 [node name="Jogadores" type="YSort" parent="."]
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 4 )]
-position = Vector2( 290, -115 )
 z_index = 1
-posicaoInicial = Vector2( 290, -115 )
 
 [node name="Cenario" type="Node2D" parent="."]
 
@@ -64,12 +62,12 @@ position = Vector2( 447, -140 )
 texture = ExtResource( 8 )
 
 [node name="Gatilhos" type="Node2D" parent="."]
-visible = false
 z_index = 1000
 
 [node name="Chao" type="Node2D" parent="Gatilhos"]
 
 [node name="index1" type="Area2D" parent="Gatilhos/Chao"]
+z_index = 1000
 collision_layer = 0
 collision_mask = 8
 
@@ -80,7 +78,7 @@ polygon = PoolVector2Array( -192, 32, 30, 146, 416, -48, 191, -160 )
 polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Chao/index1"]
-position = Vector2( 192, 97 )
+position = Vector2( 192, 95 )
 polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Chao/index1"]
@@ -89,9 +87,44 @@ polygon = PoolVector2Array( 224, -175, 256, -160, 288, -176, 255, -192 )
 
 [node name="Tras" type="Node2D" parent="Gatilhos"]
 
+[node name="index-6" type="Area2D" parent="Gatilhos/Tras"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Tras/index-6"]
+position = Vector2( -96, -49 )
+polygon = PoolVector2Array( 320, -126, 304, -127, 350, -154, 403, -128, 384, -128, 350, -143 )
+
+[node name="index-4" type="Area2D" parent="Gatilhos/Tras"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Tras/index-4"]
+polygon = PoolVector2Array( 320, -126, 304, -127, 350, -154, 403, -128, 384, -128, 351, -145 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Gatilhos/Tras/index-4"]
+position = Vector2( 1, 1 )
+polygon = PoolVector2Array( 207, -177, 256, -151, 306, -178, 287, -177, 255, -161, 223, -176 )
+
+[node name="index-2" type="Area2D" parent="Gatilhos/Tras"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Gatilhos/Tras/index-2"]
+position = Vector2( 96, 49 )
+polygon = PoolVector2Array( 208, -175, 256, -151, 310, -177, 289, -177, 256, -160, 223, -175 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Tras/index-2"]
+position = Vector2( 193, 94 )
+polygon = PoolVector2Array( 224, -175, 207, -175, 254, -202, 310, -176, 287, -176, 254, -192 )
+
 [node name="index0" type="Area2D" parent="Gatilhos/Tras"]
 collision_layer = 0
 collision_mask = 8
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Tras/index0"]
+position = Vector2( 193, 96 )
+polygon = PoolVector2Array( 208, -175, 256, -151, 310, -177, 289, -177, 256, -160, 223, -175 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Tras/index0"]
 polygon = PoolVector2Array( -235, 32, 189, -180, 463, -45, 416, -49, 190, -161, -190, 30 )
@@ -127,6 +160,14 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/MudarEstagio/Level1"]
+polygon = PoolVector2Array( 320, -127, 352, -112, 384, -128, 352, -144 )
+
+[node name="Level2" type="Area2D" parent="Gatilhos/MudarEstagio"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/MudarEstagio/Level2"]
+position = Vector2( 96, 47 )
 polygon = PoolVector2Array( 320, -127, 352, -112, 384, -128, 352, -144 )
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -174,10 +215,14 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="Gatilhos/Chao/index1" to="." method="mudarArea" binds= [ 0.0, 1.0 ]]
+[connection signal="body_entered" from="Gatilhos/Tras/index-6" to="." method="mudarArea" binds= [ 300000.0, -6.0 ]]
+[connection signal="body_entered" from="Gatilhos/Tras/index-4" to="." method="mudarArea" binds= [ 300000.0, -4.0 ]]
+[connection signal="body_entered" from="Gatilhos/Tras/index-2" to="." method="mudarArea" binds= [ 300000.0, -2.0 ]]
 [connection signal="body_entered" from="Gatilhos/Tras/index0" to="." method="mudarArea" binds= [ 300000.0, 0.0 ]]
 [connection signal="body_entered" from="Gatilhos/Frente/index2" to="." method="mudarArea" binds= [ 300000.0, 2.0 ]]
 [connection signal="body_entered" from="Gatilhos/Respawn" to="." method="respawnar"]
 [connection signal="body_entered" from="Gatilhos/MudarEstagio/Tutorial" to="." method="entrarEstagio" binds= [ "tutorial" ]]
 [connection signal="body_entered" from="Gatilhos/MudarEstagio/Level1" to="." method="entrarEstagio" binds= [ "estagio1" ]]
+[connection signal="body_entered" from="Gatilhos/MudarEstagio/Level2" to="." method="entrarEstagio" binds= [ "estagio2" ]]
 [connection signal="timeout" from="TrocarEstagioTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="EstagioTimer2" to="." method="_on_EstagioTimer2_timeout"]

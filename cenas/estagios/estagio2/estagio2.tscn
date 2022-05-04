@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=1]
+[ext_resource path="res://graficos/background/bgbranco.png" type="Texture" id=2]
+[ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/estagios/estagio2/estagio2.gd" type="Script" id=4]
+[ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Estagio2" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite" parent="Cenario"]
+modulate = Color( 1, 0.823529, 0.403922, 1 )
+z_index = -1000
+texture = ExtResource( 2 )
+
+[node name="Brilho" parent="Cenario" instance=ExtResource( 5 )]
+position = Vector2( -64, -16 )
+energy = 0.8
+
+[node name="Jogadores" type="YSort" parent="."]
+
+[node name="Player" parent="Jogadores" instance=ExtResource( 3 )]
+z_index = 1
+
+[node name="Terreno" type="Node2D" parent="."]
+
+[node name="zIndex-2" type="TileMap" parent="Terreno"]
+z_index = -2
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( 65534, 12, 0 )
+
+[node name="zIndex0" type="TileMap" parent="Terreno"]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 12, 0, 1, 12, 0, 2, 12, 0 )
+
+[node name="Gatilhos" type="Node2D" parent="."]
+
+[node name="Terreno" type="Node2D" parent="Gatilhos"]
+
+[node name="Chao" type="Area2D" parent="Gatilhos/Terreno"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Chao"]
+polygon = PoolVector2Array( -32, 16, 64, 65, 96, 48, 0, 0 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Chao"]
+polygon = PoolVector2Array( -95, -16, -63, 0, -33, -16, -64, -32 )
+
+[node name="Queda" type="Node2D" parent="Gatilhos/Terreno"]
+
+[node name="zIndex-2" type="Area2D" parent="Gatilhos/Terreno/Queda"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Queda/zIndex-2"]
+polygon = PoolVector2Array( -134, -16, -58, -57, 9, -21, -32, -17, -64, -33, -95, -17 )
+
+[node name="zIndex0" type="Area2D" parent="Gatilhos/Terreno/Queda"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Queda/zIndex0"]
+polygon = PoolVector2Array( -96, -16, -134, -16, -54, 18, -34, 16, 0, -1, 97, 48, 144, 48, 9, -20, -33, -15, -63, 1 )
+
+[node name="zIndex2" type="Area2D" parent="Gatilhos/Terreno/Queda"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Terreno/Queda/zIndex2"]
+polygon = PoolVector2Array( 143, 49, 65, 84, -54, 19, -32, 16, 64, 66, 97, 49 )
+
+[node name="Reposicionamento" type="Node2D" parent="Gatilhos"]
+
+[node name="Respawn" type="Area2D" parent="Gatilhos/Reposicionamento"]
+position = Vector2( 0, 1200 )
+scale = Vector2( 1000, 20 )
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Gatilhos/Reposicionamento/Respawn"]
+shape = SubResource( 1 )
+
+[node name="RetornarAAreaComum" type="Area2D" parent="Gatilhos/Reposicionamento"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Reposicionamento/RetornarAAreaComum"]
+polygon = PoolVector2Array( -94, -16, -63, 0, -33, -16, -64, -32 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="TrocarEstagioTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="EstagioTimer2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Gatilhos/Terreno/Chao" to="." method="mudarArea" binds= [ 0.0, 100.0 ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Queda/zIndex-2" to="." method="mudarArea" binds= [ 300000.0, -2.0 ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Queda/zIndex0" to="." method="mudarArea" binds= [ 300000.0, 0.0 ]]
+[connection signal="body_entered" from="Gatilhos/Terreno/Queda/zIndex2" to="." method="mudarArea" binds= [ 300000.0, 2.0 ]]
+[connection signal="body_entered" from="Gatilhos/Reposicionamento/Respawn" to="." method="respawnar"]
+[connection signal="body_entered" from="Gatilhos/Reposicionamento/RetornarAAreaComum" to="." method="entrarEstagio" binds= [ "areaComum" ]]
+[connection signal="timeout" from="TrocarEstagioTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="EstagioTimer2" to="." method="_on_EstagioTimer2_timeout"]
