@@ -6,6 +6,8 @@ export var forcaPulo = 375.0
 export var indexJogador = 0
 
 func _ready():
+	if indexJogador == 0:
+		posicaoInicial = SharedPreferences.posicaoInicial
 	$Jogador.respawnar(posicaoInicial, 1)
 	global_position = posicaoInicial
 	connectSignals()
@@ -85,3 +87,6 @@ func seExcluir():
 
 func acimaDoChao():
 	return $Jogador/Movimento/Fisica.posicaoZ.y <= 0
+
+func noChao():
+	return $Jogador/Movimento/Fisica.noChao()

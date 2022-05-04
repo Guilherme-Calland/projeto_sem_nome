@@ -3,8 +3,13 @@ extends Node2D
 export var gravidade = 20
 var qtdJoysticks = 1
 var proximoEstagio
+var proximoEstagioNome
+
+var jogadorObservado
+var gatilhoMudarEstagio = false
 
 func _ready():
+	jogadorObservado = $Jogadores.get_child(0) 
 	Input.connect("joy_connection_changed", self, "onJoyConnectionChanged")
 	for i in range(0,4):
 		if Input.get_joy_name(i) != '':
@@ -13,6 +18,11 @@ func _ready():
 #essa funcao roda 1 vez por frame
 func _process(_delta):
 	iniciarJogadores()
+	if gatilhoMudarEstagio:
+		if jogadorObservado.noChao():
+			trocarEstagio(proximoEstagioNome)
+		if !jogadorObservado.acimaDoChao():
+			gatilhoMudarEstagio = false
 
 func iniciarJogadores():
 	var jogadores = $Jogadores.get_children()
@@ -54,20 +64,11 @@ func mudarArea(body, posicaoChao, indexZJogador):
 	body.mudarZIndex(indexZJogador)
 
 func entrarEstagio(body, estagioNome):
-	if $Jogadores.get_child(body.indexJogador).acimaDoChao():
-		$TrocarEstagioTimer.start()
-		if estagioNome == 'tutorial':
-			proximoEstagio = "res://cenas/estagios/tutorial/Tutorial.tscn"
-		elif estagioNome == 'areaComum':
-			proximoEstagio = "res://cenas/estagios/areaComum/AreaComum.tscn"
-		elif estagioNome == 'estagio1':
-			proximoEstagio = "res://cenas/estagios/estagio1/estagio1.tscn"
-		elif estagioNome == 'estagio2':
-			proximoEstagio = "res://cenas/estagios/estagio2/estagio2.tscn"
-		else: 
-			$TrocarEstagioTimer.stop()
-	
-
+	jogadorObservado = $Jogadores.get_child(body.indexJogador)
+	if jogadorObservado.acimaDoChao():
+		gatilhoMudarEstagio = true
+		proximoEstagioNome = estagioNome
+		
 func _on_Timer_timeout():
 	var jogadores = $Jogadores.get_children()
 	for j in jogadores:
@@ -77,3 +78,30 @@ func _on_Timer_timeout():
 func _on_EstagioTimer2_timeout():
 	get_tree().change_scene(proximoEstagio)
 
+func trocarEstagio(estagioNome):
+	gatilhoMudarEstagio = false
+	$TrocarEstagioTimer.start()
+	if estagioNome == 'tutorial':
+		SharedPreferences.caminho = 'tutorial'
+		SharedPreferences.posicaoInicial = SharedPreferences.posInicialTutorial
+		proximoEstagio = "res://cenas/estagios/tutorial/Tutorial.tscn"
+	elif estagioNome == 'areaComum':
+		if SharedPreferences.caminho == 'tutorial':
+			SharedPreferences.posicaoInicial = Vector2(191,-164)
+		elif SharedPreferences.caminho == 'estagio1':
+			SharedPreferences.posicaoInicial = Vector2(287,-120)
+		elif SharedPreferences.caminho == 'estagio2':
+			SharedPreferences.posicaoInicial = Vector2(385,-70)
+		else:
+			SharedPreferences.posicaoInicial = Vector2(0,0)
+		proximoEstagio = "res://cenas/estagios/areaComum/AreaComum.tscn"
+	elif estagioNome == 'estagio1':
+		SharedPreferences.caminho = 'estagio1'
+		SharedPreferences.posicaoInicial = SharedPreferences.posInicialEstagio1
+		proximoEstagio = "res://cenas/estagios/estagio1/estagio1.tscn"
+	elif estagioNome == 'estagio2':
+		SharedPreferences.caminho = 'estagio2'
+		SharedPreferences.posicaoInicial = SharedPreferences.posInicialEstagio2
+		proximoEstagio = "res://cenas/estagios/estagio2/estagio2.tscn"
+	else: 
+		$TrocarEstagioTimer.stop()

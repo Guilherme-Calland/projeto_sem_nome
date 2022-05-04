@@ -11,9 +11,13 @@ config_version=4
 [application]
 
 config/name="ProjetoMusical"
-run/main_scene="res://cenas/estagios/areaComum/AreaComum.tscn"
+run/main_scene="res://cenas/estagios/estagio1/estagio1.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
+
+[autoload]
+
+SharedPreferences="*res://cenas/SharedPreferences.tscn"
 
 [input]
 

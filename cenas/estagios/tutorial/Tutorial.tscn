@@ -33,7 +33,6 @@ smoothing_enabled = true
 [node name="Jogadores" type="YSort" parent="."]
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 2 )]
-position = Vector2( 1768, -78 )
 z_index = 1000
 posicaoInicial = Vector2( -255, -130 )
 

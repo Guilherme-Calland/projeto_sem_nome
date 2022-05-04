@@ -21,6 +21,7 @@ current = true
 [node name="Jogadores" type="YSort" parent="."]
 
 [node name="Player1" parent="Jogadores" instance=ExtResource( 4 )]
+position = Vector2( 385, -70 )
 z_index = 1
 
 [node name="Cenario" type="Node2D" parent="."]
@@ -55,10 +56,12 @@ texture = ExtResource( 6 )
 
 [node name="PlacaLevel1" type="Sprite" parent="Cenario"]
 position = Vector2( 355, -184 )
+z_index = -400
 texture = ExtResource( 7 )
 
 [node name="PlacaLevel2" type="Sprite" parent="Cenario"]
 position = Vector2( 447, -140 )
+z_index = -400
 texture = ExtResource( 8 )
 
 [node name="Gatilhos" type="Node2D" parent="."]
