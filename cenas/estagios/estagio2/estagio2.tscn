@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=1]
 [ext_resource path="res://graficos/background/bgbranco.png" type="Texture" id=2]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/estagios/estagio2/estagio2.gd" type="Script" id=4]
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
-[ext_resource path="res://cenas/estagios/estagio1/GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -107,8 +106,6 @@ one_shot = true
 [node name="EstagioTimer2" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[node name="GUI" parent="." instance=ExtResource( 6 )]
 
 [connection signal="body_entered" from="Gatilhos/Terreno/Chao" to="." method="mudarArea" binds= [ 0.0, 100.0 ]]
 [connection signal="body_entered" from="Gatilhos/Terreno/Queda/zIndex-2" to="." method="mudarArea" binds= [ 300000.0, -2.0 ]]

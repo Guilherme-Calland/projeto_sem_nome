@@ -82,7 +82,7 @@ tracks/0/keys = {
 "values": [ Color( 0.572549, 0.92549, 0.788235, 0 ), Color( 0.572549, 0.92549, 0.788235, 1 ), Color( 0.572549, 0.92549, 0.788235, 1 ), Color( 0.572549, 0.92549, 0.788235, 0 ) ]
 }
 
-[node name="SharedPreferences" type="Node2D"]
+[node name="SharedPreferences" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="ForegroundAreaComum" type="Sprite" parent="."]
