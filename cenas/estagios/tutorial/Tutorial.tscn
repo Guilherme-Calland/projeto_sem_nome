@@ -541,13 +541,6 @@ polygon = PoolVector2Array( 66, -47, 191, 11, -10, 117, -135, 52 )
 
 [node name="Audio" type="Node2D" parent="Gatilhos"]
 
-[node name="IniciarAudios" type="Area2D" parent="Gatilhos/Audio"]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gatilhos/Audio/IniciarAudios"]
-polygon = PoolVector2Array( 1720, 120, 1844, 186, 2046, 80, 1918, 21 )
-
 [node name="Xilofone" type="Node2D" parent="Gatilhos/Audio"]
 
 [node name="C6" type="Area2D" parent="Gatilhos/Audio/Xilofone"]
@@ -666,7 +659,6 @@ one_shot = true
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera" to="." method="onMoverCameraGatilho"]
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera2" to="." method="onMoverCameraGatilho"]
 [connection signal="body_entered" from="Gatilhos/MoverCamera/MoverCamera3" to="." method="onMoverCameraGatilho"]
-[connection signal="body_entered" from="Gatilhos/Audio/IniciarAudios" to="." method="_on_IniciarAudios_body_entered"]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone2", "A5" ]]
 [connection signal="body_entered" from="Gatilhos/Audio/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone2", "F5" ]]

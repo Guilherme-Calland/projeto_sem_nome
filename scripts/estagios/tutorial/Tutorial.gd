@@ -69,13 +69,17 @@ func _ready():
 func respawnar(body):
 	body.respawnar(posicoesRespawn[gameLocalIndex- 1], zIndexesRespawn[gameLocalIndex - 1])
 
-func onMoverCameraGatilho(_body):
-	moverCamera()
+func onMoverCameraGatilho(body):
+	var jogadorObservado = $Jogadores.get_child(body.indexJogador)
+	if jogadorObservado.acimaDoChao():
+		moverCamera()
 
 func moverCamera():
 	$Camera2D.global_position = posicoesCamera[gameLocalIndex]
 	$Gatilhos/MoverCamera.get_child(0).queue_free()
 	gameLocalIndex += 1
+	if gameLocalIndex == 4:
+		engatilhouAudios = true
 
 func _on_AuxiliarAudio700BPM_finished():
 	$Audios/AuxiliarAudio700BPM.play()
@@ -102,6 +106,3 @@ func moverMarcadoresInstrumento():
 	$Cenario/Auxilios/AuxilioXilofone/Marcador2.global_position = posicoesMarcadorXilofone2[indexXilofone]
 	$Cenario/Auxilios/AuxilioPandeiro1/Marcador.global_position = posicoesMarcadorPandeiro1[indexIntrumento] + Vector2(138, -109)
 	$Cenario/Auxilios/AuxilioPandeiro2/Marcador.global_position = posicoesMarcadorPandeiro2[indexIntrumento] + Vector2(157, -84)
-
-func _on_IniciarAudios_body_entered(_body):
-	engatilhouAudios = true
