@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/estagios/estagio1/Estagio1.gd" type="Script" id=1]
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://cenas/estagios/estagio1/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graficos/background/bgbranco.png" type="Texture" id=6]
+[ext_resource path="res://audio/musicaDeFundo/tutorial/Silencio350BPM.ogg" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -145,6 +146,7 @@ format = 1
 tile_data = PoolIntArray( 589842, 4, 0, 1179657, 4, 0 )
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
+layer = 0
 
 [node name="Gatilhos" type="Node2D" parent="."]
 visible = false
@@ -633,6 +635,12 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="AuxiliarAudio350BPM" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource( 7 )
+autoplay = true
+
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone2", "A5" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/F5" to="." method="tocarAudio" binds= [ "xilofone2", "F5" ]]
@@ -664,3 +672,4 @@ one_shot = true
 [connection signal="body_entered" from="Gatilhos/VoltarAreaComum" to="." method="entrarEstagio" binds= [ "areaComum" ]]
 [connection signal="timeout" from="TrocarEstagioTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="EstagioTimer2" to="." method="_on_EstagioTimer2_timeout"]
+[connection signal="finished" from="Audios/AuxiliarAudio350BPM" to="." method="_on_AuxiliarAudio350BPM_finished"]

@@ -1,31 +1,71 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://graficos/extras/jogador_1_auxilio.png" type="Texture" id=1]
 [ext_resource path="res://graficos/extras/jogador_3_auxilio.png" type="Texture" id=2]
 [ext_resource path="res://graficos/extras/jogador_4_auxilio.png" type="Texture" id=3]
 [ext_resource path="res://graficos/extras/jogador_2_auxilio.png" type="Texture" id=4]
+[ext_resource path="res://scripts/estagios/estagio1/GUI.gd" type="Script" id=5]
+[ext_resource path="res://graficos/extras/marcadores/quadrado100px.png" type="Texture" id=6]
+[ext_resource path="res://graficos/extras/marcadores/marcador_verde.png" type="Texture" id=7]
+[ext_resource path="res://graficos/extras/marcadores/marcador_rosa.png" type="Texture" id=8]
+[ext_resource path="res://graficos/extras/marcadores/marcador_laranja.png" type="Texture" id=9]
+[ext_resource path="res://graficos/extras/marcadores/marcador_preto.png" type="Texture" id=10]
 
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource( 5 )
 
 [node name="Control" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0.188235 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerNotas1" type="TextureRect" parent="Control"]
+[node name="Player1" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerNotas1" type="TextureRect" parent="Control/Player1"]
+modulate = Color( 1, 1, 1, 0.392157 )
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 39.0
-margin_bottom = 40.0
+margin_right = 104.0
+margin_bottom = 104.0
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerNotas2" type="TextureRect" parent="Control"]
+[node name="PlayerMarcador1" type="TextureRect" parent="Control/Player1"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 104.0
+margin_bottom = 104.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marcador" type="TextureRect" parent="Control/Player1/PlayerMarcador1"]
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerNotas2" type="TextureRect" parent="Control/Player2"]
+modulate = Color( 1, 1, 1, 0.392157 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -104.0
@@ -36,18 +76,71 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerNotas3" type="TextureRect" parent="Control"]
+[node name="PlayerMarcador2" type="TextureRect" parent="Control/Player2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -104.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 104.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marcador" type="TextureRect" parent="Control/Player2/PlayerMarcador2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player3" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerNotas3" type="TextureRect" parent="Control/Player3"]
+modulate = Color( 1, 1, 1, 0.392157 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = -104.0
-margin_right = 100.0
+margin_right = 104.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerNotas4" type="TextureRect" parent="Control"]
+[node name="PlayerMarcador3" type="TextureRect" parent="Control/Player3"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -104.0
+margin_right = 104.0
+margin_bottom = -4.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marcador" type="TextureRect" parent="Control/Player3/PlayerMarcador3"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 9 )
+
+[node name="Player4" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerNotas4" type="TextureRect" parent="Control/Player4"]
+modulate = Color( 1, 1, 1, 0.392157 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -58,3 +151,22 @@ texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerMarcador4" type="TextureRect" parent="Control/Player4"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -104.0
+margin_top = -104.0
+margin_right = -4.0
+margin_bottom = -4.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Marcador" type="TextureRect" parent="Control/Player4/PlayerMarcador4"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 10 )
