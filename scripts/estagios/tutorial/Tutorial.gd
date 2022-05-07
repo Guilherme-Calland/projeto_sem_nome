@@ -87,16 +87,19 @@ func _on_AuxiliarAudio700BPM_finished():
 	indexBumbo = (indexBumbo + 1)%8
 	var numeroDeJogadores = $Jogadores.get_child_count()
 	if (indexBumbo + 1)%2 == 0:
-		if indexIntrumento == 1 and numeroDeJogadores < 2 and engatilhouAudios:
-			$Audios/Player2SubstituteAudio.tocarAudio('pandeiro', '')
-		if indexIntrumento == 3 and numeroDeJogadores < 3 and engatilhouAudios:
-			$Audios/Player3SubstituteAudio.tocarAudio('pandeiro', '')
+		#caso queiramos que o jogo toque as partes que estao faltando, podemos descomentar
+#		if indexIntrumento == 1 and numeroDeJogadores < 2 and engatilhouAudios:
+#			$Audios/Player2SubstituteAudio.tocarAudio('pandeiro', '')
+#		if indexIntrumento == 3 and numeroDeJogadores < 3 and engatilhouAudios:
+#			$Audios/Player3SubstituteAudio.tocarAudio('pandeiro', '')
 		moverMarcadoresInstrumento()
 		indexIntrumento = (indexIntrumento + 1)%4
 	if (indexBumbo + 1)%8 == 0:
 		indexXilofone = (indexXilofone + 1)%4
 	if indexBumbo == 6 and numeroDeJogadores < 4 and engatilhouAudios:
-		$Audios/Player4SubstituteAudio.tocarAudio('bumbo', '')
+#		caso queiramos que o jogo toque as partes que estao faltando, podemos descomentar
+#		$Audios/Player4SubstituteAudio.tocarAudio('bumbo', '')
+		pass
 	
 func moverMarcadorBumbo():
 	$Cenario/Auxilios/AuxilioBumbo/Marcador.global_position = posicoesMarcadorBumbo[indexBumbo] + Vector2(417, -222)

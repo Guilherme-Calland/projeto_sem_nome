@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/estagios/estagio1/Estagio1.gd" type="Script" id=1]
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graficos/background/bgbranco.png" type="Texture" id=6]
 [ext_resource path="res://audio/musicaDeFundo/tutorial/Silencio350BPM.ogg" type="AudioStream" id=7]
+[ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -640,6 +641,21 @@ one_shot = true
 [node name="AuxiliarAudio350BPM" type="AudioStreamPlayer" parent="Audios"]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="Baixo" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 8 )
+
+[node name="Xilofone1" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 8 )
+
+[node name="Xilofone2" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 8 )
+
+[node name="Pandeiro1" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 8 )
+
+[node name="Pandeiro2" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 8 )
 
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/A5" to="." method="tocarAudio" binds= [ "xilofone2", "A5" ]]
