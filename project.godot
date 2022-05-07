@@ -19,6 +19,10 @@ config/icon="res://icon.png"
 
 SharedPreferences="*res://cenas/SharedPreferences.tscn"
 
+[display]
+
+window/size/fullscreen=true
+
 [input]
 
 norte={
