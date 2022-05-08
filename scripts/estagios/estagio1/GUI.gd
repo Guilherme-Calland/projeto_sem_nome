@@ -26,3 +26,17 @@ func moverMarcadoresAuxilio():
 	$Control/Player3/PlayerMarcador3/Marcador.rect_global_position = marcador3Pos + posicoesSoma[posMarcador]
 	$Control/Player4/PlayerMarcador4/Marcador.rect_global_position = marcador4Pos + posicoesSoma[posMarcador]
 	posMarcador = (posMarcador + 1)%4
+
+func alternarIconeAudio(audioJogador, valor):
+	if audioJogador == '1':
+		$Control/Player1/Audio/Imagem/On.visible = !valor
+		$Control/Player1/Audio/Imagem/Off.visible = valor
+	elif audioJogador == '2':
+		$Control/Player2/Audio/Imagem/On.visible = !valor
+		$Control/Player2/Audio/Imagem/Off.visible = valor
+	elif audioJogador == '3':
+		$Control/Player3/Audio/Imagem/On.visible = !valor
+		$Control/Player3/Audio/Imagem/Off.visible = valor
+	elif audioJogador == '4':
+		$Control/Player4/Audio/Imagem/On.visible = !valor
+		$Control/Player4/Audio/Imagem/Off.visible = valor

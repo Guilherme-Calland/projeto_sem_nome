@@ -82,12 +82,16 @@ func _input(_event):
 		audio0Lock = !audio0Lock
 	if Input.is_action_just_pressed("toggleMutarInstrumento1"):
 		audio1Lock = !audio1Lock
+		$GUI.alternarIconeAudio('1', audio1Lock)
 	if Input.is_action_just_pressed("toggleMutarInstrumento2"):
 		audio2Lock = !audio2Lock
+		$GUI.alternarIconeAudio('2', audio2Lock)
 	if Input.is_action_just_pressed("toggleMutarInstrumento3"):
 		audio3Lock = !audio3Lock
+		$GUI.alternarIconeAudio('3', audio3Lock)
 	if Input.is_action_just_pressed("toggleMutarInstrumento4"):
 		audio4Lock = !audio4Lock
+		$GUI.alternarIconeAudio('4', audio4Lock)
 
 func _on_AuxiliarAudio350BPM_finished():
 	countdown()

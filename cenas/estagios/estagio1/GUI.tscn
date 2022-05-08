@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://graficos/extras/jogador_1_auxilio.png" type="Texture" id=1]
 [ext_resource path="res://graficos/extras/jogador_3_auxilio.png" type="Texture" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://graficos/extras/marcadores/marcador_preto.png" type="Texture" id=10]
 [ext_resource path="res://recursos/fonts/white_bread/White Bread.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://recursos/fonts/hey_comic/Hey Comic.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://graficos/extras/audio-speaker-off-svgrepo-com.svg" type="Texture" id=13]
+[ext_resource path="res://graficos/extras/audio-speaker-on-svgrepo-com.svg" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -67,6 +73,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Audio" type="HBoxContainer" parent="Control/Player1"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 110.0
+margin_top = 16.0
+margin_right = 121.0
+margin_bottom = 43.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Player1/Audio"]
+margin_right = 7.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 3 )
+text = "1"
+
+[node name="Imagem" type="Control" parent="Control/Player1/Audio"]
+margin_left = 11.0
+margin_right = 11.0
+margin_bottom = 27.0
+
+[node name="On" type="TextureRect" parent="Control/Player1/Audio/Imagem"]
+visible = false
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Off" type="TextureRect" parent="Control/Player1/Audio/Imagem"]
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player2" type="Control" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -102,6 +142,42 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="HBoxContainer" parent="Control/Player2"]
+modulate = Color( 1, 1, 1, 0.392157 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -147.0
+margin_top = 15.0
+margin_right = -133.0
+margin_bottom = 42.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Player2/Audio"]
+margin_right = 10.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 3 )
+text = "2"
+
+[node name="Imagem" type="Control" parent="Control/Player2/Audio"]
+margin_left = 14.0
+margin_right = 14.0
+margin_bottom = 27.0
+
+[node name="On" type="TextureRect" parent="Control/Player2/Audio/Imagem"]
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Off" type="TextureRect" parent="Control/Player2/Audio/Imagem"]
+visible = false
+texture = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,6 +218,42 @@ margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 9 )
 
+[node name="Audio" type="HBoxContainer" parent="Control/Player3"]
+modulate = Color( 1, 1, 1, 0.392157 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 111.0
+margin_top = -91.0
+margin_right = 122.0
+margin_bottom = -64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Player3/Audio"]
+margin_right = 9.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 3 )
+text = "3"
+
+[node name="Imagem" type="Control" parent="Control/Player3/Audio"]
+margin_left = 13.0
+margin_right = 13.0
+margin_bottom = 27.0
+
+[node name="On" type="TextureRect" parent="Control/Player3/Audio/Imagem"]
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Off" type="TextureRect" parent="Control/Player3/Audio/Imagem"]
+visible = false
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player4" type="Control" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -180,6 +292,44 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 10 )
+
+[node name="Audio" type="HBoxContainer" parent="Control/Player4"]
+modulate = Color( 1, 1, 1, 0.392157 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -146.0
+margin_top = -90.0
+margin_right = -131.0
+margin_bottom = -63.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Player4/Audio"]
+margin_right = 11.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 3 )
+text = "4"
+
+[node name="Imagem" type="Control" parent="Control/Player4/Audio"]
+margin_left = 15.0
+margin_right = 15.0
+margin_bottom = 27.0
+
+[node name="On" type="TextureRect" parent="Control/Player4/Audio/Imagem"]
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Off" type="TextureRect" parent="Control/Player4/Audio/Imagem"]
+visible = false
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Info" type="VBoxContainer" parent="Control"]
 anchor_left = 0.6
