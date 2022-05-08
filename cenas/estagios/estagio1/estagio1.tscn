@@ -673,9 +673,11 @@ position = Vector2( 127, 39 )
 texture = ExtResource( 12 )
 
 [node name="Player3" type="Sprite" parent="Marcadores"]
+position = Vector2( 32, 54 )
 texture = ExtResource( 10 )
 
 [node name="Player4" type="Sprite" parent="Marcadores"]
+position = Vector2( -34, 55 )
 texture = ExtResource( 11 )
 
 [connection signal="body_entered" from="Gatilhos/Audios/Xilofone/C6" to="." method="tocarAudio" binds= [ "xilofone2", "C6" ]]

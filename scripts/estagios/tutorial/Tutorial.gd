@@ -6,6 +6,26 @@ var zIndexesRespawn = [1,1,3,1]
 var gameLocalIndex = 0
 var engatilhouAudios = false
 
+var audioLock0 = false
+var audioLock1 = false
+var audioLock2 = false
+var audioLock3 = false
+var audioLock4 = false
+
+var notasXilofone = ['C6', 'A5', 'F5', 'G5', 'C6', 'A5', 'F5', 'GSH5']
+var notasPiano = [
+	'C4', 'G4', 'E4', 'G4',
+	'A3', 'G4', 'E4', 'D4',
+	'F3', 'C4', 'E4', 'D4',
+	'G3', 'C4', 'E4', 'D4',
+	'C4', 'G4', 'F4', 'E4',
+	'A3', 'G3', 'E3', 'G3',
+	'F4', 'E4', 'D4', 'C4',
+	'GSH3', 'G3', 'F3', 'G3'
+	]
+var indexPiano = 0
+var indexXilofone = 0
+
 var posicoesMarcadorXilofone = [
 	Vector2(2111- 59, -240-17),
 	Vector2(2161- 59, -240-17),
@@ -47,7 +67,7 @@ var posicoesMarcadorBumbo = [
 
 var indexBumbo = 0
 var indexIntrumento = 0
-var indexXilofone = 0
+var indexMarcadorXilofone = 1
 
 func _process(_delta):
 	if gameLocalIndex == 2:
@@ -55,16 +75,34 @@ func _process(_delta):
 		$Cenario/Controller2.visible = true
 	if gameLocalIndex == 3:
 		$Cenario/Controller2.visible = false
-		$Cenario/Controller3.visible = true
 		$Cenario/Controller4.visible = true
 	if gameLocalIndex == 4:
-		$Cenario/Controller3.visible = false
 		$Cenario/Controller4.visible = false
 		$Cenario/Auxilios.visible = true
-	
+
+func _input(_event):
+	if Input.is_action_just_pressed("toggleMutarInstrumentoAcompanhamento"):
+		audioLock0 = !audioLock0
+	if Input.is_action_just_pressed("toggleMutarInstrumento1"):
+		audioLock1 = !audioLock1
+	if Input.is_action_just_pressed("toggleMutarInstrumento2"):
+		audioLock2 = !audioLock2
+	if Input.is_action_just_pressed("toggleMutarInstrumento3"):
+		audioLock3 = !audioLock3
+	if Input.is_action_just_pressed("toggleMutarInstrumento4"):
+		audioLock4 = !audioLock4
+
 func _ready():
 	$Camera2D.global_position = posicoesCamera[gameLocalIndex]
 	gameLocalIndex += 1
+	var numJogadores = $Jogadores.get_child_count()
+	audioLock1 = true
+	if numJogadores >= 2:
+		audioLock2 = true
+	if numJogadores >= 3:
+		audioLock3 = true
+	if numJogadores >= 4:
+		audioLock4 = true
 
 func respawnar(body):
 	body.respawnar(posicoesRespawn[gameLocalIndex- 1], zIndexesRespawn[gameLocalIndex - 1])
@@ -79,26 +117,31 @@ func moverCamera():
 	$Gatilhos/MoverCamera.get_child(0).queue_free()
 	gameLocalIndex += 1
 	if gameLocalIndex == 4:
-		engatilhouAudios = true
+		$Audios/AuxiliarAudio700BPM.play()
 
 func _on_AuxiliarAudio700BPM_finished():
 	$Audios/AuxiliarAudio700BPM.play()
 	moverMarcadorBumbo()
 	indexBumbo = (indexBumbo + 1)%8
-	var numeroDeJogadores = $Jogadores.get_child_count()
+	if (indexBumbo - 1) % 2 == 0:
+		if not audioLock0:
+			$Audios/AudioAcompanhamento.tocarAudio("grand piano", notasPiano[indexPiano])
+		indexPiano = (indexPiano + 1)%32
+	if (indexBumbo - 1)%8 == 0:
+		if not audioLock1:
+			$Audios/Player1SubstituteAudio.tocarAudio('xilofone2', notasXilofone[indexXilofone])
+		indexXilofone = (indexXilofone + 1)%8
 	if (indexBumbo + 1)%2 == 0:
-		#caso queiramos que o jogo toque as partes que estao faltando, podemos descomentar
-#		if indexIntrumento == 1 and numeroDeJogadores < 2 and engatilhouAudios:
-#			$Audios/Player2SubstituteAudio.tocarAudio('pandeiro', '')
-#		if indexIntrumento == 3 and numeroDeJogadores < 3 and engatilhouAudios:
-#			$Audios/Player3SubstituteAudio.tocarAudio('pandeiro', '')
+		if indexIntrumento == 1 and not audioLock2:
+			$Audios/Player2SubstituteAudio.tocarAudio('pandeiro', '')
+		if indexIntrumento == 3 and not audioLock3:
+			$Audios/Player3SubstituteAudio.tocarAudio('pandeiro', '')
 		moverMarcadoresInstrumento()
 		indexIntrumento = (indexIntrumento + 1)%4
 	if (indexBumbo + 1)%8 == 0:
-		indexXilofone = (indexXilofone + 1)%4
-	if indexBumbo == 6 and numeroDeJogadores < 4 and engatilhouAudios:
-#		caso queiramos que o jogo toque as partes que estao faltando, podemos descomentar
-#		$Audios/Player4SubstituteAudio.tocarAudio('bumbo', '')
+		indexMarcadorXilofone = (indexMarcadorXilofone + 1)%4
+	if indexBumbo == 6 and not audioLock4:
+		$Audios/Player4SubstituteAudio.tocarAudio('bumbo', '')
 		pass
 	
 func moverMarcadorBumbo():
@@ -106,6 +149,6 @@ func moverMarcadorBumbo():
 
 func moverMarcadoresInstrumento():
 	$Cenario/Auxilios/AuxilioXilofone/Marcador.global_position = posicoesMarcadorXilofone[indexIntrumento]
-	$Cenario/Auxilios/AuxilioXilofone/Marcador2.global_position = posicoesMarcadorXilofone2[indexXilofone]
+	$Cenario/Auxilios/AuxilioXilofone/Marcador2.global_position = posicoesMarcadorXilofone2[indexMarcadorXilofone]
 	$Cenario/Auxilios/AuxilioPandeiro1/Marcador.global_position = posicoesMarcadorPandeiro1[indexIntrumento] + Vector2(138, -109)
 	$Cenario/Auxilios/AuxilioPandeiro2/Marcador.global_position = posicoesMarcadorPandeiro2[indexIntrumento] + Vector2(157, -84)

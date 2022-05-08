@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
@@ -19,8 +19,13 @@
 [ext_resource path="res://scripts/jogador/Audio.gd" type="Script" id=17]
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=18]
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=19]
+[ext_resource path="res://recursos/fonts/hey_comic/Hey Comic.ttf" type="DynamicFontData" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 20 )
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 3 )
@@ -56,11 +61,13 @@ position = Vector2( 96, -154 )
 texture = ExtResource( 6 )
 
 [node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller"]
+visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( -38, -20 )
 texture = ExtResource( 7 )
 
 [node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller"]
+visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( -19, 4 )
 texture = ExtResource( 7 )
@@ -72,18 +79,7 @@ position = Vector2( 668, 201 )
 texture = ExtResource( 6 )
 
 [node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller2"]
-modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-position = Vector2( 36, -10 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
-
-[node name="Controller3" type="Sprite" parent="Cenario"]
 visible = false
-modulate = Color( 1, 1, 1, 0.458824 )
-position = Vector2( 1567, 124 )
-texture = ExtResource( 6 )
-
-[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller3"]
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( 36, -10 )
 scale = Vector2( 0.75, 0.75 )
@@ -96,12 +92,14 @@ position = Vector2( 1193, 284 )
 texture = ExtResource( 6 )
 
 [node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller4"]
+visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( -38, -49 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 7 )
 
 [node name="MarcadorBotao3" type="Sprite" parent="Cenario/Controller4"]
+visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( 27, -20 )
 scale = Vector2( 0.75, 0.75 )
@@ -161,6 +159,11 @@ texture = ExtResource( 11 )
 position = Vector2( 2111, -187 )
 texture = ExtResource( 15 )
 
+[node name="Marcador2" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2134, -57 )
+z_index = 97
+texture = ExtResource( 15 )
+
 [node name="AuxilioPandeiro2" type="Node2D" parent="Cenario/Auxilios"]
 position = Vector2( 157, -84 )
 
@@ -182,6 +185,11 @@ texture = ExtResource( 9 )
 
 [node name="Marcador" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
 position = Vector2( 2249, -312 )
+texture = ExtResource( 13 )
+
+[node name="Marcador2" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2275, -163 )
+z_index = 95
 texture = ExtResource( 13 )
 
 [node name="AuxilioBumbo" type="Node2D" parent="Cenario/Auxilios"]
@@ -221,6 +229,11 @@ texture = ExtResource( 11 )
 
 [node name="Marcador" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
 position = Vector2( 2112, -241 )
+texture = ExtResource( 12 )
+
+[node name="Marcador2" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2174, -106 )
+z_index = 93
 texture = ExtResource( 12 )
 
 [node name="Brilho" parent="Cenario" instance=ExtResource( 18 )]
@@ -317,6 +330,7 @@ format = 1
 tile_data = PoolIntArray( -3801056, 2, 0 )
 
 [node name="Gatilhos" type="Node2D" parent="."]
+visible = false
 z_index = 1000
 
 [node name="Chao" type="Node2D" parent="Gatilhos"]
@@ -618,7 +632,13 @@ polygon = PoolVector2Array( 2848, -399, 2881, -383, 2912, -399, 2880, -416 )
 [node name="AuxiliarAudio700BPM" type="AudioStreamPlayer" parent="Audios"]
 stream = ExtResource( 16 )
 pitch_scale = 2.0
-autoplay = true
+
+[node name="AudioAcompanhamento" type="AudioStreamPlayer" parent="Audios"]
+volume_db = -5.0
+script = ExtResource( 17 )
+
+[node name="Player1SubstituteAudio" type="AudioStreamPlayer" parent="Audios"]
+script = ExtResource( 17 )
 
 [node name="Player2SubstituteAudio" type="AudioStreamPlayer" parent="Audios"]
 script = ExtResource( 17 )
@@ -636,6 +656,38 @@ one_shot = true
 [node name="EstagioTimer2" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_left = 1341.0
+margin_top = -499.0
+margin_right = 2911.0
+margin_bottom = -342.0
+custom_fonts/font = SubResource( 2 )
+text = "O indicador no instrumento
+ aponta qual será a próxima nota
+ que deverá ser tocada"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_left = 1879.0
+margin_top = -120.0
+margin_right = 3449.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 2 )
+text = "Pressione os botões '1', '2' ,'3', '4'  no 
+teclado para ativar/desativar 
+os audios auxiliares dos instrumentos.
+Pressione 'O' para ativar/desativar o audio de 
+acompanhamento."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="Gatilhos/Chao/zIndexMenos7" to="." method="mudarArea" binds= [ 0.0, -7.0 ]]
 [connection signal="body_entered" from="Gatilhos/Chao/Indexmenos5" to="." method="mudarArea" binds= [ 0.0, -5.0 ]]
