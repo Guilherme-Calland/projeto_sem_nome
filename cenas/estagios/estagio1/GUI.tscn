@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://graficos/extras/jogador_1_auxilio.png" type="Texture" id=1]
 [ext_resource path="res://graficos/extras/jogador_3_auxilio.png" type="Texture" id=2]
@@ -11,10 +11,11 @@
 [ext_resource path="res://graficos/extras/marcadores/marcador_laranja.png" type="Texture" id=9]
 [ext_resource path="res://graficos/extras/marcadores/marcador_preto.png" type="Texture" id=10]
 [ext_resource path="res://recursos/fonts/white_bread/White Bread.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://recursos/fonts/hey_comic/Hey Comic.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
-font_data = ExtResource( 11 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
@@ -195,10 +196,10 @@ __meta__ = {
 
 [node name="SePrepare" type="Label" parent="Control/Info"]
 margin_right = 500.0
-margin_bottom = 46.0
+margin_bottom = 42.0
 custom_colors/font_color = Color( 1, 1, 1, 0.470588 )
 custom_fonts/font = SubResource( 1 )
-text = "Se Prepare pra pular"
+text = "Se Prepare..."
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -206,9 +207,9 @@ __meta__ = {
 
 [node name="Count" type="Label" parent="Control/Info"]
 modulate = Color( 1, 1, 1, 0.470588 )
-margin_top = 50.0
+margin_top = 46.0
 margin_right = 500.0
-margin_bottom = 235.0
+margin_bottom = 231.0
 custom_fonts/font = SubResource( 2 )
 text = "20
 "

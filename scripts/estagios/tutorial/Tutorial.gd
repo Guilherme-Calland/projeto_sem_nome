@@ -34,10 +34,10 @@ var posicoesMarcadorXilofone = [
 ]
 
 var posicoesMarcadorXilofone2 = [
-	Vector2(2112, -81 ),
-	Vector2(2080, -96 ),
-	Vector2(2049, -81 ),
-	Vector2(2080, -65 ),
+	Vector2(2112, -81 - 5 ),
+	Vector2(2080, -96 - 5),
+	Vector2(2049, -81 - 5),
+	Vector2(2080, -65 - 5),
 ]
 
 var posicoesMarcadorPandeiro1 = [
@@ -85,12 +85,20 @@ func _input(_event):
 		audioLock0 = !audioLock0
 	if Input.is_action_just_pressed("toggleMutarInstrumento1"):
 		audioLock1 = !audioLock1
+		$Cenario/Auxilios/AuxilioXilofone/AudioOff.visible = audioLock1
+		$Cenario/Auxilios/AuxilioXilofone/AudioOn.visible = !audioLock1
 	if Input.is_action_just_pressed("toggleMutarInstrumento2"):
 		audioLock2 = !audioLock2
+		$Cenario/Auxilios/AuxilioPandeiro1/AudioOff.visible = audioLock2
+		$Cenario/Auxilios/AuxilioPandeiro1/AudioOn.visible = !audioLock2
 	if Input.is_action_just_pressed("toggleMutarInstrumento3"):
 		audioLock3 = !audioLock3
+		$Cenario/Auxilios/AuxilioPandeiro2/AudioOff.visible = audioLock3
+		$Cenario/Auxilios/AuxilioPandeiro2/AudioOn.visible = !audioLock3
 	if Input.is_action_just_pressed("toggleMutarInstrumento4"):
 		audioLock4 = !audioLock4
+		$Cenario/Auxilios/AuxilioBumbo/AudioOff.visible = audioLock4
+		$Cenario/Auxilios/AuxilioBumbo/AudioOn.visible = !audioLock4
 
 func _ready():
 	$Camera2D.global_position = posicoesCamera[gameLocalIndex]

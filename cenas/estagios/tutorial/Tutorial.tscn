@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://recursos/tileSets/Blocos.tres" type="TileSet" id=1]
 [ext_resource path="res://cenas/jogador/ComponenteJogador.tscn" type="PackedScene" id=2]
@@ -20,6 +20,16 @@
 [ext_resource path="res://cenas/cenario/Brilho.tscn" type="PackedScene" id=18]
 [ext_resource path="res://recursos/tileSets/Blocos2.tres" type="TileSet" id=19]
 [ext_resource path="res://recursos/fonts/hey_comic/Hey Comic.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://graficos/extras/audio-speaker-off-svgrepo-com.svg" type="Texture" id=21]
+[ext_resource path="res://graficos/extras/audio-speaker-on-svgrepo-com.svg" type="Texture" id=22]
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 20 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -55,55 +65,119 @@ visible = false
 position = Vector2( 232, -74 )
 texture = ExtResource( 8 )
 
-[node name="Controller" type="Sprite" parent="Cenario"]
-modulate = Color( 1, 1, 1, 0.458824 )
+[node name="Controller" type="Node2D" parent="Cenario"]
+
+[node name="Label" type="Label" parent="Cenario/Controller"]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = -36.0
+margin_top = -312.0
+margin_right = 237.0
+margin_bottom = -219.0
+custom_fonts/font = SubResource( 4 )
+text = "Use o analógico esquerdo 
+ou as setas do joystick
+ para se movimentar."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Controller" type="Sprite" parent="Cenario/Controller"]
+modulate = Color( 1, 1, 1, 0.470588 )
 position = Vector2( 96, -154 )
 texture = ExtResource( 6 )
 
-[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller"]
+[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller/Controller"]
 visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( -38, -20 )
 texture = ExtResource( 7 )
 
-[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller"]
+[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller/Controller"]
 visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( -19, 4 )
 texture = ExtResource( 7 )
 
-[node name="Controller2" type="Sprite" parent="Cenario"]
+[node name="Controller2" type="Node2D" parent="Cenario"]
 visible = false
+
+[node name="Label2" type="Label" parent="Cenario/Controller2"]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 536.0
+margin_top = 80.0
+margin_right = 809.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 4 )
+text = "Pressiona 'A' do 
+joystick para pular."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controller2" type="Sprite" parent="Cenario/Controller2"]
 modulate = Color( 1, 1, 1, 0.458824 )
 position = Vector2( 668, 201 )
 texture = ExtResource( 6 )
 
-[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller2"]
+[node name="MarcadorBotao" type="Sprite" parent="Cenario/Controller2/Controller2"]
 visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( 36, -10 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 7 )
 
-[node name="Controller4" type="Sprite" parent="Cenario"]
+[node name="Controller4" type="Node2D" parent="Cenario"]
 visible = false
+
+[node name="Controller4" type="Sprite" parent="Cenario/Controller4"]
 modulate = Color( 1, 1, 1, 0.458824 )
 position = Vector2( 1193, 284 )
 texture = ExtResource( 6 )
 
-[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller4"]
+[node name="MarcadorBotao2" type="Sprite" parent="Cenario/Controller4/Controller4"]
 visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( -38, -49 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 7 )
 
-[node name="MarcadorBotao3" type="Sprite" parent="Cenario/Controller4"]
+[node name="MarcadorBotao3" type="Sprite" parent="Cenario/Controller4/Controller4"]
 visible = false
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 position = Vector2( 27, -20 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 7 )
+
+[node name="Label3" type="Label" parent="Cenario/Controller4"]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 1062.0
+margin_top = 166.0
+margin_right = 1335.0
+margin_bottom = 259.0
+custom_fonts/font = SubResource( 4 )
+text = "Segure 'LB' 
+para correr."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Cenario/Controller4"]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 1369.0
+margin_top = 46.0
+margin_right = 1642.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 4 )
+text = "Corra e pule ao mesmo
+tempo para alcançar 
+uma maior distância."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Auxilios" type="Node2D" parent="Cenario"]
 modulate = Color( 1, 1, 1, 0.784314 )
@@ -136,6 +210,26 @@ position = Vector2( 2171, -66 )
 z_index = 99
 texture = ExtResource( 14 )
 
+[node name="AudioOn" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+visible = false
+position = Vector2( 2065, -242 )
+texture = ExtResource( 22 )
+
+[node name="AudioOff" type="Sprite" parent="Cenario/Auxilios/AuxilioXilofone"]
+position = Vector2( 2065, -242 )
+texture = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="Cenario/Auxilios/AuxilioXilofone"]
+margin_left = 2041.0
+margin_top = -256.0
+margin_right = 2081.0
+margin_bottom = -229.0
+custom_fonts/font = SubResource( 3 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AuxilioPandeiro1" type="Node2D" parent="Cenario/Auxilios"]
 position = Vector2( 138, -109 )
 
@@ -164,6 +258,26 @@ position = Vector2( 2134, -57 )
 z_index = 97
 texture = ExtResource( 15 )
 
+[node name="AudioOn" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+position = Vector2( 2065, -189 )
+texture = ExtResource( 22 )
+
+[node name="AudioOff" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+visible = false
+position = Vector2( 2065, -189 )
+texture = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="Cenario/Auxilios/AuxilioPandeiro1"]
+margin_left = 2041.0
+margin_top = -203.0
+margin_right = 2081.0
+margin_bottom = -176.0
+custom_fonts/font = SubResource( 3 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AuxilioPandeiro2" type="Node2D" parent="Cenario/Auxilios"]
 position = Vector2( 157, -84 )
 
@@ -191,6 +305,26 @@ texture = ExtResource( 13 )
 position = Vector2( 2275, -163 )
 z_index = 95
 texture = ExtResource( 13 )
+
+[node name="AudioOn" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+position = Vector2( 2205, -313 )
+texture = ExtResource( 22 )
+
+[node name="AudioOff" type="Sprite" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+visible = false
+position = Vector2( 2205, -313 )
+texture = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="Cenario/Auxilios/AuxilioPandeiro2"]
+margin_left = 2181.0
+margin_top = -327.0
+margin_right = 2221.0
+margin_bottom = -300.0
+custom_fonts/font = SubResource( 3 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AuxilioBumbo" type="Node2D" parent="Cenario/Auxilios"]
 position = Vector2( 417, -222 )
@@ -235,6 +369,26 @@ texture = ExtResource( 12 )
 position = Vector2( 2174, -106 )
 z_index = 93
 texture = ExtResource( 12 )
+
+[node name="AudioOn" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+position = Vector2( 2067, -242 )
+texture = ExtResource( 22 )
+
+[node name="AudioOff" type="Sprite" parent="Cenario/Auxilios/AuxilioBumbo"]
+visible = false
+position = Vector2( 2067, -242 )
+texture = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="Cenario/Auxilios/AuxilioBumbo"]
+margin_left = 2043.0
+margin_top = -256.0
+margin_right = 2083.0
+margin_bottom = -229.0
+custom_fonts/font = SubResource( 3 )
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Brilho" parent="Cenario" instance=ExtResource( 18 )]
 position = Vector2( 2882, -403 )
@@ -659,14 +813,17 @@ one_shot = true
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.862745 )
-margin_left = 1341.0
-margin_top = -499.0
-margin_right = 2911.0
-margin_bottom = -342.0
+margin_left = 1292.0
+margin_top = -536.0
+margin_right = 2862.0
+margin_bottom = -347.0
 custom_fonts/font = SubResource( 2 )
-text = "O indicador no instrumento
- aponta qual será a próxima nota
- que deverá ser tocada"
+text = "O indicador na tabela informa
+ a hora certa de pular para que o 
+som seja executado no tempo certo.
+O indicador no instrumento
+ aponta qual será a próxima posicão
+para pular em cima."
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
