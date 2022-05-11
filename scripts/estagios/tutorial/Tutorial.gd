@@ -105,12 +105,20 @@ func _ready():
 	gameLocalIndex += 1
 	var numJogadores = $Jogadores.get_child_count()
 	audioLock1 = true
+	$Cenario/Auxilios/AuxilioXilofone/AudioOff.visible = audioLock1
+	$Cenario/Auxilios/AuxilioXilofone/AudioOn.visible = !audioLock1
 	if numJogadores >= 2:
 		audioLock2 = true
+		$Cenario/Auxilios/AuxilioPandeiro1/AudioOff.visible = audioLock1
+		$Cenario/Auxilios/AuxilioPandeiro1/AudioOn.visible = !audioLock1
 	if numJogadores >= 3:
 		audioLock3 = true
+		$Cenario/Auxilios/AuxilioPandeiro2/AudioOff.visible = audioLock1
+		$Cenario/Auxilios/AuxilioPandeiro2/AudioOn.visible = !audioLock1
 	if numJogadores >= 4:
 		audioLock4 = true
+		$Cenario/Auxilios/AuxilioBumbo1/AudioOff.visible = audioLock1
+		$Cenario/Auxilios/AuxilioBumbo1/AudioOn.visible = !audioLock1
 
 func respawnar(body):
 	body.respawnar(posicoesRespawn[gameLocalIndex- 1], zIndexesRespawn[gameLocalIndex - 1])

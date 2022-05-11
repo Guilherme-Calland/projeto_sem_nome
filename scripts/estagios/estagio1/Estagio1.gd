@@ -67,13 +67,17 @@ var indexMarcadorXilofone = 1
 func _ready():
 	var numJogadores = $Jogadores.get_child_count()
 	audio1Lock = true
+	$GUI.alternarIconeAudio('1', audio1Lock)
 	if numJogadores >= 2:
 		audio2Lock = true
+		$GUI.alternarIconeAudio('2', audio2Lock)
 		if numJogadores >= 3:
 			audio3Lock = true
+			$GUI.alternarIconeAudio('3', audio3Lock)
 			if numJogadores == 4:
 				audio4Lock = true
-	
+				$GUI.alternarIconeAudio('4', audio4Lock)
+
 func respawnar(body):
 	body.respawnar(Vector2(0,-36), 1)
 

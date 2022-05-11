@@ -813,10 +813,10 @@ one_shot = true
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.784314 )
-margin_left = 1292.0
-margin_top = -536.0
-margin_right = 2862.0
-margin_bottom = -347.0
+margin_left = 1217.0
+margin_top = -564.0
+margin_right = 2787.0
+margin_bottom = -375.0
 custom_fonts/font = SubResource( 2 )
 text = "O indicador na tabela informa
  a hora certa de pular para que o 
@@ -831,10 +831,10 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.784314 )
-margin_left = 1879.0
-margin_top = -120.0
-margin_right = 3449.0
-margin_bottom = 37.0
+margin_left = 2006.0
+margin_top = -65.0
+margin_right = 3576.0
+margin_bottom = 92.0
 custom_fonts/font = SubResource( 2 )
 text = "Pressione os botões '1', '2' ,'3', '4'  no 
 teclado para ativar/desativar 
