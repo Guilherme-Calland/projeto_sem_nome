@@ -12,7 +12,9 @@ config_version=4
 
 config/name="ProjetoMusical"
 run/main_scene="res://cenas/estagios/tutorial/Tutorial.tscn"
+boot_splash/image="res://graficos/extras/cover.png"
 boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.572549, 0.92549, 0.788235, 1 )
 config/icon="res://icon.png"
 
 [autoload]

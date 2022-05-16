@@ -1,11 +1,13 @@
-quando for fazer colisoes coloca em fisica, colidindo1, colidindo2, colidindoLeste1, colidindoLeste2
-
 com velocidadePadrao de 80, o tempo da musica é 175bpm
 se aumentar 10% a velocidade padrao, incremente tbm 10% o bpm.
 
-coloca um rect na tela que tem o tempo das notas de todos os 4 jogadores.
-um em cada canto da tela.
+refazer esse jogo em 3D com uma camera ortogonal.
 
-se fizer um break room, ao invez de botar o nome: procura vetores com blcos ABC ou algo assim.
+no jogo 3D -
+se cair, o jogador ja nsce caindo na próxima, próxima nota certa. 
+no caso a próxima nota ele vai perder msm.
 
+entra as notas musicas não será apenas pular e quicar nas paredes mas
+aquelas 4 tipos de esquiva para esquivar as armadilhas do estágio 
+tipo indiana jones: pular, agachar, estrelinha pro lado, pulo ou mortal p tras.
 
